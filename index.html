@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Portofolio Nucky Wira Arsyadana - Fullstack Web Developer & Quality Assurance." />
+  <title>Nucky Wira Arsyadana | Portfolio</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+          colors: {
+            navy: {
+              950: '#020617',
+              900: '#06152d',
+              800: '#0a2347',
+            },
+            brand: {
+              400: '#60a5fa',
+              500: '#3b82f6',
+              600: '#2563eb',
+            }
+          },
+          boxShadow: {
+            soft: '0 20px 60px rgba(2, 6, 23, 0.10)',
+            glow: '0 0 50px rgba(59, 130, 246, 0.18)',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .grid-bg {
+      background-image:
+        linear-gradient(rgba(59,130,246,.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(59,130,246,.06) 1px, transparent 1px);
+      background-size: 32px 32px;
+    }
+    .glass {
+      background: rgba(255,255,255,.06);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(255,255,255,.10);
+    }
+    .section-title::after {
+      content: "";
+      display: block;
+      width: 52px;
+      height: 4px;
+      margin-top: 12px;
+      border-radius: 999px;
+      background: #2563eb;
+    }
+    .skill-card {
+      transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+    }
+    .skill-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 60px rgba(2, 6, 23, .10);
+      border-color: rgba(59,130,246,.35);
+    }
+    .project-card {
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+    .project-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 26px 70px rgba(2, 6, 23, .20);
+    }
+
+    @media (max-width: 640px) {
+      .section-title::after {
+        width: 40px;
+      }
+    }
+
+    /* Navbar */
+    .hamburger {
+      position: relative;
+      width: 28px;
+      height: 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .hamburger span {
+      display: block;
+      width: 100%;
+      height: 2.5px;
+      background: white;
+      border-radius: 4px;
+      transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      transform-origin: center;
+    }
+    .hamburger.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+      width: 28px;
+    }
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+      transform: scaleX(0);
+    }
+    .hamburger.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+      width: 28px;
+    }
+    .hamburger:hover span {
+      background: #60a5fa;
+    }
+
+    .mobile-menu {
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+      transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
+                  opacity 0.3s ease,
+                  padding 0.3s ease;
+      padding: 0 1rem;
+    }
+    .mobile-menu.open {
+      max-height: 500px;
+      opacity: 1;
+      padding: 1rem 1rem;
+    }
+    .mobile-menu a {
+      transform: translateX(-20px);
+      opacity: 0;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .mobile-menu.open a {
+      transform: translateX(0);
+      opacity: 1;
+    }
+    .mobile-menu.open a:nth-child(1) { transition-delay: 0.05s; }
+    .mobile-menu.open a:nth-child(2) { transition-delay: 0.10s; }
+    .mobile-menu.open a:nth-child(3) { transition-delay: 0.15s; }
+    .mobile-menu.open a:nth-child(4) { transition-delay: 0.20s; }
+    .mobile-menu.open a:nth-child(5) { transition-delay: 0.25s; }
+    .mobile-menu.open a:nth-child(6) { transition-delay: 0.30s; }
+
+    .nav-link {
+      position: relative;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #3b82f6;
+      transition: width 0.3s ease;
+    }
+    .nav-link:hover::after,
+    .nav-link.active::after {
+      width: 100%;
+    }
+
+    .mobile-link {
+      position: relative;
+      display: inline-block;
+      padding: 0.5rem 0;
+      transition: all 0.3s ease;
+    }
+    .mobile-link::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #3b82f6;
+      transition: width 0.3s ease;
+    }
+    .mobile-link:hover::before {
+      width: 100%;
+    }
+    .mobile-link:hover {
+      color: white;
+      padding-left: 0.5rem;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Info cards - replace bullets with modern cards */
+    .info-card {
+      background: rgba(255,255,255,0.05);
+      border-radius: 1rem;
+      padding: 1rem 1.25rem;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(255,255,255,0.06);
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .info-card:hover {
+      background: rgba(59,130,246,0.12);
+      border-color: rgba(59,130,246,0.3);
+      transform: translateX(6px);
+    }
+    .info-card .icon {
+      width: 36px;
+      height: 36px;
+      min-width: 36px;
+      border-radius: 10px;
+      background: rgba(59,130,246,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #60a5fa;
+    }
+    .info-card .icon svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    .fullstack-card {
+      background: #f8fafc;
+      border-radius: 1rem;
+      padding: 1.25rem 1.5rem;
+      transition: all 0.3s ease;
+      border: 1px solid #e2e8f0;
+      text-align: center;
+    }
+    .fullstack-card:hover {
+      border-color: #3b82f6;
+      box-shadow: 0 10px 40px rgba(59,130,246,0.12);
+      transform: translateY(-4px);
+    }
+    .fullstack-card .emoji {
+      font-size: 1.75rem;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    @media (max-width: 640px) {
+      .info-card {
+        padding: 0.75rem 1rem;
+        gap: 0.5rem;
+      }
+      .info-card .icon {
+        width: 30px;
+        height: 30px;
+        min-width: 30px;
+      }
+      .info-card .icon svg {
+        width: 15px;
+        height: 15px;
+      }
+      .fullstack-card {
+        padding: 1rem;
+      }
+      .fullstack-card .emoji {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+
+<body class="bg-slate-50 text-slate-800 selection:bg-blue-600 selection:text-white overflow-x-hidden">
+
+  <!-- ====================== NAVBAR ====================== -->
+  <header class="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-slate-950/80 backdrop-blur-xl transition-all duration-300">
+    <div class="mx-auto flex h-16 sm:h-20 max-w-7xl items-center justify-between px-4 sm:px-5 lg:px-8">
+      <a href="#home" class="text-lg sm:text-xl font-extrabold tracking-tight text-white hover:text-blue-400 transition-colors duration-300 group">
+        Nucky<span class="text-blue-500 group-hover:text-blue-400 transition-colors duration-300">.</span>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-4 lg:gap-8">
+        <a href="#home" class="nav-link text-sm font-medium text-slate-300 transition hover:text-white">Home</a>
+        <a href="#about" class="nav-link text-sm font-medium text-slate-300 transition hover:text-white">Tentang</a>
+        <a href="#skills" class="nav-link text-sm font-medium text-slate-300 transition hover:text-white">Skills</a>
+        <a href="#experience" class="nav-link text-sm font-medium text-slate-300 transition hover:text-white">Pengalaman</a>
+        <a href="#projects" class="nav-link text-sm font-medium text-slate-300 transition hover:text-white">Project</a>
+        <a href="#contact" class="rounded-xl bg-blue-600 px-3 sm:px-4 py-2 sm:py-2.5 text-sm font-semibold text-white transition-all duration-300 hover:bg-blue-500 hover:scale-105 hover:shadow-lg hover:shadow-blue-600/30">
+          Hubungi Saya
+        </a>
+      </nav>
+
+      <button id="menuBtn" class="md:hidden rounded-xl p-2 text-white hover:bg-white/10 transition-all duration-300" aria-label="Buka menu">
+        <div class="hamburger" id="hamburgerIcon">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </button>
+    </div>
+
+    <div id="mobileMenu" class="mobile-menu border-t border-white/10 bg-slate-950/95 backdrop-blur-xl md:hidden">
+      <div class="flex flex-col gap-1 py-2">
+        <a href="#home" class="mobile-link text-slate-300 text-sm font-medium px-2 py-3 hover:text-white">🏠 Home</a>
+        <a href="#about" class="mobile-link text-slate-300 text-sm font-medium px-2 py-3 hover:text-white">👤 Tentang</a>
+        <a href="#skills" class="mobile-link text-slate-300 text-sm font-medium px-2 py-3 hover:text-white">⚡ Skills</a>
+        <a href="#experience" class="mobile-link text-slate-300 text-sm font-medium px-2 py-3 hover:text-white">💼 Pengalaman</a>
+        <a href="#projects" class="mobile-link text-slate-300 text-sm font-medium px-2 py-3 hover:text-white">📁 Project</a>
+        <a href="#contact" class="mobile-link text-slate-300 text-sm font-medium px-2 py-3 hover:text-white">📞 Kontak</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ====================== HERO ====================== -->
+    <section id="home" class="relative min-h-screen overflow-hidden bg-slate-950 pt-16 sm:pt-20 text-white">
+      <div class="absolute inset-0 grid-bg"></div>
+      <div class="absolute -left-40 top-36 h-64 sm:h-96 w-64 sm:w-96 rounded-full bg-blue-700/20 blur-3xl animate-pulse"></div>
+      <div class="absolute -right-32 top-24 h-64 sm:h-[32rem] w-64 sm:w-[32rem] rounded-full bg-blue-500/10 blur-3xl animate-pulse delay-1000"></div>
+
+      <div class="relative mx-auto grid min-h-[calc(100vh-4rem)] max-w-7xl items-center gap-6 sm:gap-12 px-4 sm:px-5 py-10 sm:py-16 lg:grid-cols-2 lg:px-8">
+        <div class="order-2 lg:order-1">
+          <span class="inline-flex items-center gap-2 rounded-full border border-blue-400/20 bg-blue-400/10 px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-semibold text-blue-300">
+            <span class="h-1.5 sm:h-2 w-1.5 sm:w-2 rounded-full bg-blue-400 animate-pulse"></span>
+            Siswa XII PPLG • Unit Produksi PPLG
+          </span>
+
+          <h1 class="mt-4 sm:mt-6 text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-extrabold leading-tight">
+            Nucky Wira
+            <span class="block bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent">
+              Arsyadana
+            </span>
+          </h1>
+
+          <p class="mt-3 sm:mt-5 text-lg sm:text-xl lg:text-2xl font-semibold text-white">
+            Fullstack Web Developer
+            <span class="text-blue-400">&</span>
+            Quality Assurance
+          </p>
+
+          <p class="mt-4 sm:mt-5 max-w-xl leading-7 sm:leading-8 text-sm sm:text-base text-slate-300">
+            Saya adalah siswa kelas XII PPLG yang tertarik pada pengembangan website,
+            Quality Assurance, desain, dan teknologi. Saya aktif dalam Unit Produksi PPLG
+            dan berpengalaman terlibat dalam beberapa project website nyata.
+          </p>
+
+          <div class="mt-6 sm:mt-8 flex flex-wrap gap-3 sm:gap-4">
+            <a href="#projects" class="rounded-xl bg-blue-600 px-4 sm:px-6 py-2.5 sm:py-3.5 text-sm sm:text-base font-semibold text-white shadow-lg shadow-blue-600/20 transition-all duration-300 hover:-translate-y-1 hover:bg-blue-500 hover:shadow-blue-600/40">
+              Lihat Project
+            </a>
+            <a href="#about" class="rounded-xl border border-white/15 bg-white/5 px-4 sm:px-6 py-2.5 sm:py-3.5 text-sm sm:text-base font-semibold text-white transition-all duration-300 hover:bg-white/10 hover:-translate-y-1">
+              Tentang Saya
+            </a>
+            <a href="#contact" class="rounded-xl border border-white/15 px-4 sm:px-6 py-2.5 sm:py-3.5 text-sm sm:text-base font-semibold text-slate-200 transition-all duration-300 hover:border-blue-400 hover:text-white hover:-translate-y-1">
+              Hubungi Saya
+            </a>
+          </div>
+
+          <div class="mt-8 sm:mt-10 grid grid-cols-2 gap-2 sm:gap-3 max-w-xl sm:grid-cols-4">
+            <div class="glass rounded-xl sm:rounded-2xl p-3 sm:p-4 transition-all duration-300 hover:scale-105 hover:bg-white/10">
+              <p class="text-base sm:text-lg font-bold">QA</p>
+              <p class="mt-0.5 sm:mt-1 text-[10px] sm:text-xs text-slate-400">Testing & Bug Report</p>
+            </div>
+            <div class="glass rounded-xl sm:rounded-2xl p-3 sm:p-4 transition-all duration-300 hover:scale-105 hover:bg-white/10">
+              <p class="text-base sm:text-lg font-bold">Fullstack</p>
+              <p class="mt-0.5 sm:mt-1 text-[10px] sm:text-xs text-slate-400">Frontend + Backend</p>
+            </div>
+            <div class="glass rounded-xl sm:rounded-2xl p-3 sm:p-4 transition-all duration-300 hover:scale-105 hover:bg-white/10">
+              <p class="text-base sm:text-lg font-bold">4</p>
+              <p class="mt-0.5 sm:mt-1 text-[10px] sm:text-xs text-slate-400">Project Utama</p>
+            </div>
+            <div class="glass rounded-xl sm:rounded-2xl p-3 sm:p-4 transition-all duration-300 hover:scale-105 hover:bg-white/10">
+              <p class="text-base sm:text-lg font-bold">PPLG</p>
+              <p class="mt-0.5 sm:mt-1 text-[10px] sm:text-xs text-slate-400">Software Development</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="relative mx-auto w-full max-w-xs sm:max-w-md order-1 lg:order-2">
+          <div class="absolute -inset-3 sm:-inset-5 rounded-[2rem] bg-gradient-to-tr from-blue-600/25 to-cyan-400/10 blur-2xl animate-pulse"></div>
+          <div class="relative overflow-hidden rounded-[1.5rem] sm:rounded-[2rem] border border-white/10 bg-slate-900 shadow-2xl shadow-blue-950/50 transition-all duration-500 hover:shadow-blue-600/20">
+            <img
+              src="assets/profile.jpg"
+              alt="Foto profil Nucky Wira Arsyadana"
+              class="h-[280px] sm:h-[400px] lg:h-[520px] w-full object-cover object-center"
+              onerror="this.src='https://placehold.co/800x1000/0f172a/ffffff?text=Foto+Profil+Nucky'"
+            />
+            <div class="absolute inset-x-3 sm:inset-x-5 bottom-3 sm:bottom-5 rounded-xl sm:rounded-2xl border border-white/10 bg-slate-950/80 p-3 sm:p-5 backdrop-blur-xl">
+              <p class="text-sm sm:text-lg font-bold">Nucky Wira Arsyadana</p>
+              <p class="mt-0.5 sm:mt-1 text-[10px] sm:text-sm text-blue-300">XII PPLG • Unit Produksi PPLG</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================== ABOUT ====================== -->
+    <section id="about" class="bg-white py-16 sm:py-24">
+      <div class="mx-auto grid max-w-7xl gap-8 sm:gap-14 px-4 sm:px-5 lg:grid-cols-[1.15fr_.85fr] lg:px-8">
+        <div>
+          <p class="font-semibold uppercase tracking-[0.2em] text-blue-600 text-sm">Tentang Saya</p>
+          <h2 class="section-title mt-2 sm:mt-3 text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-slate-950">
+            Mengenal Saya Lebih Dekat
+          </h2>
+
+          <div class="mt-6 sm:mt-8 space-y-4 sm:space-y-5 leading-7 sm:leading-8 text-sm sm:text-base text-slate-600">
+            <p>
+              Halo! Saya <strong class="text-slate-900">Nucky Wira Arsyadana</strong>,
+              siswa kelas XII jurusan <strong class="text-slate-900">Pengembangan Perangkat Lunak dan Gim (PPLG)</strong>.
+            </p>
+            <p>
+              Saya memiliki minat besar dalam bidang teknologi, khususnya pengembangan aplikasi
+              dan website. Saya mampu mengembangkan website dari sisi frontend maupun backend
+              menggunakan HTML, CSS, JavaScript, Laravel, React, dan MySQL.
+            </p>
+            <p>
+              Selain sebagai Web Developer, saya juga memiliki pengalaman sebagai
+              <strong class="text-slate-900">Quality Assurance (QA)</strong> dalam project yang saya kerjakan bersama tim.
+              Saya terbiasa menguji fitur, menemukan bug, melaporkan masalah, serta melakukan retesting.
+            </p>
+            <p>
+              Di sekolah, saya tergabung dalam <strong class="text-slate-900">Unit Produksi PPLG</strong>.
+              Pengalaman tersebut membantu saya memahami kerja tim, kebutuhan pengguna, pengembangan aplikasi,
+              dan proses pengujian software secara lebih nyata.
+            </p>
+          </div>
+        </div>
+
+        <div class="rounded-[1.5rem] sm:rounded-[2rem] bg-slate-950 p-5 sm:p-7 text-white shadow-soft">
+          <p class="text-sm font-semibold uppercase tracking-[0.2em] text-blue-400">Profil Singkat</p>
+          <div class="mt-5 sm:mt-6 space-y-3 sm:space-y-4">
+            <!-- Profil cards - GANTI dengan style baru -->
+            <div class="info-card group">
+              <div class="icon">
+                <i data-lucide="user-round" class="h-4 w-4 sm:h-5 sm:w-5"></i>
+              </div>
+              <div>
+                <p class="text-[10px] sm:text-xs text-slate-400">Nama</p>
+                <p class="text-xs sm:text-sm font-semibold">Nucky Wira Arsyadana</p>
+              </div>
+            </div>
+
+            <div class="info-card group">
+              <div class="icon">
+                <i data-lucide="graduation-cap" class="h-4 w-4 sm:h-5 sm:w-5"></i>
+              </div>
+              <div>
+                <p class="text-[10px] sm:text-xs text-slate-400">Pendidikan</p>
+                <p class="text-xs sm:text-sm font-semibold">Siswa Kelas XII PPLG</p>
+              </div>
+            </div>
+
+            <div class="info-card group">
+              <div class="icon">
+                <i data-lucide="users-round" class="h-4 w-4 sm:h-5 sm:w-5"></i>
+              </div>
+              <div>
+                <p class="text-[10px] sm:text-xs text-slate-400">Tim</p>
+                <p class="text-xs sm:text-sm font-semibold">Unit Produksi PPLG</p>
+              </div>
+            </div>
+
+            <div class="info-card group">
+              <div class="icon">
+                <i data-lucide="briefcase-business" class="h-4 w-4 sm:h-5 sm:w-5"></i>
+              </div>
+              <div>
+                <p class="text-[10px] sm:text-xs text-slate-400">Role Utama</p>
+                <p class="text-xs sm:text-sm font-semibold">QA & Fullstack Web Developer</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-6 sm:mt-8 border-t border-white/10 pt-5 sm:pt-6">
+            <p class="mb-3 sm:mb-4 text-sm font-semibold text-slate-300">Soft Skills</p>
+            <div class="flex flex-wrap gap-1.5 sm:gap-2">
+              <span class="rounded-full bg-white/5 px-2.5 sm:px-3 py-1.5 sm:py-2 text-[10px] sm:text-xs text-slate-300 transition-all duration-300 hover:bg-blue-600/20 hover:text-blue-300 hover:scale-105">Teamwork</span>
+              <span class="rounded-full bg-white/5 px-2.5 sm:px-3 py-1.5 sm:py-2 text-[10px] sm:text-xs text-slate-300 transition-all duration-300 hover:bg-blue-600/20 hover:text-blue-300 hover:scale-105">Problem Solving</span>
+              <span class="rounded-full bg-white/5 px-2.5 sm:px-3 py-1.5 sm:py-2 text-[10px] sm:text-xs text-slate-300 transition-all duration-300 hover:bg-blue-600/20 hover:text-blue-300 hover:scale-105">Critical Thinking</span>
+              <span class="rounded-full bg-white/5 px-2.5 sm:px-3 py-1.5 sm:py-2 text-[10px] sm:text-xs text-slate-300 transition-all duration-300 hover:bg-blue-600/20 hover:text-blue-300 hover:scale-105">Attention to Detail</span>
+              <span class="rounded-full bg-white/5 px-2.5 sm:px-3 py-1.5 sm:py-2 text-[10px] sm:text-xs text-slate-300 transition-all duration-300 hover:bg-blue-600/20 hover:text-blue-300 hover:scale-105">Responsibility</span>
+              <span class="rounded-full bg-white/5 px-2.5 sm:px-3 py-1.5 sm:py-2 text-[10px] sm:text-xs text-slate-300 transition-all duration-300 hover:bg-blue-600/20 hover:text-blue-300 hover:scale-105">Adaptability</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================== SKILLS ====================== -->
+    <section id="skills" class="bg-slate-50 py-16 sm:py-24">
+      <div class="mx-auto max-w-7xl px-4 sm:px-5 lg:px-8">
+        <div class="max-w-3xl">
+          <p class="font-semibold uppercase tracking-[0.2em] text-blue-600 text-sm">Skills & Technology</p>
+          <h2 class="section-title mt-2 sm:mt-3 text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-950">Keahlian Saya</h2>
+          <p class="mt-4 sm:mt-6 leading-7 sm:leading-8 text-sm sm:text-base text-slate-600">
+            Teknologi dan keterampilan yang saya gunakan dalam proses pengembangan website,
+            pengujian software, pengelolaan database, dan desain sederhana.
+          </p>
+        </div>
+
+        <div class="mt-8 sm:mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
+          <div class="skill-card rounded-xl sm:rounded-2xl border border-slate-200 bg-white p-5 sm:p-6">
+            <div class="grid h-10 sm:h-12 w-10 sm:w-12 place-items-center rounded-xl bg-orange-50 text-orange-600">
+              <span class="text-xs sm:text-sm font-extrabold">HTML</span>
+            </div>
+            <h3 class="mt-4 sm:mt-5 text-base sm:text-lg font-bold text-slate-950">HTML</h3>
+            <p class="mt-1.5 sm:mt-2 text-xs sm:text-sm leading-5 sm:leading-6 text-slate-500">Membuat struktur halaman yang semantik dan terorganisir.</p>
+          </div>
+
+          <div class="skill-card rounded-xl sm:rounded-2xl border border-slate-200 bg-white p-5 sm:p-6">
+            <div class="grid h-10 sm:h-12 w-10 sm:w-12 place-items-center rounded-xl bg-blue-50 text-blue-600">
+              <span class="text-xs sm:text-sm font-extrabold">CSS</span>
+            </div>
+            <h3 class="mt-4 sm:mt-5 text-base sm:text-lg font-bold text-slate-950">CSS / Tailwind</h3>
+            <p class="mt-1.5 sm:mt-2 text-xs sm:text-sm leading-5 sm:leading-6 text-slate-500">Membuat tampilan responsive, modern, dan nyaman digunakan.</p>
+          </div>
+
+          <div class="skill-card rounded-xl sm:rounded-2xl border border-slate-200 bg-white p-5 sm:p-6">
+            <div class="grid h-10 sm:h-12 w-10 sm:w-12 place-items-center rounded-xl bg-yellow-50 text-yellow-700">
+              <span class="text-xs sm:text-sm font-extrabold">JS</span>
+            </div>
+            <h3 class="mt-4 sm:mt-5 text-base sm:text-lg font-bold text-slate-950">JavaScript</h3>
+            <p class="mt-1.5 sm:mt-2 text-xs sm:text-sm leading-5 sm:leading-6 text-slate-500">Menambahkan interaksi dan fungsi dinamis pada website.</p>
+          </div>
+
+          <div class="skill-card rounded-xl sm:rounded-2xl border border-slate-200 bg-white p-5 sm:p-6">
+            <div class="grid h-10 sm:h-12 w-10 sm:w-12 place-items-center rounded-xl bg-cyan-50 text-cyan-600">
+              <i data-lucide="atom" class="h-5 sm:h-6 w-5 sm:w-6"></i>
+            </div>
+            <h3 class="mt-4 sm:mt-5 text-base sm:text-lg font-bold text-slate-950">React</h3>
+            <p class="mt-1.5 sm:mt-2 text-xs sm:text-sm leading-5 sm:leading-6 text-slate-500">Membangun antarmuka berbasis component.</p>
+          </div>
+
+          <div class="skill-card rounded-xl sm:rounded-2xl border border-slate-200 bg-white p-5 sm:p-6">
+            <div class="grid h-10 sm:h-12 w-10 sm:w-12 place-items-center rounded-xl bg-red-50 text-red-600">
+              <i data-lucide="blocks" class="h-5 sm:h-6 w-5 sm:w-6"></i>
+            </div>
+            <h3 class="mt-4 sm:mt-5 text-base sm:text-lg font-bold text-slate-950">Laravel</h3>
+            <p class="mt-1.5 sm:mt-2 text-xs sm:text-sm leading-5 sm:leading-6 text-slate-500">Routing, controller, authentication, database, dan backend.</p>
+          </div>
+
+          <div class="skill-card rounded-xl sm:rounded-2xl border border-slate-200 bg-white p-5 sm:p-6">
+            <div class="grid h-10 sm:h-12 w-10 sm:w-12 place-items-center rounded-xl bg-indigo-50 text-indigo-600">
+              <i data-lucide="database" class="h-5 sm:h-6 w-5 sm:w-6"></i>
+            </div>
+            <h3 class="mt-4 sm:mt-5 text-base sm:text-lg font-bold text-slate-950">MySQL</h3>
+            <p class="mt-1.5 sm:mt-2 text-xs sm:text-sm leading-5 sm:leading-6 text-slate-500">Membuat, mengelola, dan menghubungkan database ke aplikasi.</p>
+          </div>
+
+          <div class="skill-card rounded-xl sm:rounded-2xl border border-slate-200 bg-white p-5 sm:p-6">
+            <div class="grid h-10 sm:h-12 w-10 sm:w-12 place-items-center rounded-xl bg-emerald-50 text-emerald-600">
+              <i data-lucide="circle-check-big" class="h-5 sm:h-6 w-5 sm:w-6"></i>
+            </div>
+            <h3 class="mt-4 sm:mt-5 text-base sm:text-lg font-bold text-slate-950">Quality Assurance</h3>
+            <p class="mt-1.5 sm:mt-2 text-xs sm:text-sm leading-5 sm:leading-6 text-slate-500">Testing fitur, bug finding, reporting, dan retesting.</p>
+          </div>
+
+          <div class="skill-card rounded-xl sm:rounded-2xl border border-slate-200 bg-white p-5 sm:p-6">
+            <div class="grid h-10 sm:h-12 w-10 sm:w-12 place-items-center rounded-xl bg-violet-50 text-violet-600">
+              <i data-lucide="palette" class="h-5 sm:h-6 w-5 sm:w-6"></i>
+            </div>
+            <h3 class="mt-4 sm:mt-5 text-base sm:text-lg font-bold text-slate-950">Canva & Design</h3>
+            <p class="mt-1.5 sm:mt-2 text-xs sm:text-sm leading-5 sm:leading-6 text-slate-500">Poster, banner, presentasi, dan editing visual sederhana.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================== EXPERIENCE ====================== -->
+    <section id="experience" class="bg-white py-16 sm:py-24">
+      <div class="mx-auto grid max-w-7xl items-center gap-8 sm:gap-12 px-4 sm:px-5 lg:grid-cols-2 lg:px-8">
+        <div class="order-2 lg:order-1">
+          <p class="font-semibold uppercase tracking-[0.2em] text-blue-600 text-sm">Pengalaman</p>
+          <h2 class="section-title mt-2 sm:mt-3 text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-950">Unit Produksi PPLG</h2>
+          <p class="mt-3 sm:mt-4 text-sm sm:text-base font-semibold text-blue-600">Quality Assurance & Web Developer</p>
+
+          <p class="mt-4 sm:mt-6 leading-7 sm:leading-8 text-sm sm:text-base text-slate-600">
+            Saya tergabung dalam Unit Produksi PPLG, sebuah tim di sekolah yang mengerjakan
+            project pengembangan website. Dalam tim ini saya mendapatkan pengalaman bekerja
+            pada project nyata bersama anggota tim lainnya.
+          </p>
+
+          <div class="mt-6 sm:mt-8 grid gap-3 sm:gap-4">
+            <div class="flex items-start gap-2 sm:gap-3 transition-all duration-300 hover:translate-x-2"><i data-lucide="check-circle-2" class="mt-0.5 h-4 sm:h-5 w-4 sm:w-5 shrink-0 text-blue-600"></i><p class="text-sm sm:text-base text-slate-600">Melakukan Quality Assurance pada website.</p></div>
+            <div class="flex items-start gap-2 sm:gap-3 transition-all duration-300 hover:translate-x-2"><i data-lucide="check-circle-2" class="mt-0.5 h-4 sm:h-5 w-4 sm:w-5 shrink-0 text-blue-600"></i><p class="text-sm sm:text-base text-slate-600">Melakukan testing terhadap fitur dan alur sistem.</p></div>
+            <div class="flex items-start gap-2 sm:gap-3 transition-all duration-300 hover:translate-x-2"><i data-lucide="check-circle-2" class="mt-0.5 h-4 sm:h-5 w-4 sm:w-5 shrink-0 text-blue-600"></i><p class="text-sm sm:text-base text-slate-600">Menemukan, mencatat, dan melaporkan bug.</p></div>
+            <div class="flex items-start gap-2 sm:gap-3 transition-all duration-300 hover:translate-x-2"><i data-lucide="check-circle-2" class="mt-0.5 h-4 sm:h-5 w-4 sm:w-5 shrink-0 text-blue-600"></i><p class="text-sm sm:text-base text-slate-600">Membantu frontend maupun backend ketika dibutuhkan.</p></div>
+            <div class="flex items-start gap-2 sm:gap-3 transition-all duration-300 hover:translate-x-2"><i data-lucide="check-circle-2" class="mt-0.5 h-4 sm:h-5 w-4 sm:w-5 shrink-0 text-blue-600"></i><p class="text-sm sm:text-base text-slate-600">Berkolaborasi dengan tim untuk memastikan website sesuai kebutuhan pengguna.</p></div>
+          </div>
+        </div>
+
+        <div class="relative order-1 lg:order-2">
+          <img
+            src="assets/team.jpg"
+            alt="Tim Unit Produksi PPLG"
+            class="h-[220px] sm:h-[350px] lg:h-[440px] w-full rounded-[1.5rem] sm:rounded-[2rem] object-cover shadow-soft transition-all duration-500 hover:scale-105 hover:shadow-2xl"
+            onerror="this.src='https://placehold.co/1000x700/e2e8f0/0f172a?text=Foto+Tim+Unit+Produksi+PPLG'"
+          />
+          <div class="absolute -bottom-3 sm:-bottom-5 right-3 sm:right-5 rounded-xl sm:rounded-2xl bg-blue-600 px-4 sm:px-6 py-3 sm:py-5 text-white shadow-xl transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+            <p class="text-sm sm:text-base font-bold">Kerja Tim</p>
+            <p class="mt-0.5 sm:mt-1 text-xs sm:text-sm text-blue-100">Kolaborasi • Testing • Development</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================== PROJECTS ====================== -->
+    <section id="projects" class="relative overflow-hidden bg-slate-950 py-16 sm:py-24 text-white">
+      <div class="absolute inset-0 grid-bg"></div>
+      <div class="relative mx-auto max-w-7xl px-4 sm:px-5 lg:px-8">
+        <div class="max-w-3xl">
+          <p class="font-semibold uppercase tracking-[0.2em] text-blue-400 text-sm">Project</p>
+          <h2 class="mt-2 sm:mt-3 text-2xl sm:text-3xl lg:text-4xl font-extrabold">Project yang Pernah Saya Tangani</h2>
+          <p class="mt-3 sm:mt-5 leading-7 sm:leading-8 text-sm sm:text-base text-slate-400">
+            Dalam project berikut saya terutama berperan sebagai Quality Assurance,
+            sekaligus memiliki kemampuan untuk membantu proses pengembangan web secara fullstack.
+          </p>
+        </div>
+
+        <div class="mt-8 sm:mt-12 grid grid-cols-1 lg:grid-cols-2 gap-5 sm:gap-6">
+
+          <!-- PROJECT 1 -->
+          <article class="project-card overflow-hidden rounded-[1.5rem] sm:rounded-[2rem] border border-white/10 bg-white/[0.04] transition-all duration-500 hover:border-blue-400/30">
+            <img
+              src="assets/project-bk.jpg"
+              alt="Website Bimbingan Konseling"
+              class="h-44 sm:h-64 w-full object-cover transition-all duration-500 hover:scale-105"
+              onerror="this.src='https://placehold.co/1200x700/eff6ff/0f172a?text=Website+Bimbingan+Konseling'"
+            />
+            <div class="p-5 sm:p-7">
+              <div class="flex flex-wrap items-center justify-between gap-2 sm:gap-3">
+                <h3 class="text-lg sm:text-2xl font-bold">Website Bimbingan Konseling</h3>
+                <span class="rounded-full border border-blue-400/30 bg-blue-400/10 px-2 sm:px-3 py-0.5 sm:py-1.5 text-[8px] sm:text-xs font-semibold text-blue-300">Sistem Informasi Sekolah</span>
+              </div>
+              <p class="mt-3 sm:mt-4 leading-6 sm:leading-7 text-sm sm:text-base text-slate-400">
+                Sistem berbasis web untuk membantu proses pelayanan dan pengelolaan kegiatan Bimbingan Konseling di sekolah.
+              </p>
+              <p class="mt-3 sm:mt-5 text-xs sm:text-sm font-semibold text-white">Peran: <span class="text-blue-300">Quality Assurance</span></p>
+              <ul class="mt-3 sm:mt-4 grid grid-cols-1 sm:grid-cols-2 gap-1 sm:gap-2 text-xs sm:text-sm text-slate-300">
+                <li class="transition-all duration-300 hover:text-white hover:translate-x-1">✓ Pengujian fitur website</li>
+                <li class="transition-all duration-300 hover:text-white hover:translate-x-1">✓ Pengecekan alur sistem</li>
+                <li class="transition-all duration-300 hover:text-white hover:translate-x-1">✓ Pengujian form & input</li>
+                <li class="transition-all duration-300 hover:text-white hover:translate-x-1">✓ Pencarian bug</li>
+                <li class="transition-all duration-300 hover:text-white hover:translate-x-1">✓ Pelaporan masalah</li>
+                <li class="transition-all duration-300 hover:text-white hover:translate-x-1">✓ Retesting</li>
+              </ul>
+              <div class="mt-4 sm:mt-6 flex flex-wrap gap-1 sm:gap-2">
+                <span class="rounded-lg bg-white/5 px-2 sm:px-3 py-1 sm:py-2 text-[8px] sm:text-xs transition-all duration-300 hover:bg-blue-600/20 hover:text-blue-300">HTML</span>
+                <span class="rounded-lg bg-white/5 px-2 sm:px-3 py-1 sm:py-2 text-[8px] sm:text-xs transition-all duration-300 hover:bg-blue-600/20 hover:text-blue-300">CSS</span>
+                <span class="rounded-lg bg-white/5 px-2 sm:px-3 py-1 sm:py-2 text-[8px] sm:text-xs transition-all duration-300 hover:bg-blue-600/20 hover:text-blue-300">JavaScript</span>
+                <span class="rounded-lg bg-white/5 px-2 sm:px-3 py-1 sm:py-2 text-[8px] sm:text-xs transition-all duration-300 hover:bg-blue-600/20 hover:text-blue-300">Laravel</span>
+                <span class="rounded-lg bg-white/5 px-2 sm:px-3 py-1 sm:py-2 text-[8px] sm:text-xs transition-all duration-300 hover:bg-blue-600/20 hover:text-blue-300">MySQL</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- PROJECT 2 -->
+          <article class="project-card overflow-hidden rounded-[1.5rem] sm:rounded-[2rem] border border-white/10 bg-white/[0.04] transition-all duration-500 hover:border-blue-400/30">
+            <img
+              src="assets/project-bppi.jpg"
+              alt="Website SMK BPPI"
+              class="h-44 sm:h-64 w-full object-cover transition-all duration-500 hover:scale-105"
+              onerror="this.src='https://placehold.co/1200x700/e0f2fe/0f172a?text=Website+SMK+BPPI'"
+            />
+            <div class="p-5 sm:p-7">
+              <div class="flex flex-wrap items-center justify-between gap-2 sm:gap-3">
+                <h3 class="text-lg sm:text-2xl font-bold">Website SMK BPPI</h3>
+                <span class="rounded-full border border-blue-400/30 bg-blue-400/10 px-2 sm:px-3 py-0.5 sm:py-1.5 text-[8px] sm:text-xs font-semibold text-blue-300">Website Sekolah</span>
+              </div>
+              <p class="mt-3 sm:mt-4 leading-6 sm:leading-7 text-sm sm:text-base text-slate-400">
+                Website profil dan media informasi sekolah untuk siswa, guru, orang tua, dan masyarakat.
+              </p>
+              <p class="mt-3 sm:mt-5 text-xs sm:text-sm font-semibold text-white">Peran: <span class="text-blue-300">Quality Assurance</span></p>
+              <ul class="mt-3 sm:mt-4 grid grid-cols-1 sm:grid-cols-2 gap-1 sm:gap-2 text-xs sm:text-sm text-slate-300">
+                <li class="transition-all duration-300 hover:text-white hover:translate-x-1">✓ Testing navigasi</li>
+                <li class="transition-all duration-300 hover:text-white hover:translate-x-1">✓ Cek tampilan</li>
+                <li class="transition-all duration-300 hover:text-white hover:translate-x-1">✓ Uji responsive</li>
+                <li class="transition-all duration-300 hover:text-white hover:translate-x-1">✓ Menemukan bug</li>
+                <li class="transition-all duration-300 hover:text-white hover:translate-x-1">✓ Laporan hasil testing</li>
+                <li class="transition-all duration-300 hover:text-white hover:translate-x-1">✓ Retesting</li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- PROJECT 3 -->
+          <article class="project-card overflow-hidden rounded-[1.5rem] sm:rounded-[2rem] border border-white/10 bg-white/[0.04] transition-all duration-500 hover:border-blue-400/30">
+            <img
+              src="assets/project-bankmini.jpg"
+              alt="Website Bank Mini"
+              class="h-44 sm:h-64 w-full object-cover transition-all duration-500 hover:scale-105"
+              onerror="this.src='https://placehold.co/1200x700/f8fafc/0f172a?text=Website+Bank+Mini'"
+            />
+            <div class="p-5 sm:p-7">
+              <div class="flex flex-wrap items-center justify-between gap-2 sm:gap-3">
+                <h3 class="text-lg sm:text-2xl font-bold">Website Bank Mini</h3>
+                <span class="rounded-full border border-blue-400/30 bg-blue-400/10 px-2 sm:px-3 py-0.5 sm:py-1.5 text-[8px] sm:text-xs font-semibold text-blue-300">Sistem Informasi / Keuangan</span>
+              </div>
+              <p class="mt-3 sm:mt-4 leading-6 sm:leading-7 text-sm sm:text-base text-slate-400">
+                Aplikasi berbasis web untuk membantu pengelolaan kegiatan Bank Mini di sekolah.
+              </p>
+              <p class="mt-3 sm:mt-5 text-xs sm:text-sm font-semibold text-white">Peran: <span class="text-blue-300">Quality Assurance</span></p>
+              <ul class="mt-3 sm:mt-4 grid grid-cols-1 sm:grid-cols-2 gap-1 sm:gap-2 text-xs sm:text-sm text-slate-300">
+                <li class="transition-all duration-300 hover:text-white hover:translate-x-1">✓ Pengujian fitur</li>
+                <li class="transition-all duration-300 hover:text-white hover:translate-x-1">✓ Pengujian transaksi</li>
+                <li class="transition-all duration-300 hover:text-white hover:translate-x-1">✓ Cek proses input</li>
+                <li class="transition-all duration-300 hover:text-white hover:translate-x-1">✓ Pencarian bug</li>
+                <li class="transition-all duration-300 hover:text-white hover:translate-x-1">✓ Reporting</li>
+                <li class="transition-all duration-300 hover:text-white hover:translate-x-1">✓ Retesting</li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- PROJECT 4 -->
+          <article class="project-card overflow-hidden rounded-[1.5rem] sm:rounded-[2rem] border border-white/10 bg-white/[0.04] transition-all duration-500 hover:border-blue-400/30">
+            <img
+              src="assets/project-sj.jpg"
+              alt="Website SJ Textile"
+              class="h-44 sm:h-64 w-full object-cover transition-all duration-500 hover:scale-105"
+              onerror="this.src='https://placehold.co/1200x700/f5f5f4/0f172a?text=Website+SJ+Textile'"
+            />
+            <div class="p-5 sm:p-7">
+              <div class="flex flex-wrap items-center justify-between gap-2 sm:gap-3">
+                <h3 class="text-lg sm:text-2xl font-bold">Website SJ Textile</h3>
+                <span class="rounded-full border border-blue-400/30 bg-blue-400/10 px-2 sm:px-3 py-0.5 sm:py-1.5 text-[8px] sm:text-xs font-semibold text-blue-300">Website UMKM</span>
+              </div>
+              <p class="mt-3 sm:mt-4 leading-6 sm:leading-7 text-sm sm:text-base text-slate-400">
+                Website UMKM untuk memperkenalkan usaha dan produk secara digital.
+              </p>
+              <p class="mt-3 sm:mt-5 text-xs sm:text-sm font-semibold text-white">Peran: <span class="text-blue-300">Quality Assurance</span></p>
+              <ul class="mt-3 sm:mt-4 grid grid-cols-1 sm:grid-cols-2 gap-1 sm:gap-2 text-xs sm:text-sm text-slate-300">
+                <li class="transition-all duration-300 hover:text-white hover:translate-x-1">✓ Uji tampilan & fitur</li>
+                <li class="transition-all duration-300 hover:text-white hover:translate-x-1">✓ Cek link & navigasi</li>
+                <li class="transition-all duration-300 hover:text-white hover:translate-x-1">✓ Pencarian bug</li>
+                <li class="transition-all duration-300 hover:text-white hover:translate-x-1">✓ Reporting error</li>
+                <li class="transition-all duration-300 hover:text-white hover:translate-x-1">✓ User experience check</li>
+                <li class="transition-all duration-300 hover:text-white hover:translate-x-1">✓ Retesting</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================== FULLSTACK FLOW ====================== -->
+    <section class="bg-white py-16 sm:py-24">
+      <div class="mx-auto max-w-7xl px-4 sm:px-5 lg:px-8">
+        <div class="mx-auto max-w-3xl text-center">
+          <p class="font-semibold uppercase tracking-[0.2em] text-blue-600 text-sm">Fullstack Capability</p>
+          <h2 class="mt-2 sm:mt-3 text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-950">Fullstack Web Developer</h2>
+          <p class="mt-3 sm:mt-5 leading-7 sm:leading-8 text-sm sm:text-base text-slate-600">
+            Saya memahami proses pengembangan website dari sisi antarmuka, backend, database,
+            sampai tahap testing untuk memastikan aplikasi berjalan dengan baik.
+          </p>
+        </div>
+
+        <div class="mt-8 sm:mt-12 grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
+          <!-- GANTI dengan card style baru pakai emoji -->
+          <div class="fullstack-card">
+            <span class="emoji">🎨</span>
+            <h3 class="text-sm sm:text-base font-bold text-slate-950">Frontend</h3>
+            <p class="mt-1 text-[10px] sm:text-sm text-slate-500">HTML, CSS, JS, React</p>
+          </div>
+          <div class="fullstack-card">
+            <span class="emoji">⚙️</span>
+            <h3 class="text-sm sm:text-base font-bold text-slate-950">Backend</h3>
+            <p class="mt-1 text-[10px] sm:text-sm text-slate-500">Laravel</p>
+          </div>
+          <div class="fullstack-card">
+            <span class="emoji">🗄️</span>
+            <h3 class="text-sm sm:text-base font-bold text-slate-950">Database</h3>
+            <p class="mt-1 text-[10px] sm:text-sm text-slate-500">MySQL</p>
+          </div>
+          <div class="fullstack-card">
+            <span class="emoji">🐛</span>
+            <h3 class="text-sm sm:text-base font-bold text-slate-950">Testing</h3>
+            <p class="mt-1 text-[10px] sm:text-sm text-slate-500">Quality Assurance</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================== WORKFLOW ====================== -->
+    <section class="bg-slate-50 py-16 sm:py-24">
+      <div class="mx-auto max-w-7xl px-4 sm:px-5 lg:px-8">
+        <div class="max-w-3xl">
+          <p class="font-semibold uppercase tracking-[0.2em] text-blue-600 text-sm">Workflow</p>
+          <h2 class="section-title mt-2 sm:mt-3 text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-950">Cara Saya Bekerja</h2>
+        </div>
+
+        <div class="mt-8 sm:mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
+          <div class="rounded-xl sm:rounded-2xl border border-slate-200 bg-white p-4 sm:p-6 transition-all duration-300 hover:border-blue-400 hover:shadow-lg hover:-translate-y-2">
+            <span class="text-xs sm:text-sm font-bold text-blue-600">01</span>
+            <h3 class="mt-2 sm:mt-3 text-sm sm:text-base font-bold text-slate-950">Requirement</h3>
+            <p class="mt-1 sm:mt-2 text-xs sm:text-sm leading-5 sm:leading-6 text-slate-500">Memahami kebutuhan website dan fitur yang akan dibuat.</p>
+          </div>
+          <div class="rounded-xl sm:rounded-2xl border border-slate-200 bg-white p-4 sm:p-6 transition-all duration-300 hover:border-blue-400 hover:shadow-lg hover:-translate-y-2">
+            <span class="text-xs sm:text-sm font-bold text-blue-600">02</span>
+            <h3 class="mt-2 sm:mt-3 text-sm sm:text-base font-bold text-slate-950">Development</h3>
+            <p class="mt-1 sm:mt-2 text-xs sm:text-sm leading-5 sm:leading-6 text-slate-500">Membantu proses pengembangan frontend maupun backend.</p>
+          </div>
+          <div class="rounded-xl sm:rounded-2xl border border-slate-200 bg-white p-4 sm:p-6 transition-all duration-300 hover:border-blue-400 hover:shadow-lg hover:-translate-y-2">
+            <span class="text-xs sm:text-sm font-bold text-blue-600">03</span>
+            <h3 class="mt-2 sm:mt-3 text-sm sm:text-base font-bold text-slate-950">Testing</h3>
+            <p class="mt-1 sm:mt-2 text-xs sm:text-sm leading-5 sm:leading-6 text-slate-500">Menguji fitur dan alur untuk mencari masalah.</p>
+          </div>
+          <div class="rounded-xl sm:rounded-2xl border border-slate-200 bg-white p-4 sm:p-6 transition-all duration-300 hover:border-blue-400 hover:shadow-lg hover:-translate-y-2">
+            <span class="text-xs sm:text-sm font-bold text-blue-600">04</span>
+            <h3 class="mt-2 sm:mt-3 text-sm sm:text-base font-bold text-slate-950">Bug Finding</h3>
+            <p class="mt-1 sm:mt-2 text-xs sm:text-sm leading-5 sm:leading-6 text-slate-500">Mencari error, bug, atau fungsi yang belum sesuai.</p>
+          </div>
+          <div class="rounded-xl sm:rounded-2xl border border-slate-200 bg-white p-4 sm:p-6 transition-all duration-300 hover:border-blue-400 hover:shadow-lg hover:-translate-y-2">
+            <span class="text-xs sm:text-sm font-bold text-blue-600">05</span>
+            <h3 class="mt-2 sm:mt-3 text-sm sm:text-base font-bold text-slate-950">Reporting</h3>
+            <p class="mt-1 sm:mt-2 text-xs sm:text-sm leading-5 sm:leading-6 text-slate-500">Memberikan laporan bug kepada developer.</p>
+          </div>
+          <div class="rounded-xl sm:rounded-2xl border border-slate-200 bg-white p-4 sm:p-6 transition-all duration-300 hover:border-blue-400 hover:shadow-lg hover:-translate-y-2">
+            <span class="text-xs sm:text-sm font-bold text-blue-600">06</span>
+            <h3 class="mt-2 sm:mt-3 text-sm sm:text-base font-bold text-slate-950">Retesting</h3>
+            <p class="mt-1 sm:mt-2 text-xs sm:text-sm leading-5 sm:leading-6 text-slate-500">Menguji kembali fitur setelah proses perbaikan.</p>
+          </div>
+          <div class="rounded-xl sm:rounded-2xl border border-slate-200 bg-white p-4 sm:p-6 sm:col-span-2 transition-all duration-300 hover:border-blue-400 hover:shadow-lg hover:-translate-y-2">
+            <span class="text-xs sm:text-sm font-bold text-blue-600">07</span>
+            <h3 class="mt-2 sm:mt-3 text-sm sm:text-base font-bold text-slate-950">Release</h3>
+            <p class="mt-1 sm:mt-2 text-xs sm:text-sm leading-5 sm:leading-6 text-slate-500">Membantu memastikan website siap digunakan oleh pengguna.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================== EDUCATION ====================== -->
+    <section class="bg-white py-16 sm:py-24">
+      <div class="mx-auto max-w-7xl px-4 sm:px-5 lg:px-8">
+        <div class="rounded-[1.5rem] sm:rounded-[2rem] bg-gradient-to-br from-slate-950 to-slate-900 p-6 sm:p-8 md:p-12 text-white transition-all duration-500 hover:shadow-2xl hover:shadow-blue-600/10">
+          <div class="grid gap-6 sm:gap-10 lg:grid-cols-[.65fr_1.35fr]">
+            <div>
+              <p class="font-semibold uppercase tracking-[0.2em] text-blue-400 text-sm">Education</p>
+              <h2 class="mt-2 sm:mt-3 text-2xl sm:text-3xl font-extrabold">Pengembangan Perangkat Lunak dan Gim</h2>
+              <p class="mt-2 sm:mt-4 text-sm sm:text-base text-slate-400">Siswa Kelas XII PPLG</p>
+            </div>
+            <div class="grid grid-cols-2 gap-2 sm:gap-3">
+              <div class="rounded-lg sm:rounded-xl bg-white/5 p-3 sm:p-4 text-xs sm:text-sm transition-all duration-300 hover:bg-blue-600/20 hover:scale-105 hover:text-blue-300">Pemrograman Website</div>
+              <div class="rounded-lg sm:rounded-xl bg-white/5 p-3 sm:p-4 text-xs sm:text-sm transition-all duration-300 hover:bg-blue-600/20 hover:scale-105 hover:text-blue-300">Frontend Development</div>
+              <div class="rounded-lg sm:rounded-xl bg-white/5 p-3 sm:p-4 text-xs sm:text-sm transition-all duration-300 hover:bg-blue-600/20 hover:scale-105 hover:text-blue-300">Backend Development</div>
+              <div class="rounded-lg sm:rounded-xl bg-white/5 p-3 sm:p-4 text-xs sm:text-sm transition-all duration-300 hover:bg-blue-600/20 hover:scale-105 hover:text-blue-300">Database</div>
+              <div class="rounded-lg sm:rounded-xl bg-white/5 p-3 sm:p-4 text-xs sm:text-sm transition-all duration-300 hover:bg-blue-600/20 hover:scale-105 hover:text-blue-300">Framework</div>
+              <div class="rounded-lg sm:rounded-xl bg-white/5 p-3 sm:p-4 text-xs sm:text-sm transition-all duration-300 hover:bg-blue-600/20 hover:scale-105 hover:text-blue-300">Software Testing</div>
+              <div class="rounded-lg sm:rounded-xl bg-white/5 p-3 sm:p-4 text-xs sm:text-sm transition-all duration-300 hover:bg-blue-600/20 hover:scale-105 hover:text-blue-300">Quality Assurance</div>
+              <div class="rounded-lg sm:rounded-xl bg-white/5 p-3 sm:p-4 text-xs sm:text-sm transition-all duration-300 hover:bg-blue-600/20 hover:scale-105 hover:text-blue-300">UI / UX Dasar</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================== CONTACT ====================== -->
+    <section id="contact" class="bg-slate-50 py-16 sm:py-24">
+      <div class="mx-auto max-w-7xl px-4 sm:px-5 lg:px-8">
+        <div class="overflow-hidden rounded-[1.5rem] sm:rounded-[2rem] border border-slate-200 bg-white shadow-soft transition-all duration-500 hover:shadow-2xl">
+          <div class="bg-slate-950 p-6 sm:p-8 md:p-12 text-white">
+            <p class="font-semibold uppercase tracking-[0.2em] text-blue-400 text-sm">Contact</p>
+            <h2 class="mt-2 sm:mt-3 text-2xl sm:text-3xl font-extrabold">Mari Terhubung!</h2>
+            <p class="mt-3 sm:mt-5 max-w-2xl leading-6 sm:leading-8 text-sm sm:text-base text-slate-400">
+              Saya terbuka untuk berdiskusi mengenai teknologi, pengembangan website,
+              project kolaborasi, serta kesempatan untuk meningkatkan pengalaman di bidang software development.
+            </p>
+
+            <div class="mt-6 sm:mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
+              <a href="mailto:wiranucky@gmail.com" class="flex items-center gap-3 sm:gap-4 rounded-xl bg-white/5 p-3 sm:p-4 transition-all duration-300 hover:bg-white/10 hover:scale-105 hover:shadow-lg">
+                <i data-lucide="mail" class="h-4 sm:h-5 w-4 sm:w-5 text-blue-400"></i>
+                <div>
+                  <p class="text-[10px] sm:text-xs text-slate-400">Email</p>
+                  <p class="text-xs sm:text-sm font-medium">wiranucky@gmail.com</p>
+                </div>
+              </a>
+
+              <a href="https://wa.me/6283839159051" target="_blank" class="flex items-center gap-3 sm:gap-4 rounded-xl bg-white/5 p-3 sm:p-4 transition-all duration-300 hover:bg-white/10 hover:scale-105 hover:shadow-lg">
+                <i data-lucide="message-circle-more" class="h-4 sm:h-5 w-4 sm:w-5 text-blue-400"></i>
+                <div>
+                  <p class="text-[10px] sm:text-xs text-slate-400">WhatsApp</p>
+                  <p class="text-xs sm:text-sm font-medium">+62 838-3915-9051</p>
+                </div>
+              </a>
+
+              <a href="https://github.com/olisampingstrobbery-alt" target="_blank" class="flex items-center gap-3 sm:gap-4 rounded-xl bg-white/5 p-3 sm:p-4 transition-all duration-300 hover:bg-white/10 hover:scale-105 hover:shadow-lg">
+                <i data-lucide="github" class="h-4 sm:h-5 w-4 sm:w-5 text-blue-400"></i>
+                <div>
+                  <p class="text-[10px] sm:text-xs text-slate-400">GitHub</p>
+                  <p class="text-xs sm:text-sm font-medium">olisampingstrobbery</p>
+                </div>
+              </a>
+            </div>
+
+            <div class="mt-6 sm:mt-10 flex flex-wrap gap-3 sm:gap-4">
+              <a href="mailto:wiranucky@gmail.com" class="inline-flex items-center gap-2 rounded-xl bg-blue-600 px-4 sm:px-6 py-2.5 sm:py-3 text-sm sm:text-base font-semibold text-white transition-all duration-300 hover:bg-blue-500 hover:scale-105 hover:shadow-lg hover:shadow-blue-600/30">
+                Kirim Email
+                <i data-lucide="send" class="h-3 sm:h-4 w-3 sm:w-4"></i>
+              </a>
+              <a href="https://wa.me/6283839159051" target="_blank" class="inline-flex items-center gap-2 rounded-xl border border-white/15 px-4 sm:px-6 py-2.5 sm:py-3 text-sm sm:text-base font-semibold text-white transition-all duration-300 hover:bg-white/10 hover:scale-105 hover:border-blue-400">
+                Chat WhatsApp
+                <i data-lucide="message-circle" class="h-3 sm:h-4 w-3 sm:w-4"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ====================== FOOTER ====================== -->
+  <footer class="border-t border-white/10 bg-slate-950 py-6 sm:py-8 text-slate-400">
+    <div class="mx-auto flex max-w-7xl flex-col gap-3 sm:gap-4 px-4 sm:px-5 text-xs sm:text-sm sm:flex-row sm:items-center sm:justify-between lg:px-8">
+      <p>
+        © <span id="year"></span> <span class="font-semibold text-white hover:text-blue-400 transition-colors duration-300">Nucky Wira Arsyadana</span>. All Rights Reserved.
+      </p>
+      <p class="text-center sm:text-right">Fullstack Web Developer • Quality Assurance • PPLG Student</p>
+    </div>
+  </footer>
+
+  <!-- Back to top -->
+  <a href="#home" class="fixed bottom-4 sm:bottom-5 right-4 sm:right-5 grid h-10 sm:h-12 w-10 sm:w-12 place-items-center rounded-full bg-blue-600 text-white shadow-lg transition-all duration-300 hover:scale-110 hover:shadow-blue-600/30">
+    <i data-lucide="arrow-up" class="h-4 sm:h-5 w-4 sm:w-5"></i>
+  </a>
+
+  <script>
+    lucide.createIcons();
+
+    const menuBtn = document.getElementById('menuBtn');
+    const hamburgerIcon = document.getElementById('hamburgerIcon');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    menuBtn.addEventListener('click', () => {
+      hamburgerIcon.classList.toggle('active');
+      mobileMenu.classList.toggle('open');
+    });
+
+    document.querySelectorAll('.mobile-link').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburgerIcon.classList.remove('active');
+        mobileMenu.classList.remove('open');
+      });
+    });
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
