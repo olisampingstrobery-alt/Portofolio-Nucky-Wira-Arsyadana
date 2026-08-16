@@ -1,977 +1,1705 @@
 <!DOCTYPE html>
 <html lang="id" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Portofolio Nucky Wira Arsyadana - Fullstack Web Developer & Quality Assurance." />
-  <title>Nucky Wira Arsyadana | Portfolio</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Portofolio Nucky Wira Arsyadana - Fullstack Web Developer & Quality Assurance (PPLG)." />
+    <meta name="author" content="Nucky Wira Arsyadana" />
+    <title>Nucky Wira Arsyadana | Portfolio Web Developer & QA</title>
 
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Plus Jakarta Sans & Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
 
-  <!-- Lucide Icons -->
-  <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com">
+    </script>
 
-  <!-- Google Font -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest">
+    </script>
 
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['Inter', 'sans-serif'],
-          },
-          colors: {
-            navy: {
-              950: '#020617',
-              900: '#06152d',
-              800: '#0a2347',
-            },
-            brand: {
-              400: '#60a5fa',
-              500: '#3b82f6',
-              600: '#2563eb',
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        heading: ['"Outfit"', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            200: '#bfdbfe',
+                            300: '#93c5fd',
+                            400: '#60a5fa',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            800: '#1e40af',
+                            900: '#1e3a8a',
+                            950: '#0f172a',
+                        },
+                        surface: {
+                            dark: '#030712',
+                            card: '#0b1329',
+                            border: 'rgba(255, 255, 255, 0.08)',
+                            glass: 'rgba(15, 23, 42, 0.75)',
+                        }
+                    },
+                    animation: {
+                        'blob': 'blob 10s infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-subtle': 'pulseSubtle 3s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        blob: {
+                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                            '100%': { transform: 'translate(0px, 0px) scale(1)' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        },
+                        pulseSubtle: {
+                            '0%, 100%': { opacity: '0.4' },
+                            '50%': { opacity: '0.8' },
+                        }
+                    }
+                }
             }
-          },
-          boxShadow: {
-            soft: '0 20px 60px rgba(2, 6, 23, 0.10)',
-            glow: '0 0 50px rgba(59, 130, 246, 0.18)',
-          }
         }
-      }
-    }
-  </script>
+    </script>
 
-  <style>
-    body { font-family: 'Inter', sans-serif; }
-    .grid-bg {
-      background-image:
-        linear-gradient(rgba(59,130,246,.06) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(59,130,246,.06) 1px, transparent 1px);
-      background-size: 32px 32px;
-    }
-    .glass {
-      background: rgba(255,255,255,.06);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      border: 1px solid rgba(255,255,255,.10);
-    }
-    .section-title::after {
-      content: "";
-      display: block;
-      width: 52px;
-      height: 4px;
-      margin-top: 12px;
-      border-radius: 999px;
-      background: #2563eb;
-    }
-    .skill-card {
-      transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
-    }
-    .skill-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 20px 60px rgba(2, 6, 23, .10);
-      border-color: rgba(59,130,246,.35);
-    }
-    .project-card {
-      transition: transform .25s ease, box-shadow .25s ease;
-    }
-    .project-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 26px 70px rgba(2, 6, 23, .20);
-    }
+    <style>
+        /* ==========================================================
+           ARCHITECTURAL & 3D DESIGN SYSTEM (PREMIUM 3D ENGINE)
+           Precision lighting, mathematical depth & dynamic micro-tilt
+           ========================================================== */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
 
-    @media (max-width: 640px) {
-      .section-title::after {
-        width: 40px;
-      }
-    }
+        html {
+            scroll-behavior: smooth;
+            color-scheme: dark;
+        }
 
-    /* Navbar */
-    .hamburger {
-      position: relative;
-      width: 28px;
-      height: 28px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      gap: 5px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-    .hamburger span {
-      display: block;
-      width: 100%;
-      height: 2.5px;
-      background: white;
-      border-radius: 4px;
-      transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-      transform-origin: center;
-    }
-    .hamburger.active span:nth-child(1) {
-      transform: rotate(45deg) translate(5px, 5px);
-      width: 28px;
-    }
-    .hamburger.active span:nth-child(2) {
-      opacity: 0;
-      transform: scaleX(0);
-    }
-    .hamburger.active span:nth-child(3) {
-      transform: rotate(-45deg) translate(5px, -5px);
-      width: 28px;
-    }
-    .hamburger:hover span {
-      background: #60a5fa;
-    }
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #030712;
+            color: #f1f5f9;
+            overflow-x: hidden;
+            perspective: 1200px;
+        }
 
-    .mobile-menu {
-      max-height: 0;
-      opacity: 0;
-      overflow: hidden;
-      transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
-                  opacity 0.3s ease,
-                  padding 0.3s ease;
-      padding: 0 1rem;
-    }
-    .mobile-menu.open {
-      max-height: 500px;
-      opacity: 1;
-      padding: 1rem 1rem;
-    }
-    .mobile-menu a {
-      transform: translateX(-20px);
-      opacity: 0;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    .mobile-menu.open a {
-      transform: translateX(0);
-      opacity: 1;
-    }
-    .mobile-menu.open a:nth-child(1) { transition-delay: 0.05s; }
-    .mobile-menu.open a:nth-child(2) { transition-delay: 0.10s; }
-    .mobile-menu.open a:nth-child(3) { transition-delay: 0.15s; }
-    .mobile-menu.open a:nth-child(4) { transition-delay: 0.20s; }
-    .mobile-menu.open a:nth-child(5) { transition-delay: 0.25s; }
-    .mobile-menu.open a:nth-child(6) { transition-delay: 0.30s; }
+        h1,
+        h2,
+        h3,
+        h4,
+        .font-heading {
+            font-family: 'Outfit', sans-serif;
+            letter-spacing: -0.025em;
+        }
 
-    .nav-link {
-      position: relative;
-    }
-    .nav-link::after {
-      content: '';
-      position: absolute;
-      bottom: -4px;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background: #3b82f6;
-      transition: width 0.3s ease;
-    }
-    .nav-link:hover::after,
-    .nav-link.active::after {
-      width: 100%;
-    }
+        /* Ambient Spatial 3D Grid Horizon */
+        .bg-tech-grid {
+            background-color: #030712;
+            background-image:
+                radial-gradient(ellipse 90% 60% at 50% -15%, rgba(59, 130, 246, 0.16), transparent 75%),
+                radial-gradient(circle at 85% 30%, rgba(6, 182, 212, 0.08), transparent 45%),
+                radial-gradient(circle at 15% 70%, rgba(99, 102, 241, 0.08), transparent 50%),
+                linear-gradient(to right, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+            background-size: 100% 100%, 100% 100%, 100% 100%, 48px 48px, 48px 48px;
+        }
 
-    .mobile-link {
-      position: relative;
-      display: inline-block;
-      padding: 0.5rem 0;
-      transition: all 0.3s ease;
-    }
-    .mobile-link::before {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background: #3b82f6;
-      transition: width 0.3s ease;
-    }
-    .mobile-link:hover::before {
-      width: 100%;
-    }
-    .mobile-link:hover {
-      color: white;
-      padding-left: 0.5rem;
-    }
+        /* 3D Glass Nav Header - now sticky */
+        .glass-nav {
+            background: rgba(3, 7, 18, 0.85);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+        }
 
-    html {
-      scroll-behavior: smooth;
-    }
+        /* 3D Elevated Cards - Layered realistic shadows + specular top edge highlight */
+        .glass-card {
+            background: linear-gradient(145deg, rgba(15, 23, 42, 0.85) 0%, rgba(8, 14, 28, 0.96) 100%);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow:
+                0 1px 2px rgba(0, 0, 0, 0.4),
+                0 10px 28px -6px rgba(0, 0, 0, 0.65),
+                0 24px 50px -14px rgba(0, 0, 0, 0.85),
+                inset 0 1px 0 rgba(255, 255, 255, 0.12),
+                inset 0 -1px 0 rgba(0, 0, 0, 0.5);
+            transform-style: preserve-3d;
+            will-change: transform, box-shadow, border-color;
+            position: relative;
+        }
 
-    /* Info cards - replace bullets with modern cards */
-    .info-card {
-      background: rgba(255,255,255,0.05);
-      border-radius: 1rem;
-      padding: 1rem 1.25rem;
-      transition: all 0.3s ease;
-      border: 1px solid rgba(255,255,255,0.06);
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-    }
-    .info-card:hover {
-      background: rgba(59,130,246,0.12);
-      border-color: rgba(59,130,246,0.3);
-      transform: translateX(6px);
-    }
-    .info-card .icon {
-      width: 36px;
-      height: 36px;
-      min-width: 36px;
-      border-radius: 10px;
-      background: rgba(59,130,246,0.15);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #60a5fa;
-    }
-    .info-card .icon svg {
-      width: 18px;
-      height: 18px;
-    }
+        .glass-card-light {
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.015) 100%);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow:
+                0 6px 20px rgba(0, 0, 0, 0.35),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            transform-style: preserve-3d;
+        }
 
-    .fullstack-card {
-      background: #f8fafc;
-      border-radius: 1rem;
-      padding: 1.25rem 1.5rem;
-      transition: all 0.3s ease;
-      border: 1px solid #e2e8f0;
-      text-align: center;
-    }
-    .fullstack-card:hover {
-      border-color: #3b82f6;
-      box-shadow: 0 10px 40px rgba(59,130,246,0.12);
-      transform: translateY(-4px);
-    }
-    .fullstack-card .emoji {
-      font-size: 1.75rem;
-      display: block;
-      margin-bottom: 0.5rem;
-    }
+        /* 3D Interactive Card Physics */
+        .card-interactive {
+            transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                border-color 0.35s ease;
+        }
 
-    @media (max-width: 640px) {
-      .info-card {
-        padding: 0.75rem 1rem;
-        gap: 0.5rem;
-      }
-      .info-card .icon {
-        width: 30px;
-        height: 30px;
-        min-width: 30px;
-      }
-      .info-card .icon svg {
-        width: 15px;
-        height: 15px;
-      }
-      .fullstack-card {
-        padding: 1rem;
-      }
-      .fullstack-card .emoji {
-        font-size: 1.5rem;
-      }
-    }
-  </style>
+        @media (hover: hover) and (pointer: fine) {
+            .card-interactive:hover {
+                transform: translateY(-8px) translateZ(16px);
+                border-color: rgba(96, 165, 250, 0.4);
+                box-shadow:
+                    0 1px 2px rgba(0, 0, 0, 0.3),
+                    0 16px 36px -6px rgba(0, 0, 0, 0.8),
+                    0 36px 70px -16px rgba(37, 99, 235, 0.28),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.25),
+                    inset 0 -1px 0 rgba(0, 0, 0, 0.6);
+            }
+        }
+
+        /* 3D Elevated Buttons */
+        .btn-3d-primary {
+            position: relative;
+            background: linear-gradient(180deg, #3b82f6 0%, #2563eb 100%);
+            box-shadow: 0 4px 0 #1d4ed8, 0 8px 20px rgba(37, 99, 235, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+            transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .btn-3d-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 0 #1d4ed8, 0 12px 25px rgba(37, 99, 235, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+        }
+        .btn-3d-primary:active {
+            transform: translateY(3px);
+            box-shadow: 0 1px 0 #1d4ed8, 0 4px 10px rgba(37, 99, 235, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-3d-secondary {
+            position: relative;
+            background: linear-gradient(180deg, rgba(30, 41, 59, 0.9) 0%, rgba(15, 23, 42, 0.95) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            box-shadow: 0 4px 0 rgba(0, 0, 0, 0.6), 0 8px 18px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+            transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .btn-3d-secondary:hover {
+            transform: translateY(-2px);
+            border-color: rgba(96, 165, 250, 0.35);
+            box-shadow: 0 6px 0 rgba(0, 0, 0, 0.7), 0 12px 22px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+        }
+        .btn-3d-secondary:active {
+            transform: translateY(3px);
+            box-shadow: 0 1px 0 rgba(0, 0, 0, 0.7), 0 4px 8px rgba(0, 0, 0, 0.4);
+        }
+
+        /* 3D Floating School Badge */
+        .badge-school-3d {
+            background: linear-gradient(135deg, rgba(30, 58, 138, 0.8) 0%, rgba(15, 23, 42, 0.9) 100%);
+            border: 1px solid rgba(96, 165, 250, 0.35);
+            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+        }
+
+        /* Refined Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 7px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #030712;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1e293b;
+            border-radius: 9999px;
+            border: 2px solid #030712;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #3b82f6;
+        }
+
+        /* Section Header Badges */
+        .section-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            padding: 0.35rem 0.85rem;
+            border-radius: 9999px;
+            font-size: 0.725rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            color: #93c5fd;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+
+        /* Mobile Hamburger Animation */
+        .nav-burger span {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .nav-burger.open span:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+        }
+        .nav-burger.open span:nth-child(2) {
+            opacity: 0;
+            transform: scaleX(0);
+        }
+        .nav-burger.open span:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+
+        /* Typographic Gradient Finish (High Contrast & Legible) */
+        .text-gradient {
+            background: linear-gradient(135deg, #ffffff 10%, #cbd5e1 50%, #93c5fd 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .text-gradient-blue {
+            background: linear-gradient(135deg, #93c5fd 0%, #3b82f6 60%, #38bdf8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Top Progress Bar with 3D Glow */
+        #scrollProgress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: linear-gradient(to right, #3b82f6, #06b6d4, #60a5fa);
+            box-shadow: 0 0 12px rgba(59, 130, 246, 0.8);
+            z-index: 100;
+            width: 0%;
+            transition: width 0.1s ease;
+        }
+
+        /* Custom icon size & styling */
+        .icon-skill {
+            width: 2rem;
+            height: 2rem;
+        }
+        .icon-contact {
+            width: 1.75rem;
+            height: 1.75rem;
+        }
+    </style>
 </head>
 
-<body class="bg-slate-50 text-slate-800 selection:bg-blue-600 selection:text-white overflow-x-hidden">
+<body class="selection:bg-blue-600 selection:text-white bg-tech-grid relative antialiased">
 
-  <!-- ====================== NAVBAR ====================== -->
-  <header class="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-slate-950/80 backdrop-blur-xl transition-all duration-300">
-    <div class="mx-auto flex h-16 sm:h-20 max-w-7xl items-center justify-between px-4 sm:px-5 lg:px-8">
-      <a href="#home" class="text-lg sm:text-xl font-extrabold tracking-tight text-white hover:text-blue-400 transition-colors duration-300 group">
-        Nucky<span class="text-blue-500 group-hover:text-blue-400 transition-colors duration-300">.</span>
-      </a>
+    <!-- Top Scroll Progress Bar -->
+    <div id="scrollProgress"></div>
 
-      <nav class="hidden md:flex items-center gap-4 lg:gap-8">
-        <a href="#home" class="nav-link text-sm font-medium text-slate-300 transition hover:text-white">Home</a>
-        <a href="#about" class="nav-link text-sm font-medium text-slate-300 transition hover:text-white">Tentang</a>
-        <a href="#skills" class="nav-link text-sm font-medium text-slate-300 transition hover:text-white">Skills</a>
-        <a href="#experience" class="nav-link text-sm font-medium text-slate-300 transition hover:text-white">Pengalaman</a>
-        <a href="#projects" class="nav-link text-sm font-medium text-slate-300 transition hover:text-white">Project</a>
-        <a href="#contact" class="rounded-xl bg-blue-600 px-3 sm:px-4 py-2 sm:py-2.5 text-sm font-semibold text-white transition-all duration-300 hover:bg-blue-500 hover:scale-105 hover:shadow-lg hover:shadow-blue-600/30">
-          Hubungi Saya
-        </a>
-      </nav>
-
-      <button id="menuBtn" class="md:hidden rounded-xl p-2 text-white hover:bg-white/10 transition-all duration-300" aria-label="Buka menu">
-        <div class="hamburger" id="hamburgerIcon">
-          <span></span>
-          <span></span>
-          <span></span>
+    <!-- Toast Notification Container -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none flex items-center gap-3 bg-slate-900 border border-blue-500/30 shadow-2xl shadow-blue-500/20 px-5 py-3.5 rounded-2xl text-white text-sm">
+        <div class="h-7 w-7 rounded-lg bg-blue-500/20 text-blue-400 flex items-center justify-center shrink-0">
+            <i data-lucide="check" class="h-4 w-4"></i>
         </div>
-      </button>
+        <span id="toastMessage" class="font-medium">Berhasil disalin ke clipboard!</span>
     </div>
 
-    <div id="mobileMenu" class="mobile-menu border-t border-white/10 bg-slate-950/95 backdrop-blur-xl md:hidden">
-      <div class="flex flex-col gap-1 py-2">
-        <a href="#home" class="mobile-link text-slate-300 text-sm font-medium px-2 py-3 hover:text-white">🏠 Home</a>
-        <a href="#about" class="mobile-link text-slate-300 text-sm font-medium px-2 py-3 hover:text-white">👤 Tentang</a>
-        <a href="#skills" class="mobile-link text-slate-300 text-sm font-medium px-2 py-3 hover:text-white">⚡ Skills</a>
-        <a href="#experience" class="mobile-link text-slate-300 text-sm font-medium px-2 py-3 hover:text-white">💼 Pengalaman</a>
-        <a href="#projects" class="mobile-link text-slate-300 text-sm font-medium px-2 py-3 hover:text-white">📁 Project</a>
-        <a href="#contact" class="mobile-link text-slate-300 text-sm font-medium px-2 py-3 hover:text-white">📞 Kontak</a>
-      </div>
-    </div>
-  </header>
+    <!-- ====================== NAVBAR - STICKY ====================== -->
+    <header id="mainHeader" class="sticky top-0 z-50 transition-all duration-300 glass-nav">
+        <div class="mx-auto flex h-16 sm:h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
 
-  <main>
-
-    <!-- ====================== HERO ====================== -->
-    <section id="home" class="relative min-h-screen overflow-hidden bg-slate-950 pt-16 sm:pt-20 text-white">
-      <div class="absolute inset-0 grid-bg"></div>
-      <div class="absolute -left-40 top-36 h-64 sm:h-96 w-64 sm:w-96 rounded-full bg-blue-700/20 blur-3xl animate-pulse"></div>
-      <div class="absolute -right-32 top-24 h-64 sm:h-[32rem] w-64 sm:w-[32rem] rounded-full bg-blue-500/10 blur-3xl animate-pulse delay-1000"></div>
-
-      <div class="relative mx-auto grid min-h-[calc(100vh-4rem)] max-w-7xl items-center gap-6 sm:gap-12 px-4 sm:px-5 py-10 sm:py-16 lg:grid-cols-2 lg:px-8">
-        <div class="order-2 lg:order-1">
-          <span class="inline-flex items-center gap-2 rounded-full border border-blue-400/20 bg-blue-400/10 px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-semibold text-blue-300">
-            <span class="h-1.5 sm:h-2 w-1.5 sm:w-2 rounded-full bg-blue-400 animate-pulse"></span>
-            Siswa XII PPLG • Unit Produksi PPLG
-          </span>
-
-          <h1 class="mt-4 sm:mt-6 text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-extrabold leading-tight">
-            Nucky Wira
-            <span class="block bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent">
-              Arsyadana
-            </span>
-          </h1>
-
-          <p class="mt-3 sm:mt-5 text-lg sm:text-xl lg:text-2xl font-semibold text-white">
-            Fullstack Web Developer
-            <span class="text-blue-400">&</span>
-            Quality Assurance
-          </p>
-
-          <p class="mt-4 sm:mt-5 max-w-xl leading-7 sm:leading-8 text-sm sm:text-base text-slate-300">
-            Saya adalah siswa kelas XII PPLG yang tertarik pada pengembangan website,
-            Quality Assurance, desain, dan teknologi. Saya aktif dalam Unit Produksi PPLG
-            dan berpengalaman terlibat dalam beberapa project website nyata.
-          </p>
-
-          <div class="mt-6 sm:mt-8 flex flex-wrap gap-3 sm:gap-4">
-            <a href="#projects" class="rounded-xl bg-blue-600 px-4 sm:px-6 py-2.5 sm:py-3.5 text-sm sm:text-base font-semibold text-white shadow-lg shadow-blue-600/20 transition-all duration-300 hover:-translate-y-1 hover:bg-blue-500 hover:shadow-blue-600/40">
-              Lihat Project
-            </a>
-            <a href="#about" class="rounded-xl border border-white/15 bg-white/5 px-4 sm:px-6 py-2.5 sm:py-3.5 text-sm sm:text-base font-semibold text-white transition-all duration-300 hover:bg-white/10 hover:-translate-y-1">
-              Tentang Saya
-            </a>
-            <a href="#contact" class="rounded-xl border border-white/15 px-4 sm:px-6 py-2.5 sm:py-3.5 text-sm sm:text-base font-semibold text-slate-200 transition-all duration-300 hover:border-blue-400 hover:text-white hover:-translate-y-1">
-              Hubungi Saya
-            </a>
-          </div>
-
-          <div class="mt-8 sm:mt-10 grid grid-cols-2 gap-2 sm:gap-3 max-w-xl sm:grid-cols-4">
-            <div class="glass rounded-xl sm:rounded-2xl p-3 sm:p-4 transition-all duration-300 hover:scale-105 hover:bg-white/10">
-              <p class="text-base sm:text-lg font-bold">QA</p>
-              <p class="mt-0.5 sm:mt-1 text-[10px] sm:text-xs text-slate-400">Testing & Bug Report</p>
-            </div>
-            <div class="glass rounded-xl sm:rounded-2xl p-3 sm:p-4 transition-all duration-300 hover:scale-105 hover:bg-white/10">
-              <p class="text-base sm:text-lg font-bold">Fullstack</p>
-              <p class="mt-0.5 sm:mt-1 text-[10px] sm:text-xs text-slate-400">Frontend + Backend</p>
-            </div>
-            <div class="glass rounded-xl sm:rounded-2xl p-3 sm:p-4 transition-all duration-300 hover:scale-105 hover:bg-white/10">
-              <p class="text-base sm:text-lg font-bold">4</p>
-              <p class="mt-0.5 sm:mt-1 text-[10px] sm:text-xs text-slate-400">Project Utama</p>
-            </div>
-            <div class="glass rounded-xl sm:rounded-2xl p-3 sm:p-4 transition-all duration-300 hover:scale-105 hover:bg-white/10">
-              <p class="text-base sm:text-lg font-bold">PPLG</p>
-              <p class="mt-0.5 sm:mt-1 text-[10px] sm:text-xs text-slate-400">Software Development</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="relative mx-auto w-full max-w-xs sm:max-w-md order-1 lg:order-2">
-          <div class="absolute -inset-3 sm:-inset-5 rounded-[2rem] bg-gradient-to-tr from-blue-600/25 to-cyan-400/10 blur-2xl animate-pulse"></div>
-          <div class="relative overflow-hidden rounded-[1.5rem] sm:rounded-[2rem] border border-white/10 bg-slate-900 shadow-2xl shadow-blue-950/50 transition-all duration-500 hover:shadow-blue-600/20">
-            <img
-              src="profile3.jpg"
-              alt="Foto profil Nucky Wira Arsyadana"
-              class="h-[280px] sm:h-[400px] lg:h-[520px] w-full object-cover object-center"
-              onerror="this.src='https://placehold.co/800x1000/0f172a/ffffff?text=Foto+Profil+Nucky'"
-            />
-            <div class="absolute inset-x-3 sm:inset-x-5 bottom-3 sm:bottom-5 rounded-xl sm:rounded-2xl border border-white/10 bg-slate-950/80 p-3 sm:p-5 backdrop-blur-xl">
-              <p class="text-sm sm:text-lg font-bold">Nucky Wira Arsyadana</p>
-              <p class="mt-0.5 sm:mt-1 text-[10px] sm:text-sm text-blue-300">XII PPLG • Unit Produksi PPLG</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ====================== ABOUT ====================== -->
-    <section id="about" class="bg-white py-16 sm:py-24">
-      <div class="mx-auto grid max-w-7xl gap-8 sm:gap-14 px-4 sm:px-5 lg:grid-cols-[1.15fr_.85fr] lg:px-8">
-        <div>
-          <p class="font-semibold uppercase tracking-[0.2em] text-blue-600 text-sm">Tentang Saya</p>
-          <h2 class="section-title mt-2 sm:mt-3 text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-slate-950">
-            Mengenal Saya Lebih Dekat
-          </h2>
-
-          <div class="mt-6 sm:mt-8 space-y-4 sm:space-y-5 leading-7 sm:leading-8 text-sm sm:text-base text-slate-600">
-            <p>
-              Halo! Saya <strong class="text-slate-900">Nucky Wira Arsyadana</strong>,
-              siswa kelas XII jurusan <strong class="text-slate-900">Pengembangan Perangkat Lunak dan Gim (PPLG)</strong>.
-            </p>
-            <p>
-              Saya memiliki minat besar dalam bidang teknologi, khususnya pengembangan aplikasi
-              dan website. Saya mampu mengembangkan website dari sisi frontend maupun backend
-              menggunakan HTML, CSS, JavaScript, Laravel, React, dan MySQL.
-            </p>
-            <p>
-              Selain sebagai Web Developer, saya juga memiliki pengalaman sebagai
-              <strong class="text-slate-900">Quality Assurance (QA)</strong> dalam project yang saya kerjakan bersama tim.
-              Saya terbiasa menguji fitur, menemukan bug, melaporkan masalah, serta melakukan retesting.
-            </p>
-            <p>
-              Di sekolah, saya tergabung dalam <strong class="text-slate-900">Unit Produksi PPLG</strong>.
-              Pengalaman tersebut membantu saya memahami kerja tim, kebutuhan pengguna, pengembangan aplikasi,
-              dan proses pengujian software secara lebih nyata.
-            </p>
-          </div>
-        </div>
-
-        <div class="rounded-[1.5rem] sm:rounded-[2rem] bg-slate-950 p-5 sm:p-7 text-white shadow-soft">
-          <p class="text-sm font-semibold uppercase tracking-[0.2em] text-blue-400">Profil Singkat</p>
-          <div class="mt-5 sm:mt-6 space-y-3 sm:space-y-4">
-            <!-- Profil cards - GANTI dengan style baru -->
-            <div class="info-card group">
-              <div class="icon">
-                <i data-lucide="user-round" class="h-4 w-4 sm:h-5 sm:w-5"></i>
-              </div>
-              <div>
-                <p class="text-[10px] sm:text-xs text-slate-400">Nama</p>
-                <p class="text-xs sm:text-sm font-semibold">Nucky Wira Arsyadana</p>
-              </div>
-            </div>
-
-            <div class="info-card group">
-              <div class="icon">
-                <i data-lucide="graduation-cap" class="h-4 w-4 sm:h-5 sm:w-5"></i>
-              </div>
-              <div>
-                <p class="text-[10px] sm:text-xs text-slate-400">Pendidikan</p>
-                <p class="text-xs sm:text-sm font-semibold">Siswa Kelas XII PPLG</p>
-              </div>
-            </div>
-
-            <div class="info-card group">
-              <div class="icon">
-                <i data-lucide="users-round" class="h-4 w-4 sm:h-5 sm:w-5"></i>
-              </div>
-              <div>
-                <p class="text-[10px] sm:text-xs text-slate-400">Tim</p>
-                <p class="text-xs sm:text-sm font-semibold">Unit Produksi PPLG</p>
-              </div>
-            </div>
-
-            <div class="info-card group">
-              <div class="icon">
-                <i data-lucide="briefcase-business" class="h-4 w-4 sm:h-5 sm:w-5"></i>
-              </div>
-              <div>
-                <p class="text-[10px] sm:text-xs text-slate-400">Role Utama</p>
-                <p class="text-xs sm:text-sm font-semibold">QA & Fullstack Web Developer</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="mt-6 sm:mt-8 border-t border-white/10 pt-5 sm:pt-6">
-            <p class="mb-3 sm:mb-4 text-sm font-semibold text-slate-300">Soft Skills</p>
-            <div class="flex flex-wrap gap-1.5 sm:gap-2">
-              <span class="rounded-full bg-white/5 px-2.5 sm:px-3 py-1.5 sm:py-2 text-[10px] sm:text-xs text-slate-300 transition-all duration-300 hover:bg-blue-600/20 hover:text-blue-300 hover:scale-105">Teamwork</span>
-              <span class="rounded-full bg-white/5 px-2.5 sm:px-3 py-1.5 sm:py-2 text-[10px] sm:text-xs text-slate-300 transition-all duration-300 hover:bg-blue-600/20 hover:text-blue-300 hover:scale-105">Problem Solving</span>
-              <span class="rounded-full bg-white/5 px-2.5 sm:px-3 py-1.5 sm:py-2 text-[10px] sm:text-xs text-slate-300 transition-all duration-300 hover:bg-blue-600/20 hover:text-blue-300 hover:scale-105">Critical Thinking</span>
-              <span class="rounded-full bg-white/5 px-2.5 sm:px-3 py-1.5 sm:py-2 text-[10px] sm:text-xs text-slate-300 transition-all duration-300 hover:bg-blue-600/20 hover:text-blue-300 hover:scale-105">Attention to Detail</span>
-              <span class="rounded-full bg-white/5 px-2.5 sm:px-3 py-1.5 sm:py-2 text-[10px] sm:text-xs text-slate-300 transition-all duration-300 hover:bg-blue-600/20 hover:text-blue-300 hover:scale-105">Responsibility</span>
-              <span class="rounded-full bg-white/5 px-2.5 sm:px-3 py-1.5 sm:py-2 text-[10px] sm:text-xs text-slate-300 transition-all duration-300 hover:bg-blue-600/20 hover:text-blue-300 hover:scale-105">Adaptability</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ====================== SKILLS ====================== -->
-    <section id="skills" class="bg-slate-50 py-16 sm:py-24">
-      <div class="mx-auto max-w-7xl px-4 sm:px-5 lg:px-8">
-        <div class="max-w-3xl">
-          <p class="font-semibold uppercase tracking-[0.2em] text-blue-600 text-sm">Skills & Technology</p>
-          <h2 class="section-title mt-2 sm:mt-3 text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-950">Keahlian Saya</h2>
-          <p class="mt-4 sm:mt-6 leading-7 sm:leading-8 text-sm sm:text-base text-slate-600">
-            Teknologi dan keterampilan yang saya gunakan dalam proses pengembangan website,
-            pengujian software, pengelolaan database, dan desain sederhana.
-          </p>
-        </div>
-
-        <div class="mt-8 sm:mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
-          <div class="skill-card rounded-xl sm:rounded-2xl border border-slate-200 bg-white p-5 sm:p-6">
-            <div class="grid h-10 sm:h-12 w-10 sm:w-12 place-items-center rounded-xl bg-orange-50 text-orange-600">
-              <span class="text-xs sm:text-sm font-extrabold">HTML</span>
-            </div>
-            <h3 class="mt-4 sm:mt-5 text-base sm:text-lg font-bold text-slate-950">HTML</h3>
-            <p class="mt-1.5 sm:mt-2 text-xs sm:text-sm leading-5 sm:leading-6 text-slate-500">Membuat struktur halaman yang semantik dan terorganisir.</p>
-          </div>
-
-          <div class="skill-card rounded-xl sm:rounded-2xl border border-slate-200 bg-white p-5 sm:p-6">
-            <div class="grid h-10 sm:h-12 w-10 sm:w-12 place-items-center rounded-xl bg-blue-50 text-blue-600">
-              <span class="text-xs sm:text-sm font-extrabold">CSS</span>
-            </div>
-            <h3 class="mt-4 sm:mt-5 text-base sm:text-lg font-bold text-slate-950">CSS / Tailwind</h3>
-            <p class="mt-1.5 sm:mt-2 text-xs sm:text-sm leading-5 sm:leading-6 text-slate-500">Membuat tampilan responsive, modern, dan nyaman digunakan.</p>
-          </div>
-
-          <div class="skill-card rounded-xl sm:rounded-2xl border border-slate-200 bg-white p-5 sm:p-6">
-            <div class="grid h-10 sm:h-12 w-10 sm:w-12 place-items-center rounded-xl bg-yellow-50 text-yellow-700">
-              <span class="text-xs sm:text-sm font-extrabold">JS</span>
-            </div>
-            <h3 class="mt-4 sm:mt-5 text-base sm:text-lg font-bold text-slate-950">JavaScript</h3>
-            <p class="mt-1.5 sm:mt-2 text-xs sm:text-sm leading-5 sm:leading-6 text-slate-500">Menambahkan interaksi dan fungsi dinamis pada website.</p>
-          </div>
-
-          <div class="skill-card rounded-xl sm:rounded-2xl border border-slate-200 bg-white p-5 sm:p-6">
-            <div class="grid h-10 sm:h-12 w-10 sm:w-12 place-items-center rounded-xl bg-cyan-50 text-cyan-600">
-              <i data-lucide="atom" class="h-5 sm:h-6 w-5 sm:w-6"></i>
-            </div>
-            <h3 class="mt-4 sm:mt-5 text-base sm:text-lg font-bold text-slate-950">React</h3>
-            <p class="mt-1.5 sm:mt-2 text-xs sm:text-sm leading-5 sm:leading-6 text-slate-500">Membangun antarmuka berbasis component.</p>
-          </div>
-
-          <div class="skill-card rounded-xl sm:rounded-2xl border border-slate-200 bg-white p-5 sm:p-6">
-            <div class="grid h-10 sm:h-12 w-10 sm:w-12 place-items-center rounded-xl bg-red-50 text-red-600">
-              <i data-lucide="blocks" class="h-5 sm:h-6 w-5 sm:w-6"></i>
-            </div>
-            <h3 class="mt-4 sm:mt-5 text-base sm:text-lg font-bold text-slate-950">Laravel</h3>
-            <p class="mt-1.5 sm:mt-2 text-xs sm:text-sm leading-5 sm:leading-6 text-slate-500">Routing, controller, authentication, database, dan backend.</p>
-          </div>
-
-          <div class="skill-card rounded-xl sm:rounded-2xl border border-slate-200 bg-white p-5 sm:p-6">
-            <div class="grid h-10 sm:h-12 w-10 sm:w-12 place-items-center rounded-xl bg-indigo-50 text-indigo-600">
-              <i data-lucide="database" class="h-5 sm:h-6 w-5 sm:w-6"></i>
-            </div>
-            <h3 class="mt-4 sm:mt-5 text-base sm:text-lg font-bold text-slate-950">MySQL</h3>
-            <p class="mt-1.5 sm:mt-2 text-xs sm:text-sm leading-5 sm:leading-6 text-slate-500">Membuat, mengelola, dan menghubungkan database ke aplikasi.</p>
-          </div>
-
-          <div class="skill-card rounded-xl sm:rounded-2xl border border-slate-200 bg-white p-5 sm:p-6">
-            <div class="grid h-10 sm:h-12 w-10 sm:w-12 place-items-center rounded-xl bg-emerald-50 text-emerald-600">
-              <i data-lucide="circle-check-big" class="h-5 sm:h-6 w-5 sm:w-6"></i>
-            </div>
-            <h3 class="mt-4 sm:mt-5 text-base sm:text-lg font-bold text-slate-950">Quality Assurance</h3>
-            <p class="mt-1.5 sm:mt-2 text-xs sm:text-sm leading-5 sm:leading-6 text-slate-500">Testing fitur, bug finding, reporting, dan retesting.</p>
-          </div>
-
-          <div class="skill-card rounded-xl sm:rounded-2xl border border-slate-200 bg-white p-5 sm:p-6">
-            <div class="grid h-10 sm:h-12 w-10 sm:w-12 place-items-center rounded-xl bg-violet-50 text-violet-600">
-              <i data-lucide="palette" class="h-5 sm:h-6 w-5 sm:w-6"></i>
-            </div>
-            <h3 class="mt-4 sm:mt-5 text-base sm:text-lg font-bold text-slate-950">Canva & Design</h3>
-            <p class="mt-1.5 sm:mt-2 text-xs sm:text-sm leading-5 sm:leading-6 text-slate-500">Poster, banner, presentasi, dan editing visual sederhana.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ====================== EXPERIENCE ====================== -->
-    <section id="experience" class="bg-white py-16 sm:py-24">
-      <div class="mx-auto grid max-w-7xl items-center gap-8 sm:gap-12 px-4 sm:px-5 lg:grid-cols-2 lg:px-8">
-        <div class="order-2 lg:order-1">
-          <p class="font-semibold uppercase tracking-[0.2em] text-blue-600 text-sm">Pengalaman</p>
-          <h2 class="section-title mt-2 sm:mt-3 text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-950">Unit Produksi PPLG</h2>
-          <p class="mt-3 sm:mt-4 text-sm sm:text-base font-semibold text-blue-600">Quality Assurance & Web Developer</p>
-
-          <p class="mt-4 sm:mt-6 leading-7 sm:leading-8 text-sm sm:text-base text-slate-600">
-            Saya tergabung dalam Unit Produksi PPLG, sebuah tim di sekolah yang mengerjakan
-            project pengembangan website. Dalam tim ini saya mendapatkan pengalaman bekerja
-            pada project nyata bersama anggota tim lainnya.
-          </p>
-
-          <div class="mt-6 sm:mt-8 grid gap-3 sm:gap-4">
-            <div class="flex items-start gap-2 sm:gap-3 transition-all duration-300 hover:translate-x-2"><i data-lucide="check-circle-2" class="mt-0.5 h-4 sm:h-5 w-4 sm:w-5 shrink-0 text-blue-600"></i><p class="text-sm sm:text-base text-slate-600">Melakukan Quality Assurance pada website.</p></div>
-            <div class="flex items-start gap-2 sm:gap-3 transition-all duration-300 hover:translate-x-2"><i data-lucide="check-circle-2" class="mt-0.5 h-4 sm:h-5 w-4 sm:w-5 shrink-0 text-blue-600"></i><p class="text-sm sm:text-base text-slate-600">Melakukan testing terhadap fitur dan alur sistem.</p></div>
-            <div class="flex items-start gap-2 sm:gap-3 transition-all duration-300 hover:translate-x-2"><i data-lucide="check-circle-2" class="mt-0.5 h-4 sm:h-5 w-4 sm:w-5 shrink-0 text-blue-600"></i><p class="text-sm sm:text-base text-slate-600">Menemukan, mencatat, dan melaporkan bug.</p></div>
-            <div class="flex items-start gap-2 sm:gap-3 transition-all duration-300 hover:translate-x-2"><i data-lucide="check-circle-2" class="mt-0.5 h-4 sm:h-5 w-4 sm:w-5 shrink-0 text-blue-600"></i><p class="text-sm sm:text-base text-slate-600">Membantu frontend maupun backend ketika dibutuhkan.</p></div>
-            <div class="flex items-start gap-2 sm:gap-3 transition-all duration-300 hover:translate-x-2"><i data-lucide="check-circle-2" class="mt-0.5 h-4 sm:h-5 w-4 sm:w-5 shrink-0 text-blue-600"></i><p class="text-sm sm:text-base text-slate-600">Berkolaborasi dengan tim untuk memastikan website sesuai kebutuhan pengguna.</p></div>
-          </div>
-        </div>
-
-        <div class="relative order-1 lg:order-2">
-          <img
-            src="team.jpg"
-            alt="Tim Unit Produksi PPLG"
-            class="h-[220px] sm:h-[350px] lg:h-[440px] w-full rounded-[1.5rem] sm:rounded-[2rem] object-cover shadow-soft transition-all duration-500 hover:scale-105 hover:shadow-2xl"
-            onerror="this.src='https://placehold.co/1000x700/e2e8f0/0f172a?text=Foto+Tim+Unit+Produksi+PPLG'"
-          />
-          <div class="absolute -bottom-3 sm:-bottom-5 right-3 sm:right-5 rounded-xl sm:rounded-2xl bg-blue-600 px-4 sm:px-6 py-3 sm:py-5 text-white shadow-xl transition-all duration-300 hover:scale-105 hover:shadow-2xl">
-            <p class="text-sm sm:text-base font-bold">Kerja Tim</p>
-            <p class="mt-0.5 sm:mt-1 text-xs sm:text-sm text-blue-100">Kolaborasi • Testing • Development</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ====================== PROJECTS ====================== -->
-    <section id="projects" class="relative overflow-hidden bg-slate-950 py-16 sm:py-24 text-white">
-      <div class="absolute inset-0 grid-bg"></div>
-      <div class="relative mx-auto max-w-7xl px-4 sm:px-5 lg:px-8">
-        <div class="max-w-3xl">
-          <p class="font-semibold uppercase tracking-[0.2em] text-blue-400 text-sm">Project</p>
-          <h2 class="mt-2 sm:mt-3 text-2xl sm:text-3xl lg:text-4xl font-extrabold">Project yang Pernah Saya Tangani</h2>
-          <p class="mt-3 sm:mt-5 leading-7 sm:leading-8 text-sm sm:text-base text-slate-400">
-            Dalam project berikut saya terutama berperan sebagai Quality Assurance,
-            sekaligus memiliki kemampuan untuk membantu proses pengembangan web secara fullstack.
-          </p>
-        </div>
-
-        <div class="mt-8 sm:mt-12 grid grid-cols-1 lg:grid-cols-2 gap-5 sm:gap-6">
-
-          <!-- PROJECT 1 -->
-          <article class="project-card overflow-hidden rounded-[1.5rem] sm:rounded-[2rem] border border-white/10 bg-white/[0.04] transition-all duration-500 hover:border-blue-400/30">
-            <img
-              src="assets/project-bk.jpg"
-              alt="Website Bimbingan Konseling"
-              class="h-44 sm:h-64 w-full object-cover transition-all duration-500 hover:scale-105"
-              onerror="this.src='https://placehold.co/1200x700/eff6ff/0f172a?text=Website+Bimbingan+Konseling'"
-            />
-            <div class="p-5 sm:p-7">
-              <div class="flex flex-wrap items-center justify-between gap-2 sm:gap-3">
-                <h3 class="text-lg sm:text-2xl font-bold">Website Bimbingan Konseling</h3>
-                <span class="rounded-full border border-blue-400/30 bg-blue-400/10 px-2 sm:px-3 py-0.5 sm:py-1.5 text-[8px] sm:text-xs font-semibold text-blue-300">Sistem Informasi Sekolah</span>
-              </div>
-              <p class="mt-3 sm:mt-4 leading-6 sm:leading-7 text-sm sm:text-base text-slate-400">
-                Sistem berbasis web untuk membantu proses pelayanan dan pengelolaan kegiatan Bimbingan Konseling di sekolah.
-              </p>
-              <p class="mt-3 sm:mt-5 text-xs sm:text-sm font-semibold text-white">Peran: <span class="text-blue-300">Quality Assurance</span></p>
-              <ul class="mt-3 sm:mt-4 grid grid-cols-1 sm:grid-cols-2 gap-1 sm:gap-2 text-xs sm:text-sm text-slate-300">
-                <li class="transition-all duration-300 hover:text-white hover:translate-x-1">✓ Pengujian fitur website</li>
-                <li class="transition-all duration-300 hover:text-white hover:translate-x-1">✓ Pengecekan alur sistem</li>
-                <li class="transition-all duration-300 hover:text-white hover:translate-x-1">✓ Pengujian form & input</li>
-                <li class="transition-all duration-300 hover:text-white hover:translate-x-1">✓ Pencarian bug</li>
-                <li class="transition-all duration-300 hover:text-white hover:translate-x-1">✓ Pelaporan masalah</li>
-                <li class="transition-all duration-300 hover:text-white hover:translate-x-1">✓ Retesting</li>
-              </ul>
-              <div class="mt-4 sm:mt-6 flex flex-wrap gap-1 sm:gap-2">
-                <span class="rounded-lg bg-white/5 px-2 sm:px-3 py-1 sm:py-2 text-[8px] sm:text-xs transition-all duration-300 hover:bg-blue-600/20 hover:text-blue-300">HTML</span>
-                <span class="rounded-lg bg-white/5 px-2 sm:px-3 py-1 sm:py-2 text-[8px] sm:text-xs transition-all duration-300 hover:bg-blue-600/20 hover:text-blue-300">CSS</span>
-                <span class="rounded-lg bg-white/5 px-2 sm:px-3 py-1 sm:py-2 text-[8px] sm:text-xs transition-all duration-300 hover:bg-blue-600/20 hover:text-blue-300">JavaScript</span>
-                <span class="rounded-lg bg-white/5 px-2 sm:px-3 py-1 sm:py-2 text-[8px] sm:text-xs transition-all duration-300 hover:bg-blue-600/20 hover:text-blue-300">Laravel</span>
-                <span class="rounded-lg bg-white/5 px-2 sm:px-3 py-1 sm:py-2 text-[8px] sm:text-xs transition-all duration-300 hover:bg-blue-600/20 hover:text-blue-300">MySQL</span>
-              </div>
-            </div>
-          </article>
-
-          <!-- PROJECT 2 -->
-
-
-      <!-- PROJECT 2 -->
-<article class="project-card overflow-hidden rounded-[1.5rem] sm:rounded-[2rem] border border-white/10 bg-white/[0.04] transition-all duration-500 hover:border-blue-400/30">
-  <img
-    src="project-bppi.jpg"
-    alt="Website SMK BPPI"
-    class="h-44 sm:h-64 w-full object-cover transition-all duration-500 hover:scale-105"
-    onerror="this.src='https://placehold.co/1200x700/e0f2fe/0f172a?text=Website+SMK+BPPI'"
-  />
-  <div class="p-5 sm:p-7">
-    <div class="flex flex-wrap items-center justify-between gap-2 sm:gap-3">
-      <h3 class="text-lg sm:text-2xl font-bold">Website SMK BPPI</h3>
-      <a 
-        href="https://smk.sekolahbppi.sch.id/home" 
-        target="_blank" 
-        rel="noopener noreferrer"
-        class="rounded-full border border-blue-400/30 bg-blue-400/10 px-2 sm:px-3 py-0.5 sm:py-1.5 text-[8px] sm:text-xs font-semibold text-blue-300 transition-all duration-300 hover:bg-blue-400/20 hover:border-blue-400/50 hover:scale-105 hover:text-blue-200 inline-flex items-center gap-1 cursor-pointer"
-      >
-        Website Sekolah
-        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
-        </svg>
-      </a>
-    </div>
-    <p class="mt-3 sm:mt-4 leading-6 sm:leading-7 text-sm sm:text-base text-slate-400">
-      Website profil dan media informasi sekolah untuk siswa, guru, orang tua, dan masyarakat.
-    </p>
-    <p class="mt-3 sm:mt-5 text-xs sm:text-sm font-semibold text-white">Peran: <span class="text-blue-300">Quality Assurance</span></p>
-    <ul class="mt-3 sm:mt-4 grid grid-cols-1 sm:grid-cols-2 gap-1 sm:gap-2 text-xs sm:text-sm text-slate-300">
-      <li class="transition-all duration-300 hover:text-white hover:translate-x-1">✓ Testing navigasi</li>
-      <li class="transition-all duration-300 hover:text-white hover:translate-x-1">✓ Cek tampilan</li>
-      <li class="transition-all duration-300 hover:text-white hover:translate-x-1">✓ Uji responsive</li>
-      <li class="transition-all duration-300 hover:text-white hover:translate-x-1">✓ Menemukan bug</li>
-      <li class="transition-all duration-300 hover:text-white hover:translate-x-1">✓ Laporan hasil testing</li>
-      <li class="transition-all duration-300 hover:text-white hover:translate-x-1">✓ Retesting</li>
-    </ul>
-  </div>
-</article>
-          <!-- PROJECT 3 -->
-<article class="project-card overflow-hidden rounded-[1.5rem] sm:rounded-[2rem] border border-white/10 bg-white/[0.04] transition-all duration-500 hover:border-blue-400/30">
-  <img
-    src="project-bankmini.jpg"
-    alt="Website Bank Mini"
-    class="h-44 sm:h-64 w-full object-cover transition-all duration-500 hover:scale-105"
-    onerror="this.src='https://placehold.co/1200x700/f8fafc/0f172a?text=Website+Bank+Mini'"
-  />
-  <div class="p-5 sm:p-7">
-    <div class="flex flex-wrap items-center justify-between gap-2 sm:gap-3">
-      <h3 class="text-lg sm:text-2xl font-bold">Website Bank Mini</h3>
-      <a 
-        href="https://bankmini.sekolahbppi.sch.id/" 
-        target="_blank" 
-        rel="noopener noreferrer"
-        class="rounded-full border border-blue-400/30 bg-blue-400/10 px-2 sm:px-3 py-0.5 sm:py-1.5 text-[8px] sm:text-xs font-semibold text-blue-300 transition-all duration-300 hover:bg-blue-400/20 hover:border-blue-400/50 hover:scale-105 hover:text-blue-200 inline-flex items-center gap-1 cursor-pointer whitespace-nowrap"
-      >
-        Sistem Informasi / Keuangan
-        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
-        </svg>
-      </a>
-    </div>
-    <p class="mt-3 sm:mt-4 leading-6 sm:leading-7 text-sm sm:text-base text-slate-400">
-      Aplikasi berbasis web untuk membantu pengelolaan kegiatan Bank Mini di sekolah.
-    </p>
-    <p class="mt-3 sm:mt-5 text-xs sm:text-sm font-semibold text-white">Peran: <span class="text-blue-300">Quality Assurance</span></p>
-    <ul class="mt-3 sm:mt-4 grid grid-cols-1 sm:grid-cols-2 gap-1 sm:gap-2 text-xs sm:text-sm text-slate-300">
-      <li class="transition-all duration-300 hover:text-white hover:translate-x-1">✓ Pengujian fitur</li>
-      <li class="transition-all duration-300 hover:text-white hover:translate-x-1">✓ Pengujian transaksi</li>
-      <li class="transition-all duration-300 hover:text-white hover:translate-x-1">✓ Cek proses input</li>
-      <li class="transition-all duration-300 hover:text-white hover:translate-x-1">✓ Pencarian bug</li>
-      <li class="transition-all duration-300 hover:text-white hover:translate-x-1">✓ Reporting</li>
-      <li class="transition-all duration-300 hover:text-white hover:translate-x-1">✓ Retesting</li>
-    </ul>
-  </div>
-</article> 
-
-          <!-- PROJECT 4 -->
-          <article class="project-card overflow-hidden rounded-[1.5rem] sm:rounded-[2rem] border border-white/10 bg-white/[0.04] transition-all duration-500 hover:border-blue-400/30">
-            <img
-              src="assets/project-sj.jpg"
-              alt="Website SJ Textile"
-              class="h-44 sm:h-64 w-full object-cover transition-all duration-500 hover:scale-105"
-              onerror="this.src='https://placehold.co/1200x700/f5f5f4/0f172a?text=Website+SJ+Textile'"
-            />
-            <div class="p-5 sm:p-7">
-              <div class="flex flex-wrap items-center justify-between gap-2 sm:gap-3">
-                <h3 class="text-lg sm:text-2xl font-bold">Website SJ Textile</h3>
-                <span class="rounded-full border border-blue-400/30 bg-blue-400/10 px-2 sm:px-3 py-0.5 sm:py-1.5 text-[8px] sm:text-xs font-semibold text-blue-300">Website UMKM</span>
-              </div>
-              <p class="mt-3 sm:mt-4 leading-6 sm:leading-7 text-sm sm:text-base text-slate-400">
-                Website UMKM untuk memperkenalkan usaha dan produk secara digital.
-              </p>
-              <p class="mt-3 sm:mt-5 text-xs sm:text-sm font-semibold text-white">Peran: <span class="text-blue-300">Quality Assurance</span></p>
-              <ul class="mt-3 sm:mt-4 grid grid-cols-1 sm:grid-cols-2 gap-1 sm:gap-2 text-xs sm:text-sm text-slate-300">
-                <li class="transition-all duration-300 hover:text-white hover:translate-x-1">✓ Uji tampilan & fitur</li>
-                <li class="transition-all duration-300 hover:text-white hover:translate-x-1">✓ Cek link & navigasi</li>
-                <li class="transition-all duration-300 hover:text-white hover:translate-x-1">✓ Pencarian bug</li>
-                <li class="transition-all duration-300 hover:text-white hover:translate-x-1">✓ Reporting error</li>
-                <li class="transition-all duration-300 hover:text-white hover:translate-x-1">✓ User experience check</li>
-                <li class="transition-all duration-300 hover:text-white hover:translate-x-1">✓ Retesting</li>
-              </ul>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
- <!-- ====================== FULLSTACK FLOW ====================== -->
-<section class="bg-white py-16 sm:py-24">
-  <div class="mx-auto max-w-7xl px-4 sm:px-5 lg:px-8">
-    <div class="mx-auto max-w-3xl text-center">
-      <p class="font-semibold uppercase tracking-[0.2em] text-blue-600 text-sm">Fullstack Capability</p>
-      <h2 class="mt-2 sm:mt-3 text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-950">Fullstack Web Developer</h2>
-      <p class="mt-3 sm:mt-5 leading-7 sm:leading-8 text-sm sm:text-base text-slate-600">
-        Saya memahami proses pengembangan website dari sisi antarmuka, backend, database,
-        sampai tahap testing untuk memastikan aplikasi berjalan dengan baik.
-      </p>
-    </div>
-
-    <div class="mt-8 sm:mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 lg:gap-6">
-      <!-- Frontend + Flutter -->
-      <div class="fullstack-card group rounded-2xl border border-slate-200 bg-white p-6 sm:p-8 text-center transition-all duration-300 hover:border-blue-400 hover:shadow-lg hover:shadow-blue-100/50 hover:-translate-y-1">
-        <span class="emoji text-4xl sm:text-5xl block mb-3 sm:mb-4">🎨</span>
-        <h3 class="text-base sm:text-lg font-bold text-slate-950">Frontend</h3>
-        <p class="mt-2 text-xs sm:text-sm text-slate-500 leading-relaxed">HTML, CSS, JS, React, Flutter</p>
-      </div>
-      
-      <!-- Backend -->
-      <div class="fullstack-card group rounded-2xl border border-slate-200 bg-white p-6 sm:p-8 text-center transition-all duration-300 hover:border-blue-400 hover:shadow-lg hover:shadow-blue-100/50 hover:-translate-y-1">
-        <span class="emoji text-4xl sm:text-5xl block mb-3 sm:mb-4">⚙️</span>
-        <h3 class="text-base sm:text-lg font-bold text-slate-950">Backend</h3>
-        <p class="mt-2 text-xs sm:text-sm text-slate-500 leading-relaxed">Laravel, MySQL</p>
-      </div>
-      
-      <!-- Testing -->
-      <div class="fullstack-card group rounded-2xl border border-slate-200 bg-white p-6 sm:p-8 text-center transition-all duration-300 hover:border-blue-400 hover:shadow-lg hover:shadow-blue-100/50 hover:-translate-y-1">
-        <span class="emoji text-4xl sm:text-5xl block mb-3 sm:mb-4">🐛</span>
-        <h3 class="text-base sm:text-lg font-bold text-slate-950">Testing</h3>
-        <p class="mt-2 text-xs sm:text-sm text-slate-500 leading-relaxed">Quality Assurance</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-    <!-- ====================== WORKFLOW ====================== -->
-    <section class="bg-slate-50 py-16 sm:py-24">
-      <div class="mx-auto max-w-7xl px-4 sm:px-5 lg:px-8">
-        <div class="max-w-3xl">
-          <p class="font-semibold uppercase tracking-[0.2em] text-blue-600 text-sm">Workflow</p>
-          <h2 class="section-title mt-2 sm:mt-3 text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-950">Cara Saya Bekerja</h2>
-        </div>
-
-        <div class="mt-8 sm:mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
-          <div class="rounded-xl sm:rounded-2xl border border-slate-200 bg-white p-4 sm:p-6 transition-all duration-300 hover:border-blue-400 hover:shadow-lg hover:-translate-y-2">
-            <span class="text-xs sm:text-sm font-bold text-blue-600">01</span>
-            <h3 class="mt-2 sm:mt-3 text-sm sm:text-base font-bold text-slate-950">Requirement</h3>
-            <p class="mt-1 sm:mt-2 text-xs sm:text-sm leading-5 sm:leading-6 text-slate-500">Memahami kebutuhan website dan fitur yang akan dibuat.</p>
-          </div>
-          <div class="rounded-xl sm:rounded-2xl border border-slate-200 bg-white p-4 sm:p-6 transition-all duration-300 hover:border-blue-400 hover:shadow-lg hover:-translate-y-2">
-            <span class="text-xs sm:text-sm font-bold text-blue-600">02</span>
-            <h3 class="mt-2 sm:mt-3 text-sm sm:text-base font-bold text-slate-950">Development</h3>
-            <p class="mt-1 sm:mt-2 text-xs sm:text-sm leading-5 sm:leading-6 text-slate-500">Membantu proses pengembangan frontend maupun backend.</p>
-          </div>
-          <div class="rounded-xl sm:rounded-2xl border border-slate-200 bg-white p-4 sm:p-6 transition-all duration-300 hover:border-blue-400 hover:shadow-lg hover:-translate-y-2">
-            <span class="text-xs sm:text-sm font-bold text-blue-600">03</span>
-            <h3 class="mt-2 sm:mt-3 text-sm sm:text-base font-bold text-slate-950">Testing</h3>
-            <p class="mt-1 sm:mt-2 text-xs sm:text-sm leading-5 sm:leading-6 text-slate-500">Menguji fitur dan alur untuk mencari masalah.</p>
-          </div>
-          <div class="rounded-xl sm:rounded-2xl border border-slate-200 bg-white p-4 sm:p-6 transition-all duration-300 hover:border-blue-400 hover:shadow-lg hover:-translate-y-2">
-            <span class="text-xs sm:text-sm font-bold text-blue-600">04</span>
-            <h3 class="mt-2 sm:mt-3 text-sm sm:text-base font-bold text-slate-950">Bug Finding</h3>
-            <p class="mt-1 sm:mt-2 text-xs sm:text-sm leading-5 sm:leading-6 text-slate-500">Mencari error, bug, atau fungsi yang belum sesuai.</p>
-          </div>
-          <div class="rounded-xl sm:rounded-2xl border border-slate-200 bg-white p-4 sm:p-6 transition-all duration-300 hover:border-blue-400 hover:shadow-lg hover:-translate-y-2">
-            <span class="text-xs sm:text-sm font-bold text-blue-600">05</span>
-            <h3 class="mt-2 sm:mt-3 text-sm sm:text-base font-bold text-slate-950">Reporting</h3>
-            <p class="mt-1 sm:mt-2 text-xs sm:text-sm leading-5 sm:leading-6 text-slate-500">Memberikan laporan bug kepada developer.</p>
-          </div>
-          <div class="rounded-xl sm:rounded-2xl border border-slate-200 bg-white p-4 sm:p-6 transition-all duration-300 hover:border-blue-400 hover:shadow-lg hover:-translate-y-2">
-            <span class="text-xs sm:text-sm font-bold text-blue-600">06</span>
-            <h3 class="mt-2 sm:mt-3 text-sm sm:text-base font-bold text-slate-950">Retesting</h3>
-            <p class="mt-1 sm:mt-2 text-xs sm:text-sm leading-5 sm:leading-6 text-slate-500">Menguji kembali fitur setelah proses perbaikan.</p>
-          </div>
-          <div class="rounded-xl sm:rounded-2xl border border-slate-200 bg-white p-4 sm:p-6 sm:col-span-2 transition-all duration-300 hover:border-blue-400 hover:shadow-lg hover:-translate-y-2">
-            <span class="text-xs sm:text-sm font-bold text-blue-600">07</span>
-            <h3 class="mt-2 sm:mt-3 text-sm sm:text-base font-bold text-slate-950">Release</h3>
-            <p class="mt-1 sm:mt-2 text-xs sm:text-sm leading-5 sm:leading-6 text-slate-500">Membantu memastikan website siap digunakan oleh pengguna.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ====================== EDUCATION ====================== -->
-    <section class="bg-white py-16 sm:py-24">
-      <div class="mx-auto max-w-7xl px-4 sm:px-5 lg:px-8">
-        <div class="rounded-[1.5rem] sm:rounded-[2rem] bg-gradient-to-br from-slate-950 to-slate-900 p-6 sm:p-8 md:p-12 text-white transition-all duration-500 hover:shadow-2xl hover:shadow-blue-600/10">
-          <div class="grid gap-6 sm:gap-10 lg:grid-cols-[.65fr_1.35fr]">
-            <div>
-              <p class="font-semibold uppercase tracking-[0.2em] text-blue-400 text-sm">Education</p>
-              <h2 class="mt-2 sm:mt-3 text-2xl sm:text-3xl font-extrabold">Pengembangan Perangkat Lunak dan Gim</h2>
-              <p class="mt-2 sm:mt-4 text-sm sm:text-base text-slate-400">Siswa Kelas XII PPLG</p>
-            </div>
-            <div class="grid grid-cols-2 gap-2 sm:gap-3">
-              <div class="rounded-lg sm:rounded-xl bg-white/5 p-3 sm:p-4 text-xs sm:text-sm transition-all duration-300 hover:bg-blue-600/20 hover:scale-105 hover:text-blue-300">Pemrograman Website</div>
-              <div class="rounded-lg sm:rounded-xl bg-white/5 p-3 sm:p-4 text-xs sm:text-sm transition-all duration-300 hover:bg-blue-600/20 hover:scale-105 hover:text-blue-300">Frontend Development</div>
-              <div class="rounded-lg sm:rounded-xl bg-white/5 p-3 sm:p-4 text-xs sm:text-sm transition-all duration-300 hover:bg-blue-600/20 hover:scale-105 hover:text-blue-300">Backend Development</div>
-              <div class="rounded-lg sm:rounded-xl bg-white/5 p-3 sm:p-4 text-xs sm:text-sm transition-all duration-300 hover:bg-blue-600/20 hover:scale-105 hover:text-blue-300">Database</div>
-              <div class="rounded-lg sm:rounded-xl bg-white/5 p-3 sm:p-4 text-xs sm:text-sm transition-all duration-300 hover:bg-blue-600/20 hover:scale-105 hover:text-blue-300">Framework</div>
-              <div class="rounded-lg sm:rounded-xl bg-white/5 p-3 sm:p-4 text-xs sm:text-sm transition-all duration-300 hover:bg-blue-600/20 hover:scale-105 hover:text-blue-300">Software Testing</div>
-              <div class="rounded-lg sm:rounded-xl bg-white/5 p-3 sm:p-4 text-xs sm:text-sm transition-all duration-300 hover:bg-blue-600/20 hover:scale-105 hover:text-blue-300">Quality Assurance</div>
-              <div class="rounded-lg sm:rounded-xl bg-white/5 p-3 sm:p-4 text-xs sm:text-sm transition-all duration-300 hover:bg-blue-600/20 hover:scale-105 hover:text-blue-300">UI / UX Dasar</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ====================== CONTACT ====================== -->
-    <section id="contact" class="bg-slate-50 py-16 sm:py-24">
-      <div class="mx-auto max-w-7xl px-4 sm:px-5 lg:px-8">
-        <div class="overflow-hidden rounded-[1.5rem] sm:rounded-[2rem] border border-slate-200 bg-white shadow-soft transition-all duration-500 hover:shadow-2xl">
-          <div class="bg-slate-950 p-6 sm:p-8 md:p-12 text-white">
-            <p class="font-semibold uppercase tracking-[0.2em] text-blue-400 text-sm">Contact</p>
-            <h2 class="mt-2 sm:mt-3 text-2xl sm:text-3xl font-extrabold">Mari Terhubung!</h2>
-            <p class="mt-3 sm:mt-5 max-w-2xl leading-6 sm:leading-8 text-sm sm:text-base text-slate-400">
-              Saya terbuka untuk berdiskusi mengenai teknologi, pengembangan website,
-              project kolaborasi, serta kesempatan untuk meningkatkan pengalaman di bidang software development.
-            </p>
-
-            <div class="mt-6 sm:mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
-              <a href="mailto:wiranucky@gmail.com" class="flex items-center gap-3 sm:gap-4 rounded-xl bg-white/5 p-3 sm:p-4 transition-all duration-300 hover:bg-white/10 hover:scale-105 hover:shadow-lg">
-                <i data-lucide="mail" class="h-4 sm:h-5 w-4 sm:w-5 text-blue-400"></i>
-                <div>
-                  <p class="text-[10px] sm:text-xs text-slate-400">Email</p>
-                  <p class="text-xs sm:text-sm font-medium">wiranucky@gmail.com</p>
+            <!-- Brand Logo -->
+            <a href="#home" class="group flex items-center gap-3 text-lg sm:text-xl font-heading font-extrabold tracking-tight text-white transition-all">
+                <div class="h-9 w-9 sm:h-10 sm:w-10 rounded-xl bg-gradient-to-br from-blue-600 to-cyan-500 p-[1px] shadow-lg shadow-blue-500/30 group-hover:scale-105 transition-transform">
+                    <div class="h-full w-full rounded-xl bg-slate-950 flex items-center justify-center">
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300 font-black text-base sm:text-lg">N</span>
+                    </div>
                 </div>
-              </a>
-
-              <a href="https://wa.me/6283839159051" target="_blank" class="flex items-center gap-3 sm:gap-4 rounded-xl bg-white/5 p-3 sm:p-4 transition-all duration-300 hover:bg-white/10 hover:scale-105 hover:shadow-lg">
-                <i data-lucide="message-circle-more" class="h-4 sm:h-5 w-4 sm:w-5 text-blue-400"></i>
-                <div>
-                  <p class="text-[10px] sm:text-xs text-slate-400">WhatsApp</p>
-                  <p class="text-xs sm:text-sm font-medium">+62 838-3915-9051</p>
+                <div class="flex flex-col">
+                    <span class="tracking-wide text-white leading-tight">
+                        Nucky<span class="text-blue-500">.</span>
+                    </span>
+                    <span class="text-[10px] font-semibold text-blue-300 tracking-wider">SMK BPPI • XII PPLG</span>
                 </div>
-              </a>
+            </a>
 
-              <a href="https://github.com/olisampingstrobbery-alt" target="_blank" class="flex items-center gap-3 sm:gap-4 rounded-xl bg-white/5 p-3 sm:p-4 transition-all duration-300 hover:bg-white/10 hover:scale-105 hover:shadow-lg">
-                <i data-lucide="github" class="h-4 sm:h-5 w-4 sm:w-5 text-blue-400"></i>
-                <div>
-                  <p class="text-[10px] sm:text-xs text-slate-400">GitHub</p>
-                  <p class="text-xs sm:text-sm font-medium">olisampingstrobbery</p>
-                </div>
-              </a>
-            </div>
+            <!-- Desktop Navigation Links -->
+            <nav class="hidden md:flex items-center gap-1 lg:gap-2">
+                <a href="#home" class="nav-item px-3.5 py-2 text-sm font-medium text-slate-300 hover:text-white hover:bg-white/5 rounded-xl transition-all">Home</a>
+                <a href="#about" class="nav-item px-3.5 py-2 text-sm font-medium text-slate-300 hover:text-white hover:bg-white/5 rounded-xl transition-all">Tentang</a>
+                <a href="#skills" class="nav-item px-3.5 py-2 text-sm font-medium text-slate-300 hover:text-white hover:bg-white/5 rounded-xl transition-all">Skills</a>
+                <a href="#experience" class="nav-item px-3.5 py-2 text-sm font-medium text-slate-300 hover:text-white hover:bg-white/5 rounded-xl transition-all">Pengalaman</a>
+                <a href="#projects" class="nav-item px-3.5 py-2 text-sm font-medium text-slate-300 hover:text-white hover:bg-white/5 rounded-xl transition-all">Project</a>
+                <a href="#workflow" class="nav-item px-3.5 py-2 text-sm font-medium text-slate-300 hover:text-white hover:bg-white/5 rounded-xl transition-all">Alur QA</a>
+            </nav>
 
-            <div class="mt-6 sm:mt-10 flex flex-wrap gap-3 sm:gap-4">
-              <a href="mailto:wiranucky@gmail.com" class="inline-flex items-center gap-2 rounded-xl bg-blue-600 px-4 sm:px-6 py-2.5 sm:py-3 text-sm sm:text-base font-semibold text-white transition-all duration-300 hover:bg-blue-500 hover:scale-105 hover:shadow-lg hover:shadow-blue-600/30">
-                Kirim Email
-                <i data-lucide="send" class="h-3 sm:h-4 w-3 sm:w-4"></i>
-              </a>
-              <a href="https://wa.me/6283839159051" target="_blank" class="inline-flex items-center gap-2 rounded-xl border border-white/15 px-4 sm:px-6 py-2.5 sm:py-3 text-sm sm:text-base font-semibold text-white transition-all duration-300 hover:bg-white/10 hover:scale-105 hover:border-blue-400">
-                Chat WhatsApp
-                <i data-lucide="message-circle" class="h-3 sm:h-4 w-3 sm:w-4"></i>
-              </a>
+            <!-- Action Button & Mobile Toggle -->
+            <div class="flex items-center gap-3">
+                <a href="#contact" class="hidden sm:inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-blue-600 to-blue-500 px-4 sm:px-5 py-2 sm:py-2.5 text-xs sm:text-sm font-semibold text-white shadow-lg shadow-blue-600/25 transition-all duration-300 hover:from-blue-500 hover:to-cyan-500 hover:shadow-blue-500/40 hover:scale-[1.02] active:scale-95">
+                    <span>Hubungi Saya</span>
+                    <i data-lucide="arrow-up-right" class="h-4 w-4"></i>
+                </a>
+
+                <!-- Mobile Menu Hamburger Button -->
+                <button id="mobileMenuBtn" class="md:hidden flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-white hover:bg-white/10 focus:outline-none transition-colors" aria-label="Toggle menu">
+                    <div class="nav-burger flex flex-col justify-center gap-1.5 w-5 h-5">
+                        <span class="h-0.5 w-full bg-white rounded-full"></span>
+                        <span class="h-0.5 w-full bg-white rounded-full"></span>
+                        <span class="h-0.5 w-full bg-white rounded-full"></span>
+                    </div>
+                </button>
             </div>
-          </div>
         </div>
-      </div>
-    </section>
-  </main>
 
-  <!-- ====================== FOOTER ====================== -->
-  <footer class="border-t border-white/10 bg-slate-950 py-6 sm:py-8 text-slate-400">
-    <div class="mx-auto flex max-w-7xl flex-col gap-3 sm:gap-4 px-4 sm:px-5 text-xs sm:text-sm sm:flex-row sm:items-center sm:justify-between lg:px-8">
-      <p>
-        © <span id="year"></span> <span class="font-semibold text-white hover:text-blue-400 transition-colors duration-300">Nucky Wira Arsyadana</span>. All Rights Reserved.
-      </p>
-      <p class="text-center sm:text-right">Fullstack Web Developer • Quality Assurance • PPLG Student</p>
+        <!-- Mobile Drawer Menu -->
+        <div id="mobileDrawer" class="hidden md:hidden border-t border-white/10 bg-slate-950/95 backdrop-blur-2xl px-4 py-6 transition-all">
+            <div class="flex flex-col gap-2 max-w-sm mx-auto">
+                <a href="#home" class="mobile-nav-link flex items-center justify-between px-4 py-3 rounded-xl text-slate-300 hover:text-white hover:bg-blue-600/10 hover:border hover:border-blue-500/20 text-sm font-medium transition-all">
+                    <span class="flex items-center gap-3">
+                        <i data-lucide="home" class="h-4 w-4 text-blue-400"></i> Home
+                    </span>
+                    <i data-lucide="chevron-right" class="h-4 w-4 text-slate-600"></i>
+                </a>
+                <a href="#about" class="mobile-nav-link flex items-center justify-between px-4 py-3 rounded-xl text-slate-300 hover:text-white hover:bg-blue-600/10 hover:border hover:border-blue-500/20 text-sm font-medium transition-all">
+                    <span class="flex items-center gap-3">
+                        <i data-lucide="user" class="h-4 w-4 text-blue-400"></i> Tentang Saya
+                    </span>
+                    <i data-lucide="chevron-right" class="h-4 w-4 text-slate-600"></i>
+                </a>
+                <a href="#skills" class="mobile-nav-link flex items-center justify-between px-4 py-3 rounded-xl text-slate-300 hover:text-white hover:bg-blue-600/10 hover:border hover:border-blue-500/20 text-sm font-medium transition-all">
+                    <span class="flex items-center gap-3">
+                        <i data-lucide="code-2" class="h-4 w-4 text-blue-400"></i> Keahlian & Tech
+                    </span>
+                    <i data-lucide="chevron-right" class="h-4 w-4 text-slate-600"></i>
+                </a>
+                <a href="#experience" class="mobile-nav-link flex items-center justify-between px-4 py-3 rounded-xl text-slate-300 hover:text-white hover:bg-blue-600/10 hover:border hover:border-blue-500/20 text-sm font-medium transition-all">
+                    <span class="flex items-center gap-3">
+                        <i data-lucide="briefcase" class="h-4 w-4 text-blue-400"></i> Pengalaman Tim
+                    </span>
+                    <i data-lucide="chevron-right" class="h-4 w-4 text-slate-600"></i>
+                </a>
+                <a href="#projects" class="mobile-nav-link flex items-center justify-between px-4 py-3 rounded-xl text-slate-300 hover:text-white hover:bg-blue-600/10 hover:border hover:border-blue-500/20 text-sm font-medium transition-all">
+                    <span class="flex items-center gap-3">
+                        <i data-lucide="folder-git-2" class="h-4 w-4 text-blue-400"></i> Portofolio Project
+                    </span>
+                    <i data-lucide="chevron-right" class="h-4 w-4 text-slate-600"></i>
+                </a>
+                <a href="#workflow" class="mobile-nav-link flex items-center justify-between px-4 py-3 rounded-xl text-slate-300 hover:text-white hover:bg-blue-600/10 hover:border hover:border-blue-500/20 text-sm font-medium transition-all">
+                    <span class="flex items-center gap-3">
+                        <i data-lucide="workflow" class="h-4 w-4 text-blue-400"></i> Alur Kerja QA
+                    </span>
+                    <i data-lucide="chevron-right" class="h-4 w-4 text-slate-600"></i>
+                </a>
+
+                <div class="mt-4 pt-4 border-t border-white/10 flex flex-col gap-2">
+                    <a href="#contact" class="mobile-nav-link flex items-center justify-center gap-2 rounded-xl bg-blue-600 py-3 text-sm font-semibold text-white shadow-lg shadow-blue-600/30">
+                        <span>Hubungi Saya Langsung</span>
+                        <i data-lucide="send" class="h-4 w-4"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- ====================== HERO SECTION ====================== -->
+        <section id="home" class="relative min-h-[92vh] lg:min-h-screen flex items-center justify-center pt-24 pb-16 lg:py-28 overflow-hidden">
+
+            <!-- Ambient 3D Glow Blobs -->
+            <div class="absolute -top-24 left-1/4 h-72 sm:h-96 w-72 sm:w-96 rounded-full bg-blue-600/15 blur-[120px] pointer-events-none animate-blob"></div>
+            <div class="absolute top-1/3 -right-24 h-80 sm:h-[28rem] w-80 sm:w-[28rem] rounded-full bg-cyan-500/10 blur-[130px] pointer-events-none animate-blob" style="animation-delay: 2s;"></div>
+            <div class="absolute -bottom-20 left-10 h-64 sm:h-80 w-64 sm:w-80 rounded-full bg-indigo-600/15 blur-[100px] pointer-events-none animate-blob" style="animation-delay: 4s;"></div>
+
+            <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+
+                    <!-- Text Column (Left) -->
+                    <div class="lg:col-span-7 flex flex-col items-start text-left order-2 lg:order-1">
+
+                        <!-- Student & School Badge (3D Floating) -->
+                        <div class="inline-flex items-center gap-2.5 rounded-full border border-blue-400/40 bg-gradient-to-r from-blue-950/90 via-slate-900/90 to-blue-950/90 px-4 py-2 backdrop-blur-md shadow-lg shadow-blue-500/15">
+                            <span class="flex h-2.5 w-2.5 relative">
+                                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                                <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-blue-500"></span>
+                            </span>
+                            <span class="text-xs sm:text-sm font-bold text-blue-200 tracking-wide flex items-center gap-1.5">
+                                <i data-lucide="graduation-cap" class="h-4 w-4 text-cyan-400"></i>
+                                <span>Siswa XII PPLG • SMK BPPI Baleendah</span>
+                                <span class="text-slate-500">|</span>
+                                <span class="text-slate-300 font-medium">Unit Produksi</span>
+                            </span>
+                        </div>
+
+                        <!-- Main Heading -->
+                        <h1 class="mt-5 sm:mt-6 text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.1] text-white">
+                            Nucky Wira <br class="hidden sm:inline" />
+                            <span class="text-gradient">Arsyadana</span>
+                        </h1>
+
+                        <!-- Subtitle Roles with gradient accent -->
+                        <div class="mt-4 flex flex-wrap items-center gap-2 text-base sm:text-xl lg:text-2xl font-bold font-heading">
+                            <span class="text-slate-100">Fullstack Web Developer</span>
+                            <span class="text-blue-500 font-extrabold">&</span>
+                            <span class="text-gradient-blue">Quality Assurance (QA)</span>
+                        </div>
+
+                        <!-- Description -->
+                        <p class="mt-4 sm:mt-5 text-sm sm:text-base lg:text-lg text-slate-300 leading-relaxed max-w-2xl">
+                            Siswa kelas <strong class="text-white font-semibold">XII PPLG</strong> di <strong class="text-blue-400 font-semibold">SMK BPPI Baleendah</strong> yang berfokus pada pengembangan website modern berkinerja tinggi, pengujian kualitas software (QA), desain UI/UX, dan arsitektur database. Aktif di <span class="text-white font-medium">Unit Produksi PPLG SMK BPPI Baleendah</span> menangani project nyata.
+                        </p>
+
+                        <!-- Call to Actions (3D Buttons) -->
+                        <div class="mt-6 sm:mt-8 flex flex-wrap items-center gap-3 sm:gap-4 w-full sm:w-auto">
+                            <a href="#projects" class="btn-3d-primary w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl px-6 py-3.5 text-sm sm:text-base font-semibold text-white">
+                                <i data-lucide="briefcase" class="h-4 w-4"></i>
+                                <span>Lihat Project</span>
+                            </a>
+                            <a href="#about" class="btn-3d-secondary w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl px-5 py-3.5 text-sm sm:text-base font-semibold text-slate-200">
+                                <i data-lucide="user" class="h-4 w-4"></i>
+                                <span>Tentang Saya</span>
+                            </a>
+                            <button onclick="copyToClipboard('wiranucky@gmail.com', 'Email wiranucky@gmail.com')" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl border border-blue-500/30 bg-blue-950/40 px-4 py-3.5 text-xs sm:text-sm font-semibold text-blue-300 hover:bg-blue-900/50 hover:text-white transition-all shadow-md">
+                                <i data-lucide="copy" class="h-3.5 w-3.5"></i>
+                                <span>Salin Email</span>
+                            </button>
+                        </div>
+
+                        <!-- Quick Metrics Grid -->
+                        <div class="mt-8 sm:mt-12 grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3.5 w-full max-w-2xl">
+                            <div class="glass-card rounded-xl sm:rounded-2xl p-3.5 sm:p-4 text-left border border-white/5 card-interactive">
+                                <div class="text-blue-400 mb-1">
+                                    <i data-lucide="shield-check" class="h-5 w-5"></i>
+                                </div>
+                                <div class="text-lg sm:text-2xl font-black font-heading text-white">QA</div>
+                                <div class="text-[11px] sm:text-xs text-slate-400 font-medium">Testing & Verification</div>
+                            </div>
+
+                            <div class="glass-card rounded-xl sm:rounded-2xl p-3.5 sm:p-4 text-left border border-white/5 card-interactive">
+                                <div class="text-cyan-400 mb-1">
+                                    <i data-lucide="code" class="h-5 w-5"></i>
+                                </div>
+                                <div class="text-lg sm:text-2xl font-black font-heading text-white">Fullstack</div>
+                                <div class="text-[11px] sm:text-xs text-slate-400 font-medium">Frontend & Backend</div>
+                            </div>
+
+                            <div class="glass-card rounded-xl sm:rounded-2xl p-3.5 sm:p-4 text-left border border-white/5 card-interactive">
+                                <div class="text-indigo-400 mb-1">
+                                    <i data-lucide="graduation-cap" class="h-5 w-5"></i>
+                                </div>
+                                <div class="text-lg sm:text-2xl font-black font-heading text-white">XII PPLG</div>
+                                <div class="text-[11px] sm:text-xs text-slate-400 font-medium">SMK BPPI Baleendah</div>
+                            </div>
+
+                            <div class="glass-card rounded-xl sm:rounded-2xl p-3.5 sm:p-4 text-left border border-white/5 card-interactive">
+                                <div class="text-emerald-400 mb-1">
+                                    <i data-lucide="layers" class="h-5 w-5"></i>
+                                </div>
+                                <div class="text-lg sm:text-2xl font-black font-heading text-white">4+</div>
+                                <div class="text-[11px] sm:text-xs text-slate-400 font-medium">Project Nyata</div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Profile Visual Column (Right) -->
+                    <div class="lg:col-span-5 flex justify-center order-1 lg:order-2">
+                        <div class="relative w-full max-w-xs sm:max-w-md">
+
+                            <!-- Backdrop Decorative 3D Gradient Glows -->
+                            <div class="absolute -inset-3 sm:-inset-5 rounded-[2.5rem] bg-gradient-to-tr from-blue-600/35 via-cyan-500/25 to-indigo-600/35 blur-2xl opacity-80 animate-pulse-subtle"></div>
+
+                            <!-- Main Photo Frame with 3D Border & Shadow -->
+                            <div class="relative rounded-[2rem] sm:rounded-[2.5rem] border border-white/15 bg-slate-900/90 overflow-hidden shadow-2xl shadow-blue-950/90 group card-interactive">
+
+                                <!-- Profile Image with exact user filename: profile3.jpg -->
+                                <img src="profile3.jpg" alt="Foto profil Nucky Wira Arsyadana - Siswa XII PPLG SMK BPPI Baleendah" class="h-[340px] sm:h-[430px] lg:h-[510px] w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'800\' height=\'1000\' viewBox=\'0 0 800 1000\'><rect width=\'800\' height=\'1000\' fill=\'%230b1329\'/><circle cx=\'400\' cy=\'380\' r=\'160\' fill=\'%231e293b\'/><path d=\'M180 820 C180 620, 620 620, 620 820\' fill=\'%231e293b\'/><text x=\'50%25\' y=\'880\' font-family=\'sans-serif\' font-size=\'32\' font-weight=\'bold\' fill=\'%2360a5fa\' text-anchor=\'middle\'>Nucky Wira Arsyadana</text><text x=\'50%25\' y=\'930\' font-family=\'sans-serif\' font-size=\'22\' fill=\'%2394a3b8\' text-anchor=\'middle\'>Siswa XII PPLG • SMK BPPI Baleendah</text></svg>';" />
+
+                                <!-- Dark Gradient Overlay for Readability -->
+                                <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/25 to-transparent opacity-85 pointer-events-none"></div>
+
+                                <!-- Floating Bottom Status Card -->
+                                <div class="absolute inset-x-3 sm:inset-x-5 bottom-3 sm:bottom-5 rounded-2xl border border-white/15 bg-slate-950/90 p-4 sm:p-5 backdrop-blur-xl shadow-2xl">
+                                    <div class="flex items-center justify-between">
+                                        <div>
+                                            <p class="text-base sm:text-lg font-bold font-heading text-white">Nucky Wira Arsyadana</p>
+                                            <p class="text-xs sm:text-sm text-blue-300 font-semibold">Siswa XII PPLG • SMK BPPI Baleendah</p>
+                                            <p class="text-[11px] text-slate-400">Web Developer & Quality Assurance</p>
+                                        </div>
+                                        <span class="flex h-3.5 w-3.5 relative shrink-0">
+                                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                                            <span class="relative inline-flex rounded-full h-3.5 w-3.5 bg-emerald-500 shadow-lg shadow-emerald-500/50"></span>
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <!-- Floating Top-Right Badge -->
+                                <div class="absolute top-4 right-4 rounded-xl border border-white/15 bg-slate-950/85 px-3.5 py-1.5 text-xs font-bold text-slate-200 backdrop-blur-md shadow-lg flex items-center gap-1.5">
+                                    <i data-lucide="sparkles" class="h-3.5 w-3.5 text-yellow-400"></i>
+                                    <span>XII PPLG</span>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ====================== ABOUT SECTION ====================== -->
+        <section id="about" class="relative py-20 sm:py-28 bg-slate-900/50 border-y border-white/5">
+            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+
+                <!-- Section Header -->
+                <div class="max-w-3xl mb-12 sm:mb-16">
+                    <span class="section-badge">
+                        <i data-lucide="user-check" class="h-3.5 w-3.5"></i>
+                        Tentang Saya
+                    </span>
+                    <h2 class="mt-3 text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white font-heading">
+                        Mengenal Saya Lebih Dekat
+                    </h2>
+                    <p class="mt-3 text-sm sm:text-base text-slate-400">
+                        Siswa kelas XII PPLG di SMK BPPI Baleendah dengan dedikasi tinggi dalam rekayasa website dan penjaminan kualitas perangkat lunak (QA).
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 items-start">
+
+                    <!-- Narrative Bio (7 cols) -->
+                    <div class="lg:col-span-7 space-y-5 text-sm sm:text-base text-slate-300 leading-relaxed">
+                        <div class="glass-card rounded-2xl sm:rounded-3xl p-6 sm:p-8 border border-white/10 space-y-4">
+                            <p>
+                                Halo! Saya <strong class="text-white font-semibold">Nucky Wira Arsyadana</strong>,
+                                siswa aktif kelas <strong class="text-blue-400 font-semibold">XII PPLG</strong> (Pengembangan Perangkat Lunak dan Gim) di <strong class="text-cyan-300 font-semibold">SMK BPPI Baleendah</strong>.
+                            </p>
+                            <p>
+                                Saya memiliki fokus dan antusiasme mendalam dalam dunia rekayasa perangkat lunak, khususnya pengembangan aplikasi website interaktif dari hulu ke hilir serta proses standardisasi pengujian sistem (<strong class="text-white font-semibold">Quality Assurance</strong>). Saya terbiasa membangun antarmuka responsif dan backend terstruktur dengan teknologi modern seperti <span class="text-slate-100 font-medium">HTML5, CSS3, Tailwind CSS, JavaScript ES6+, React, Laravel,</span> dan basis data <span class="text-slate-100 font-medium">MySQL</span>.
+                            </p>
+                            <p>
+                                Sebagai seorang <strong class="text-emerald-400 font-semibold">Quality Assurance (QA)</strong>, tanggung jawab utama saya mencakup pembuatan skenario pengujian komprehensif, eksekusi uji fungsional & non-fungsional, deteksi celah logika atau bug, pencatatan log temuan yang terstruktur (*bug reporting*), hingga validasi ulang perbaikan (*regression & retesting*).
+                            </p>
+                            <p>
+                                Melalui peran aktif saya di <strong class="text-white font-semibold">Unit Produksi PPLG SMK BPPI Baleendah</strong>, saya telah terlibat langsung dalam pengembangan dan pengujian berbagai website institusi sekolah dan pelaku usaha, mengasah kemampuan kerja tim, kepatuhan tenggat waktu, dan standar kualitas industri.
+                            </p>
+                        </div>
+
+                        <!-- Soft Skills Pill Grid -->
+                        <div class="glass-card-light rounded-2xl p-5 sm:p-6 border border-white/5">
+                            <h3 class="text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-400 mb-3.5 flex items-center gap-2">
+                                <i data-lucide="zap" class="h-4 w-4 text-yellow-400"></i>
+                                Karakteristik & Soft Skills
+                            </h3>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1.5 rounded-lg bg-blue-500/10 border border-blue-500/20 text-xs font-semibold text-blue-300">Team Collaboration</span>
+                                <span class="px-3 py-1.5 rounded-lg bg-blue-500/10 border border-blue-500/20 text-xs font-semibold text-blue-300">Analytical Problem Solving</span>
+                                <span class="px-3 py-1.5 rounded-lg bg-blue-500/10 border border-blue-500/20 text-xs font-semibold text-blue-300">High Attention to Detail</span>
+                                <span class="px-3 py-1.5 rounded-lg bg-blue-500/10 border border-blue-500/20 text-xs font-semibold text-blue-300">Critical Thinking</span>
+                                <span class="px-3 py-1.5 rounded-lg bg-blue-500/10 border border-blue-500/20 text-xs font-semibold text-blue-300">Communication & Reporting</span>
+                                <span class="px-3 py-1.5 rounded-lg bg-blue-500/10 border border-blue-500/20 text-xs font-semibold text-blue-300">Fast Learner & Adaptability</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Structured Quick Facts (5 cols) -->
+                    <div class="lg:col-span-5 space-y-4">
+
+                        <div class="glass-card rounded-2xl sm:rounded-3xl p-6 sm:p-7 border border-white/10">
+                            <div class="flex items-center justify-between border-b border-white/10 pb-4 mb-5">
+                                <h3 class="text-base sm:text-lg font-bold font-heading text-white">Profil & Biodata</h3>
+                                <span class="px-2.5 py-1 rounded-full bg-blue-500/15 border border-blue-500/30 text-xs text-blue-300 font-bold">SMK BPPI Baleendah</span>
+                            </div>
+
+                            <div class="space-y-3.5">
+
+                                <!-- Item 1: Nama -->
+                                <div class="flex items-center gap-3.5 p-3 rounded-xl bg-white/[0.03] border border-white/5 hover:border-blue-500/30 transition-colors">
+                                    <div class="h-10 w-10 rounded-xl bg-blue-500/15 text-blue-400 flex items-center justify-center shrink-0">
+                                        <i data-lucide="user" class="h-5 w-5"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-[11px] text-slate-400 font-medium">Nama Lengkap</p>
+                                        <p class="text-xs sm:text-sm font-bold text-white">Nucky Wira Arsyadana</p>
+                                    </div>
+                                </div>
+
+                                <!-- Item 2: Status Pendidikan -->
+                                <div class="flex items-center gap-3.5 p-3 rounded-xl bg-white/[0.03] border border-white/5 hover:border-blue-500/30 transition-colors">
+                                    <div class="h-10 w-10 rounded-xl bg-cyan-500/15 text-cyan-400 flex items-center justify-center shrink-0">
+                                        <i data-lucide="graduation-cap" class="h-5 w-5"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-[11px] text-slate-400 font-medium">Status & Sekolah</p>
+                                        <p class="text-xs sm:text-sm font-bold text-white">Siswa Kelas XII PPLG • SMK BPPI Baleendah</p>
+                                    </div>
+                                </div>
+
+                                <!-- Item 3: Tim Sekolah -->
+                                <div class="flex items-center gap-3.5 p-3 rounded-xl bg-white/[0.03] border border-white/5 hover:border-blue-500/30 transition-colors">
+                                    <div class="h-10 w-10 rounded-xl bg-indigo-500/15 text-indigo-400 flex items-center justify-center shrink-0">
+                                        <i data-lucide="users" class="h-5 w-5"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-[11px] text-slate-400 font-medium">Divisi Sekolah</p>
+                                        <p class="text-xs sm:text-sm font-bold text-white">Unit Produksi PPLG SMK BPPI Baleendah</p>
+                                    </div>
+                                </div>
+
+                                <!-- Item 4: Role Utama -->
+                                <div class="flex items-center gap-3.5 p-3 rounded-xl bg-white/[0.03] border border-white/5 hover:border-blue-500/30 transition-colors">
+                                    <div class="h-10 w-10 rounded-xl bg-emerald-500/15 text-emerald-400 flex items-center justify-center shrink-0">
+                                        <i data-lucide="shield-check" class="h-5 w-5"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-[11px] text-slate-400 font-medium">Keahlian & Role</p>
+                                        <p class="text-xs sm:text-sm font-bold text-white">Quality Assurance & Fullstack Web Dev</p>
+                                    </div>
+                                </div>
+
+                                <!-- Item 5: Status -->
+                                <div class="flex items-center gap-3.5 p-3 rounded-xl bg-white/[0.03] border border-white/5 hover:border-blue-500/30 transition-colors">
+                                    <div class="h-10 w-10 rounded-xl bg-amber-500/15 text-amber-400 flex items-center justify-center shrink-0">
+                                        <i data-lucide="map-pin" class="h-5 w-5"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-[11px] text-slate-400 font-medium">Domisili & Minat</p>
+                                        <p class="text-xs sm:text-sm font-bold text-white">Bandung, Indonesia • Web & QA Specialist</p>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <!-- Quick Contact Row -->
+                            <div class="mt-6 pt-4 border-t border-white/10 flex items-center gap-2">
+                                <a href="#contact" class="flex-1 py-2.5 rounded-xl bg-blue-600/80 hover:bg-blue-600 text-white text-xs font-semibold text-center transition-colors">
+                                    Hubungi Sekarang
+                                </a>
+                                <button onclick="copyToClipboard('+6283839159051', 'Nomor WhatsApp +62 838-3915-9051')" class="px-3 py-2.5 rounded-xl border border-white/15 bg-white/5 hover:bg-white/10 text-slate-300 text-xs font-semibold flex items-center gap-1.5 transition-colors" title="Salin WA">
+                                    <i data-lucide="message-circle" class="h-3.5 w-3.5 text-emerald-400"></i>
+                                    <span>WA</span>
+                                </button>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ====================== SKILLS & TECH STACK ====================== -->
+        <section id="skills" class="relative py-20 sm:py-28">
+            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+
+                <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 sm:mb-16 gap-6">
+                    <div class="max-w-2xl">
+                        <span class="section-badge">
+                            <i data-lucide="cpu" class="h-3.5 w-3.5"></i>
+                            Skills & Technology
+                        </span>
+                        <h2 class="mt-3 text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white font-heading">
+                            Keahlian & Teknologi
+                        </h2>
+                        <p class="mt-3 text-sm sm:text-base text-slate-400">
+                            Perangkat dan teknologi yang saya gunakan dalam pengembangan antarmuka, backend, basis data, dan pengujian kualitas perangkat lunak.
+                        </p>
+                    </div>
+
+                    <!-- Skill Filter Pills -->
+                    <div class="flex flex-wrap gap-2" id="skillFilterContainer">
+                        <button onclick="filterSkills('all')" class="skill-filter-btn active px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-blue-600 text-white transition-all">Semua</button>
+                        <button onclick="filterSkills('frontend')" class="skill-filter-btn px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-white/5 border border-white/10 text-slate-300 hover:text-white transition-all">Frontend</button>
+                        <button onclick="filterSkills('backend')" class="skill-filter-btn px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-white/5 border border-white/10 text-slate-300 hover:text-white transition-all">Backend & DB</button>
+                        <button onclick="filterSkills('qa')" class="skill-filter-btn px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-white/5 border border-white/10 text-slate-300 hover:text-white transition-all">QA & Testing</button>
+                    </div>
+                </div>
+
+                <!-- Skills Cards Grid -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6" id="skillsGrid">
+
+                    <!-- 1. HTML5 -->
+                    <div class="skill-item card-interactive glass-card rounded-2xl p-5 sm:p-6 border border-white/10 flex flex-col justify-between" data-category="frontend">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="h-14 w-14 rounded-xl bg-orange-500/15 border border-orange-500/30 text-orange-400 flex items-center justify-center">
+                                    <i data-lucide="file-code" class="h-7 w-7"></i>
+                                </div>
+                                <span class="text-[10px] font-semibold uppercase tracking-wider text-orange-300/80 bg-orange-500/10 px-2 py-0.5 rounded-full border border-orange-500/20">Frontend</span>
+                            </div>
+                            <h3 class="text-lg font-bold font-heading text-white">HTML5</h3>
+                            <p class="mt-2 text-xs sm:text-sm text-slate-400 leading-relaxed">
+                                Menyusun struktur web semantik, aksesibel, SEO-friendly, dan standar W3C.
+                            </p>
+                        </div>
+                        <div class="mt-5 pt-3 border-t border-white/5 flex items-center justify-between text-xs text-slate-500">
+                            <span>Struktur & Semantik</span>
+                            <span class="text-orange-400 font-semibold">Tingkat Lanjut</span>
+                        </div>
+                    </div>
+
+                    <!-- 2. CSS3 / Tailwind -->
+                    <div class="skill-item card-interactive glass-card rounded-2xl p-5 sm:p-6 border border-white/10 flex flex-col justify-between" data-category="frontend">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="h-14 w-14 rounded-xl bg-blue-500/15 border border-blue-500/30 text-blue-400 flex items-center justify-center">
+                                    <i data-lucide="paintbrush" class="h-7 w-7"></i>
+                                </div>
+                                <span class="text-[10px] font-semibold uppercase tracking-wider text-blue-300/80 bg-blue-500/10 px-2 py-0.5 rounded-full border border-blue-500/20">Styling</span>
+                            </div>
+                            <h3 class="text-lg font-bold font-heading text-white">CSS & Tailwind CSS</h3>
+                            <p class="mt-2 text-xs sm:text-sm text-slate-400 leading-relaxed">
+                                Styling modern, responsive layout (Flexbox/Grid), animasi halus, dan tema kustom.
+                            </p>
+                        </div>
+                        <div class="mt-5 pt-3 border-t border-white/5 flex items-center justify-between text-xs text-slate-500">
+                            <span>Mobile-first Responsive</span>
+                            <span class="text-blue-400 font-semibold">Mahir</span>
+                        </div>
+                    </div>
+
+                    <!-- 3. JavaScript -->
+                    <div class="skill-item card-interactive glass-card rounded-2xl p-5 sm:p-6 border border-white/10 flex flex-col justify-between" data-category="frontend">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="h-14 w-14 rounded-xl bg-yellow-500/15 border border-yellow-500/30 text-yellow-400 flex items-center justify-center">
+                                    <i data-lucide="code" class="h-7 w-7"></i>
+                                </div>
+                                <span class="text-[10px] font-semibold uppercase tracking-wider text-yellow-300/80 bg-yellow-500/10 px-2 py-0.5 rounded-full border border-yellow-500/20">Logic</span>
+                            </div>
+                            <h3 class="text-lg font-bold font-heading text-white">JavaScript (ES6+)</h3>
+                            <p class="mt-2 text-xs sm:text-sm text-slate-400 leading-relaxed">
+                                DOM manipulation, AJAX/Fetch API, asynchronous handling, dan interaksi dinamis.
+                            </p>
+                        </div>
+                        <div class="mt-5 pt-3 border-t border-white/5 flex items-center justify-between text-xs text-slate-500">
+                            <span>Interactive Scripts</span>
+                            <span class="text-yellow-400 font-semibold">Mahir</span>
+                        </div>
+                    </div>
+
+                    <!-- 4. React -->
+                    <div class="skill-item card-interactive glass-card rounded-2xl p-5 sm:p-6 border border-white/10 flex flex-col justify-between" data-category="frontend">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="h-14 w-14 rounded-xl bg-cyan-500/15 border border-cyan-500/30 text-cyan-400 flex items-center justify-center">
+                                    <i data-lucide="atom" class="h-7 w-7"></i>
+                                </div>
+                                <span class="text-[10px] font-semibold uppercase tracking-wider text-cyan-300/80 bg-cyan-500/10 px-2 py-0.5 rounded-full border border-cyan-500/20">Library</span>
+                            </div>
+                            <h3 class="text-lg font-bold font-heading text-white">React.js</h3>
+                            <p class="mt-2 text-xs sm:text-sm text-slate-400 leading-relaxed">
+                                Pembangunan antarmuka modular berbasis reusable components, props, and hooks.
+                            </p>
+                        </div>
+                        <div class="mt-5 pt-3 border-t border-white/5 flex items-center justify-between text-xs text-slate-500">
+                            <span>Component Architecture</span>
+                            <span class="text-cyan-400 font-semibold">Kompeten</span>
+                        </div>
+                    </div>
+
+                    <!-- 5. Laravel -->
+                    <div class="skill-item card-interactive glass-card rounded-2xl p-5 sm:p-6 border border-white/10 flex flex-col justify-between" data-category="backend">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="h-14 w-14 rounded-xl bg-red-500/15 border border-red-500/30 text-red-400 flex items-center justify-center">
+                                    <i data-lucide="layers" class="h-7 w-7"></i>
+                                </div>
+                                <span class="text-[10px] font-semibold uppercase tracking-wider text-red-300/80 bg-red-500/10 px-2 py-0.5 rounded-full border border-red-500/20">Backend</span>
+                            </div>
+                            <h3 class="text-lg font-bold font-heading text-white">Laravel Framework</h3>
+                            <p class="mt-2 text-xs sm:text-sm text-slate-400 leading-relaxed">
+                                MVC architecture, Eloquent ORM, authentication, routing, middleware, dan REST API.
+                            </p>
+                        </div>
+                        <div class="mt-5 pt-3 border-t border-white/5 flex items-center justify-between text-xs text-slate-500">
+                            <span>Backend & REST API</span>
+                            <span class="text-red-400 font-semibold">Kompeten</span>
+                        </div>
+                    </div>
+
+                    <!-- 6. MySQL Database -->
+                    <div class="skill-item card-interactive glass-card rounded-2xl p-5 sm:p-6 border border-white/10 flex flex-col justify-between" data-category="backend">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="h-14 w-14 rounded-xl bg-indigo-500/15 border border-indigo-500/30 text-indigo-400 flex items-center justify-center">
+                                    <i data-lucide="database" class="h-7 w-7"></i>
+                                </div>
+                                <span class="text-[10px] font-semibold uppercase tracking-wider text-indigo-300/80 bg-indigo-500/10 px-2 py-0.5 rounded-full border border-indigo-500/20">Database</span>
+                            </div>
+                            <h3 class="text-lg font-bold font-heading text-white">MySQL & SQL</h3>
+                            <p class="mt-2 text-xs sm:text-sm text-slate-400 leading-relaxed">
+                                Desain relasi database, query SQL, migrasi, indexing, dan integrasi backend.
+                            </p>
+                        </div>
+                        <div class="mt-5 pt-3 border-t border-white/5 flex items-center justify-between text-xs text-slate-500">
+                            <span>Relational Database</span>
+                            <span class="text-indigo-400 font-semibold">Kompeten</span>
+                        </div>
+                    </div>
+
+                    <!-- 7. Quality Assurance (Testing) -->
+                    <div class="skill-item card-interactive glass-card rounded-2xl p-5 sm:p-6 border border-white/10 flex flex-col justify-between" data-category="qa">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="h-14 w-14 rounded-xl bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 flex items-center justify-center">
+                                    <i data-lucide="check-circle" class="h-7 w-7"></i>
+                                </div>
+                                <span class="text-[10px] font-semibold uppercase tracking-wider text-emerald-300/80 bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/20">Core Role</span>
+                            </div>
+                            <h3 class="text-lg font-bold font-heading text-white">Quality Assurance</h3>
+                            <p class="mt-2 text-xs sm:text-sm text-slate-400 leading-relaxed">
+                                Functional testing, edge-case finding, bug logging & tracking, retesting, dan UX review.
+                            </p>
+                        </div>
+                        <div class="mt-5 pt-3 border-t border-white/5 flex items-center justify-between text-xs text-slate-500">
+                            <span>Testing & Verification</span>
+                            <span class="text-emerald-400 font-semibold">Spesialis</span>
+                        </div>
+                    </div>
+
+                    <!-- 8. Canva & UI/UX Design -->
+                    <div class="skill-item card-interactive glass-card rounded-2xl p-5 sm:p-6 border border-white/10 flex flex-col justify-between" data-category="frontend">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="h-14 w-14 rounded-xl bg-violet-500/15 border border-violet-500/30 text-violet-400 flex items-center justify-center">
+                                    <i data-lucide="palette" class="h-7 w-7"></i>
+                                </div>
+                                <span class="text-[10px] font-semibold uppercase tracking-wider text-violet-300/80 bg-violet-500/10 px-2 py-0.5 rounded-full border border-violet-500/20">Design</span>
+                            </div>
+                            <h3 class="text-lg font-bold font-heading text-white">Canva & UI Design</h3>
+                            <p class="mt-2 text-xs sm:text-sm text-slate-400 leading-relaxed">
+                                Pembuatan aset visual, layout mockup, banner promosi, dan presentasi teknis.
+                            </p>
+                        </div>
+                        <div class="mt-5 pt-3 border-t border-white/5 flex items-center justify-between text-xs text-slate-500">
+                            <span>Visual Asset & Mockup</span>
+                            <span class="text-violet-400 font-semibold">Kreatif</span>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ====================== EXPERIENCE SECTION ====================== -->
+        <section id="experience" class="relative py-20 sm:py-28 bg-slate-900/40 border-y border-white/5">
+            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+
+                    <!-- Narrative & Responsibilities (Left - 7 cols) -->
+                    <div class="lg:col-span-7 order-2 lg:order-1">
+                        <span class="section-badge">
+                            <i data-lucide="award" class="h-3.5 w-3.5"></i>
+                            Pengalaman Nyata
+                        </span>
+                        <h2 class="mt-3 text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white font-heading">
+                            Unit Produksi PPLG
+                        </h2>
+                        <p class="mt-2 text-base sm:text-lg font-semibold text-gradient-blue font-heading">
+                            Quality Assurance & Web Developer Team
+                        </p>
+
+                        <p class="mt-4 sm:mt-5 text-sm sm:text-base text-slate-300 leading-relaxed">
+                            Saya aktif tergabung dalam <strong class="text-white font-semibold">Unit Produksi PPLG SMK BPPI Baleendah</strong>,
+                            sebuah divisi produksi perangkat lunak di lingkungan sekolah yang mengerjakan project-project website nyata untuk institusi dan mitra.
+                            Di sini saya mengasah kemampuan kolaboratif, pengujian software secara menyeluruh, serta kesiapan industri.
+                        </p>
+
+                        <!-- Responsibilities Checklist Grid -->
+                        <div class="mt-6 sm:mt-8 space-y-3">
+                            <div class="flex items-start gap-3 p-3 sm:p-3.5 rounded-xl glass-card border border-white/5 hover:border-blue-500/30 transition-all card-interactive">
+                                <div class="h-6 w-6 rounded-lg bg-blue-500/20 text-blue-400 flex items-center justify-center shrink-0 mt-0.5">
+                                    <i data-lucide="check" class="h-4 w-4"></i>
+                                </div>
+                                <div>
+                                    <p class="text-sm font-semibold text-white">Quality Assurance & System Testing</p>
+                                    <p class="text-xs text-slate-400 mt-0.5">Menguji alur sistem, validasi input form, hak akses role pengguna, dan responsivitas layout.</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-3 p-3 sm:p-3.5 rounded-xl glass-card border border-white/5 hover:border-blue-500/30 transition-all card-interactive">
+                                <div class="h-6 w-6 rounded-lg bg-cyan-500/20 text-cyan-400 flex items-center justify-center shrink-0 mt-0.5">
+                                    <i data-lucide="bug" class="h-4 w-4"></i>
+                                </div>
+                                <div>
+                                    <p class="text-sm font-semibold text-white">Bug Hunting & Detailed Logging</p>
+                                    <p class="text-xs text-slate-400 mt-0.5">Mendeteksi anomali/bug, merekam langkah reproduksi (repro steps), dan menyusun laporan terperinci ke tim developer.</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-3 p-3 sm:p-3.5 rounded-xl glass-card border border-white/5 hover:border-blue-500/30 transition-all card-interactive">
+                                <div class="h-6 w-6 rounded-lg bg-indigo-500/20 text-indigo-400 flex items-center justify-center shrink-0 mt-0.5">
+                                    <i data-lucide="refresh-cw" class="h-4 w-4"></i>
+                                </div>
+                                <div>
+                                    <p class="text-sm font-semibold text-white">Retesting & Regression Verification</p>
+                                    <p class="text-xs text-slate-400 mt-0.5">Melakukan pengujian ulang pasca bug fixing untuk memastikan masalah tuntas tanpa menimbulkan bug baru.</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-3 p-3 sm:p-3.5 rounded-xl glass-card border border-white/5 hover:border-blue-500/30 transition-all card-interactive">
+                                <div class="h-6 w-6 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0 mt-0.5">
+                                    <i data-lucide="code-2" class="h-4 w-4"></i>
+                                </div>
+                                <div>
+                                    <p class="text-sm font-semibold text-white">Fullstack Development Support</p>
+                                    <p class="text-xs text-slate-400 mt-0.5">Turut membantu penyesuaian frontend, routing, dan query backend bila dibutuhkan saat fase sprint.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Team Visual (Right - 5 cols) -->
+                    <div class="lg:col-span-5 order-1 lg:order-2">
+                        <div class="relative w-full max-w-lg mx-auto">
+
+                            <!-- Subtle Aura Background -->
+                            <div class="absolute -inset-4 rounded-3xl bg-gradient-to-br from-blue-600/20 to-cyan-500/10 blur-xl"></div>
+
+                            <!-- Main Image Container with exact user filename: team.jpg -->
+                            <div class="relative rounded-2xl sm:rounded-3xl border border-white/15 bg-slate-950 overflow-hidden shadow-2xl group">
+                                <img src="team.jpg" alt="Tim Unit Produksi PPLG" class="h-64 sm:h-80 lg:h-96 w-full object-cover object-center transition-transform duration-700 group-hover:scale-105" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'1000\' height=\'700\' viewBox=\'0 0 1000 700\'><rect width=\'1000\' height=\'700\' fill=\'%230b1329\'/><path d=\'M200 450 L350 250 L500 450 L650 250 L800 450\' stroke=\'%233b82f6\' stroke-width=\'12\' fill=\'none\' opacity=\'0.3\'/><circle cx=\'500\' cy=\'300\' r=\'120\' fill=\'%231e293b\'/><text x=\'50%25\' y=\'310\' font-family=\'sans-serif\' font-size=\'28\' font-weight=\'bold\' fill=\'%2360a5fa\' text-anchor=\'middle\'>Tim Unit Produksi PPLG</text><text x=\'50%25\' y=\'360\' font-family=\'sans-serif\' font-size=\'18\' fill=\'%2394a3b8\' text-anchor=\'middle\'>Kolaborasi • Testing • Development</text></svg>';" />
+
+                                <!-- Dark Overlay -->
+                                <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
+
+                                <!-- Highlight Overlay Box -->
+                                <div class="absolute bottom-4 inset-x-4 sm:bottom-5 sm:inset-x-5 rounded-2xl border border-white/10 bg-slate-950/90 p-4 sm:p-5 backdrop-blur-xl">
+                                    <div class="flex items-center justify-between">
+                                        <div>
+                                            <p class="text-sm sm:text-base font-bold text-white font-heading">Kolaborasi Tim Produktif</p>
+                                            <p class="text-xs text-blue-300">Software Testing, Development & Delivery</p>
+                                        </div>
+                                        <div class="h-9 w-9 rounded-xl bg-blue-600/20 text-blue-400 flex items-center justify-center">
+                                            <i data-lucide="users" class="h-4 w-4"></i>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ====================== PROJECTS SECTION ====================== -->
+        <section id="projects" class="relative py-20 sm:py-28">
+            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+
+                <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 sm:mb-16 gap-6">
+                    <div class="max-w-2xl">
+                        <span class="section-badge">
+                            <i data-lucide="folder-git-2" class="h-3.5 w-3.5"></i>
+                            Portofolio Project
+                        </span>
+                        <h2 class="mt-3 text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white font-heading">
+                            Project yang Pernah Ditangani
+                        </h2>
+                        <p class="mt-3 text-sm sm:text-base text-slate-400">
+                            Berikut adalah beberapa project nyata di mana saya berkontribusi sebagai Quality Assurance dan Fullstack Web Developer.
+                        </p>
+                    </div>
+
+                    <!-- Project Filter Pills -->
+                    <div class="flex flex-wrap gap-2" id="projectFilterContainer">
+                        <button onclick="filterProjects('all')" class="proj-filter-btn active px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-blue-600 text-white transition-all">Semua Project</button>
+                        <button onclick="filterProjects('sekolah')" class="proj-filter-btn px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-white/5 border border-white/10 text-slate-300 hover:text-white transition-all">Website Sekolah</button>
+                        <button onclick="filterProjects('sistem')" class="proj-filter-btn px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-white/5 border border-white/10 text-slate-300 hover:text-white transition-all">Sistem Informasi</button>
+                    </div>
+                </div>
+
+                <!-- Project Cards Grid (2x2 responsive) -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8" id="projectsGrid">
+
+                    <!-- ================= PROJECT 1: SMK BPPI ================= -->
+                    <article class="project-card glass-card rounded-2xl sm:rounded-3xl border border-white/10 overflow-hidden card-interactive flex flex-col justify-between" data-category="sekolah">
+                        <div>
+                            <!-- Image Banner with exact user filename: project-bppi.jpg -->
+                            <div class="relative h-48 sm:h-64 w-full overflow-hidden bg-slate-900 group">
+                                <img src="project-bppi.jpg" alt="Website SMK BPPI" class="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-105" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'1200\' height=\'700\' viewBox=\'0 0 1200 700\'><rect width=\'1200\' height=\'700\' fill=\'%230b1329\'/><rect x=\'100\' y=\'100\' width=\'1000\' height=\'500\' rx=\'20\' fill=\'%23111c3a\' stroke=\'%233b82f6\' stroke-width=\'2\' stroke-dasharray=\'8 8\'/><text x=\'50%25\' y=\'330\' font-family=\'sans-serif\' font-size=\'42\' font-weight=\'bold\' fill=\'%23ffffff\' text-anchor=\'middle\'>Website Resmi SMK BPPI</text><text x=\'50%25\' y=\'390\' font-family=\'sans-serif\' font-size=\'22\' fill=\'%2360a5fa\' text-anchor=\'middle\'>Portal Berita, Profil &amp; Informasi Sekolah</text></svg>';" />
+                                <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
+
+                                <!-- Category Badge -->
+                                <div class="absolute top-4 left-4">
+                                    <span class="rounded-lg bg-slate-950/80 border border-white/15 px-3 py-1 text-xs font-semibold text-cyan-300 backdrop-blur-md">
+                                        Portal Profil Sekolah
+                                    </span>
+                                </div>
+
+                                <!-- Role Pill -->
+                                <div class="absolute top-4 right-4">
+                                    <span class="rounded-lg bg-emerald-500/20 border border-emerald-500/40 px-3 py-1 text-xs font-semibold text-emerald-300 backdrop-blur-md flex items-center gap-1.5">
+                                        <i data-lucide="shield-check" class="h-3.5 w-3.5"></i> QA Role
+                                    </span>
+                                </div>
+                            </div>
+
+                            <!-- Card Body Content -->
+                            <div class="p-6 sm:p-7">
+                                <div class="flex flex-wrap items-center justify-between gap-2">
+                                    <h3 class="text-xl sm:text-2xl font-bold font-heading text-white">
+                                        Website SMK BPPI Baleendah
+                                    </h3>
+                                    <a href="https://smk.sekolahbppi.sch.id/home" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-blue-600/30 border border-blue-500/40 hover:bg-blue-600 text-blue-200 hover:text-white text-xs font-semibold transition-all duration-300">
+                                        <span>Kunjungi Live</span>
+                                        <i data-lucide="external-link" class="h-3 w-3"></i>
+                                    </a>
+                                </div>
+
+                                <p class="mt-2.5 text-xs sm:text-sm text-slate-400 leading-relaxed">
+                                    Portal resmi SMK BPPI Baleendah sebagai pusat berita, profil jurusan, agenda kegiatan akademik, dan media komunikasi publik bagi siswa, guru, orang tua, serta masyarakat luas.
+                                </p>
+
+                                <!-- Key QA Responsibilities Checklist -->
+                                <div class="mt-4 pt-4 border-t border-white/5">
+                                    <p class="text-xs font-bold text-slate-300 uppercase tracking-wider mb-2.5 flex items-center gap-1.5">
+                                        <i data-lucide="list-checks" class="h-3.5 w-3.5 text-blue-400"></i> Fokus Pengujian (QA Scope):
+                                    </p>
+                                    <ul class="grid grid-cols-1 sm:grid-cols-2 gap-1.5 text-xs text-slate-300">
+                                        <li class="flex items-center gap-2">
+                                            <i data-lucide="check" class="h-3.5 w-3.5 text-emerald-400 shrink-0"></i> Cross-browser & device testing
+                                        </li>
+                                        <li class="flex items-center gap-2">
+                                            <i data-lucide="check" class="h-3.5 w-3.5 text-emerald-400 shrink-0"></i> Validasi link & navigasi menu
+                                        </li>
+                                        <li class="flex items-center gap-2">
+                                            <i data-lucide="check" class="h-3.5 w-3.5 text-emerald-400 shrink-0"></i> Uji kecepatan muat & aset gambar
+                                        </li>
+                                        <li class="flex items-center gap-2">
+                                            <i data-lucide="check" class="h-3.5 w-3.5 text-emerald-400 shrink-0"></i> Laporan temuan & retesting
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card Footer Tech Stack -->
+                        <div class="px-6 pb-6 sm:px-7 sm:pb-7 pt-2 flex flex-wrap items-center justify-between gap-3 border-t border-white/5">
+                            <div class="flex flex-wrap gap-1.5">
+                                <span class="rounded-lg bg-white/5 px-2.5 py-1 text-[11px] font-medium text-slate-300">HTML5</span>
+                                <span class="rounded-lg bg-white/5 px-2.5 py-1 text-[11px] font-medium text-slate-300">CSS3</span>
+                                <span class="rounded-lg bg-white/5 px-2.5 py-1 text-[11px] font-medium text-slate-300">JavaScript</span>
+                                <span class="rounded-lg bg-white/5 px-2.5 py-1 text-[11px] font-medium text-slate-300">PHP/Laravel</span>
+                            </div>
+                            <a href="https://smk.sekolahbppi.sch.id/home" target="_blank" rel="noopener noreferrer" class="text-xs text-cyan-400 hover:underline flex items-center gap-1 font-medium">
+                                smk.sekolahbppi.sch.id
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- ================= PROJECT 2: BANK MINI ================= -->
+                    <article class="project-card glass-card rounded-2xl sm:rounded-3xl border border-white/10 overflow-hidden card-interactive flex flex-col justify-between" data-category="sistem">
+                        <div>
+                            <!-- Image Banner with exact user filename: project-bankmini.jpg -->
+                            <div class="relative h-48 sm:h-64 w-full overflow-hidden bg-slate-900 group">
+                                <img src="project-bankmini.jpg" alt="Website Bank Mini" class="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-105" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'1200\' height=\'700\' viewBox=\'0 0 1200 700\'><rect width=\'1200\' height=\'700\' fill=\'%230b1329\'/><rect x=\'100\' y=\'100\' width=\'1000\' height=\'500\' rx=\'20\' fill=\'%23111c3a\' stroke=\'%233b82f6\' stroke-width=\'2\' stroke-dasharray=\'8 8\'/><text x=\'50%25\' y=\'330\' font-family=\'sans-serif\' font-size=\'42\' font-weight=\'bold\' fill=\'%23ffffff\' text-anchor=\'middle\'>Website Bank Mini</text><text x=\'50%25\' y=\'390\' font-family=\'sans-serif\' font-size=\'22\' fill=\'%2360a5fa\' text-anchor=\'middle\'>Sistem Finansial &amp; Tabungan Sekolah</text></svg>';" />
+                                <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
+
+                                <!-- Category Badge -->
+                                <div class="absolute top-4 left-4">
+                                    <span class="rounded-lg bg-slate-950/80 border border-white/15 px-3 py-1 text-xs font-semibold text-emerald-300 backdrop-blur-md">
+                                        Sistem Finansial & Tabungan
+                                    </span>
+                                </div>
+
+                                <!-- Role Pill -->
+                                <div class="absolute top-4 right-4">
+                                    <span class="rounded-lg bg-emerald-500/20 border border-emerald-500/40 px-3 py-1 text-xs font-semibold text-emerald-300 backdrop-blur-md flex items-center gap-1.5">
+                                        <i data-lucide="shield-check" class="h-3.5 w-3.5"></i> QA Role
+                                    </span>
+                                </div>
+                            </div>
+
+                            <!-- Card Body Content -->
+                            <div class="p-6 sm:p-7">
+                                <div class="flex flex-wrap items-center justify-between gap-2">
+                                    <h3 class="text-xl sm:text-2xl font-bold font-heading text-white">
+                                        Website Bank Mini
+                                    </h3>
+                                    <a href="https://bankmini.sekolahbppi.sch.id/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-emerald-600/30 border border-emerald-500/40 hover:bg-emerald-600 text-emerald-200 hover:text-white text-xs font-semibold transition-all duration-300">
+                                        <span>Kunjungi Live</span>
+                                        <i data-lucide="external-link" class="h-3 w-3"></i>
+                                    </a>
+                                </div>
+
+                                <p class="mt-2.5 text-xs sm:text-sm text-slate-400 leading-relaxed">
+                                    Aplikasi perbankan mini sekolah untuk mengelola transaksi setoran, penarikan, saldo nasabah siswa, mutasi tabungan, dan pelaporan keuangan secara real-time.
+                                </p>
+
+                                <!-- Key QA Responsibilities Checklist -->
+                                <div class="mt-4 pt-4 border-t border-white/5">
+                                    <p class="text-xs font-bold text-slate-300 uppercase tracking-wider mb-2.5 flex items-center gap-1.5">
+                                        <i data-lucide="list-checks" class="h-3.5 w-3.5 text-blue-400"></i> Fokus Pengujian (QA Scope):
+                                    </p>
+                                    <ul class="grid grid-cols-1 sm:grid-cols-2 gap-1.5 text-xs text-slate-300">
+                                        <li class="flex items-center gap-2">
+                                            <i data-lucide="check" class="h-3.5 w-3.5 text-emerald-400 shrink-0"></i> Akurasi kalkulasi transaksi saldo
+                                        </li>
+                                        <li class="flex items-center gap-2">
+                                            <i data-lucide="check" class="h-3.5 w-3.5 text-emerald-400 shrink-0"></i> Validasi input nominal & form
+                                        </li>
+                                        <li class="flex items-center gap-2">
+                                            <i data-lucide="check" class="h-3.5 w-3.5 text-emerald-400 shrink-0"></i> Uji keamanan role teller & admin
+                                        </li>
+                                        <li class="flex items-center gap-2">
+                                            <i data-lucide="check" class="h-3.5 w-3.5 text-emerald-400 shrink-0"></i> Verifikasi pencatatan log mutasi
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card Footer Tech Stack -->
+                        <div class="px-6 pb-6 sm:px-7 sm:pb-7 pt-2 flex flex-wrap items-center justify-between gap-3 border-t border-white/5">
+                            <div class="flex flex-wrap gap-1.5">
+                                <span class="rounded-lg bg-white/5 px-2.5 py-1 text-[11px] font-medium text-slate-300">Laravel</span>
+                                <span class="rounded-lg bg-white/5 px-2.5 py-1 text-[11px] font-medium text-slate-300">MySQL</span>
+                                <span class="rounded-lg bg-white/5 px-2.5 py-1 text-[11px] font-medium text-slate-300">Tailwind</span>
+                                <span class="rounded-lg bg-white/5 px-2.5 py-1 text-[11px] font-medium text-slate-300">Alpine.js</span>
+                            </div>
+                            <a href="https://bankmini.sekolahbppi.sch.id/" target="_blank" rel="noopener noreferrer" class="text-xs text-emerald-400 hover:underline flex items-center gap-1 font-medium">
+                                bankmini.sekolahbppi.sch.id
+                            </a>
+                        </div>
+                    </article>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ====================== FULLSTACK ARCHITECTURE FLOW ====================== -->
+        <section class="relative py-20 sm:py-28 bg-slate-900/40 border-y border-white/5">
+            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+
+                <div class="mx-auto max-w-3xl text-center mb-12 sm:mb-16">
+                    <span class="section-badge mx-auto">
+                        <i data-lucide="layers" class="h-3.5 w-3.5"></i>
+                        Fullstack Capability
+                    </span>
+                    <h2 class="mt-3 text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white font-heading">
+                        Kemampuan Fullstack Web
+                    </h2>
+                    <p class="mt-3 text-sm sm:text-base text-slate-400">
+                        Menguasai siklus lengkap pembuatan aplikasi website: antarmuka pengguna (Frontend), logika server & API (Backend), struktur data (Database), hingga penjaminan kualitas (Testing).
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+
+                    <!-- Frontend Card -->
+                    <div class="glass-card rounded-2xl sm:rounded-3xl p-6 sm:p-8 border border-white/10 text-center card-interactive flex flex-col justify-between">
+                        <div>
+                            <div class="h-16 w-16 mx-auto rounded-2xl bg-gradient-to-br from-blue-500/20 to-cyan-500/20 border border-blue-500/30 flex items-center justify-center text-3xl mb-5 shadow-lg shadow-blue-500/10">
+                                🎨
+                            </div>
+                            <h3 class="text-xl font-bold font-heading text-white">Frontend Development</h3>
+                            <p class="mt-3 text-xs sm:text-sm text-slate-400 leading-relaxed">
+                                Membangun antarmuka yang estetik, responsif di semua resolusi gawai, interaktif, dan nyaman digunakan oleh pengguna.
+                            </p>
+                        </div>
+                        <div class="mt-6 pt-4 border-t border-white/5 flex flex-wrap justify-center gap-1.5">
+                            <span class="px-2.5 py-1 rounded-md bg-white/5 text-xs text-blue-300 font-medium">HTML5 / CSS3</span>
+                            <span class="px-2.5 py-1 rounded-md bg-white/5 text-xs text-blue-300 font-medium">Tailwind CSS</span>
+                            <span class="px-2.5 py-1 rounded-md bg-white/5 text-xs text-blue-300 font-medium">JavaScript ES6+</span>
+                            <span class="px-2.5 py-1 rounded-md bg-white/5 text-xs text-blue-300 font-medium">React.js</span>
+                            <span class="px-2.5 py-1 rounded-md bg-white/5 text-xs text-blue-300 font-medium">Flutter Basic</span>
+                        </div>
+                    </div>
+
+                    <!-- Backend Card -->
+                    <div class="glass-card rounded-2xl sm:rounded-3xl p-6 sm:p-8 border border-white/10 text-center card-interactive flex flex-col justify-between">
+                        <div>
+                            <div class="h-16 w-16 mx-auto rounded-2xl bg-gradient-to-br from-indigo-500/20 to-purple-500/20 border border-indigo-500/30 flex items-center justify-center text-3xl mb-5 shadow-lg shadow-indigo-500/10">
+                                ⚙️
+                            </div>
+                            <h3 class="text-xl font-bold font-heading text-white">Backend & Database</h3>
+                            <p class="mt-3 text-xs sm:text-sm text-slate-400 leading-relaxed">
+                                Mengelola alur logika bisnis, autentikasi multi-role, skema relasional tabel database, dan controller data yang aman.
+                            </p>
+                        </div>
+                        <div class="mt-6 pt-4 border-t border-white/5 flex flex-wrap justify-center gap-1.5">
+                            <span class="px-2.5 py-1 rounded-md bg-white/5 text-xs text-indigo-300 font-medium">Laravel MVC</span>
+                            <span class="px-2.5 py-1 rounded-md bg-white/5 text-xs text-indigo-300 font-medium">MySQL & SQL</span>
+                            <span class="px-2.5 py-1 rounded-md bg-white/5 text-xs text-indigo-300 font-medium">REST API</span>
+                            <span class="px-2.5 py-1 rounded-md bg-white/5 text-xs text-indigo-300 font-medium">Auth & Routing</span>
+                        </div>
+                    </div>
+
+                    <!-- Testing Card -->
+                    <div class="glass-card rounded-2xl sm:rounded-3xl p-6 sm:p-8 border border-white/10 text-center card-interactive flex flex-col justify-between sm:col-span-2 lg:col-span-1">
+                        <div>
+                            <div class="h-16 w-16 mx-auto rounded-2xl bg-gradient-to-br from-emerald-500/20 to-teal-500/20 border border-emerald-500/30 flex items-center justify-center text-3xl mb-5 shadow-lg shadow-emerald-500/10">
+                                🛡️
+                            </div>
+                            <h3 class="text-xl font-bold font-heading text-white">Quality Assurance</h3>
+                            <p class="mt-3 text-xs sm:text-sm text-slate-400 leading-relaxed">
+                                Mengidentifikasi bug sedini mungkin, menguji seluruh skenario kasus negatif & positif, serta menjamin stabilitas produk sebelum rilis.
+                            </p>
+                        </div>
+                        <div class="mt-6 pt-4 border-t border-white/5 flex flex-wrap justify-center gap-1.5">
+                            <span class="px-2.5 py-1 rounded-md bg-white/5 text-xs text-emerald-300 font-medium">Manual Testing</span>
+                            <span class="px-2.5 py-1 rounded-md bg-white/5 text-xs text-emerald-300 font-medium">Bug Logging</span>
+                            <span class="px-2.5 py-1 rounded-md bg-white/5 text-xs text-emerald-300 font-medium">Retesting</span>
+                            <span class="px-2.5 py-1 rounded-md bg-white/5 text-xs text-emerald-300 font-medium">UX Quality Check</span>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ====================== WORKFLOW / QA METHODOLOGY ====================== -->
+        <section id="workflow" class="relative py-20 sm:py-28">
+            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+
+                <div class="max-w-3xl mb-12 sm:mb-16">
+                    <span class="section-badge">
+                        <i data-lucide="workflow" class="h-3.5 w-3.5"></i>
+                        Metodologi Kerja
+                    </span>
+                    <h2 class="mt-3 text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white font-heading">
+                        Alur & Siklus Kerja QA
+                    </h2>
+                    <p class="mt-3 text-sm sm:text-base text-slate-400">
+                        Standar operasional bertahap yang saya terapkan bersama tim dalam memastikan produk bebas bug dan siap pakai.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
+
+                    <!-- Step 1 -->
+                    <div class="glass-card rounded-2xl p-5 sm:p-6 border border-white/10 card-interactive relative">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-xs font-black font-heading px-2.5 py-1 rounded-lg bg-blue-600/20 text-blue-400 border border-blue-500/30">01</span>
+                            <i data-lucide="file-text" class="h-5 w-5 text-slate-500"></i>
+                        </div>
+                        <h3 class="text-base sm:text-lg font-bold font-heading text-white">Requirement</h3>
+                        <p class="mt-2 text-xs sm:text-sm text-slate-400 leading-relaxed">
+                            Memahami kebutuhan fungsionalitas, user stories, dan ekspektasi fitur dari website yang akan dibuat.
+                        </p>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="glass-card rounded-2xl p-5 sm:p-6 border border-white/10 card-interactive relative">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-xs font-black font-heading px-2.5 py-1 rounded-lg bg-blue-600/20 text-blue-400 border border-blue-500/30">02</span>
+                            <i data-lucide="code" class="h-5 w-5 text-slate-500"></i>
+                        </div>
+                        <h3 class="text-base sm:text-lg font-bold font-heading text-white">Development</h3>
+                        <p class="mt-2 text-xs sm:text-sm text-slate-400 leading-relaxed">
+                            Kolaborasi dalam implementasi kode frontend, logika backend, serta pengkoneksian basis data.
+                        </p>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="glass-card rounded-2xl p-5 sm:p-6 border border-white/10 card-interactive relative">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-xs font-black font-heading px-2.5 py-1 rounded-lg bg-blue-600/20 text-blue-400 border border-blue-500/30">03</span>
+                            <i data-lucide="play-circle" class="h-5 w-5 text-slate-500"></i>
+                        </div>
+                        <h3 class="text-base sm:text-lg font-bold font-heading text-white">Testing</h3>
+                        <p class="mt-2 text-xs sm:text-sm text-slate-400 leading-relaxed">
+                            Mengeksekusi pengujian menyeluruh pada form input, navigasi, responsive view, dan alur sistem.
+                        </p>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="glass-card rounded-2xl p-5 sm:p-6 border border-white/10 card-interactive relative">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-xs font-black font-heading px-2.5 py-1 rounded-lg bg-blue-600/20 text-blue-400 border border-blue-500/30">04</span>
+                            <i data-lucide="search" class="h-5 w-5 text-slate-500"></i>
+                        </div>
+                        <h3 class="text-base sm:text-lg font-bold font-heading text-white">Bug Finding</h3>
+                        <p class="mt-2 text-xs sm:text-sm text-slate-400 leading-relaxed">
+                            Mendeteksi error, bug logika perhitungan, layout patah, atau respon yang tidak sesuai spesifikasi.
+                        </p>
+                    </div>
+
+                    <!-- Step 5 -->
+                    <div class="glass-card rounded-2xl p-5 sm:p-6 border border-white/10 card-interactive relative">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-xs font-black font-heading px-2.5 py-1 rounded-lg bg-blue-600/20 text-blue-400 border border-blue-500/30">05</span>
+                            <i data-lucide="clipboard-list" class="h-5 w-5 text-slate-500"></i>
+                        </div>
+                        <h3 class="text-base sm:text-lg font-bold font-heading text-white">Reporting</h3>
+                        <p class="mt-2 text-xs sm:text-sm text-slate-400 leading-relaxed">
+                            Menyusun catatan temuan bug dengan detail langkah reproduksi yang jelas kepada developer.
+                        </p>
+                    </div>
+
+                    <!-- Step 6 -->
+                    <div class="glass-card rounded-2xl p-5 sm:p-6 border border-white/10 card-interactive relative">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-xs font-black font-heading px-2.5 py-1 rounded-lg bg-blue-600/20 text-blue-400 border border-blue-500/30">06</span>
+                            <i data-lucide="refresh-cw" class="h-5 w-5 text-slate-500"></i>
+                        </div>
+                        <h3 class="text-base sm:text-lg font-bold font-heading text-white">Retesting</h3>
+                        <p class="mt-2 text-xs sm:text-sm text-slate-400 leading-relaxed">
+                            Menguji kembali fitur setelah proses perbaikan selesai untuk memastikan kondisi telah 100% normal.
+                        </p>
+                    </div>
+
+                    <!-- Step 7: Release (Spans 2 columns on sm/lg) -->
+                    <div class="glass-card rounded-2xl p-5 sm:p-6 border border-blue-500/30 bg-blue-950/40 card-interactive relative sm:col-span-2">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-xs font-black font-heading px-2.5 py-1 rounded-lg bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">07 • Final</span>
+                            <i data-lucide="rocket" class="h-5 w-5 text-emerald-400"></i>
+                        </div>
+                        <h3 class="text-base sm:text-lg font-bold font-heading text-white">Production Release</h3>
+                        <p class="mt-2 text-xs sm:text-sm text-slate-300 leading-relaxed">
+                            Memastikan website siap dideploy dan digunakan secara optimal oleh pengguna akhir tanpa kendala operasional.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ====================== EDUCATION SECTION ====================== -->
+        <section class="relative py-20 sm:py-28 bg-slate-900/40 border-y border-white/5">
+            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+
+                <div class="glass-card rounded-3xl p-6 sm:p-10 lg:p-12 border border-white/10 relative overflow-hidden card-interactive">
+
+                    <!-- Background Accent Glow -->
+                    <div class="absolute -right-20 -bottom-20 h-64 w-64 rounded-full bg-blue-600/20 blur-3xl pointer-events-none"></div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 items-center">
+
+                        <div class="lg:col-span-5">
+                            <span class="section-badge">
+                                <i data-lucide="graduation-cap" class="h-3.5 w-3.5"></i>
+                                Pendidikan Formal
+                            </span>
+                            <h2 class="mt-3 text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white font-heading">
+                                SMK BPPI Baleendah
+                            </h2>
+                            <p class="mt-2 text-base text-cyan-300 font-bold">
+                                Siswa Kelas XII PPLG (Pengembangan Perangkat Lunak & Gim)
+                            </p>
+                            <p class="mt-4 text-xs sm:text-sm text-slate-300 leading-relaxed">
+                                Menempuh pendidikan kejuruan di SMK BPPI Baleendah dengan fokus komprehensif pada rekayasa perangkat lunak, arsitektur database relasional, algoritma pemrograman modern, desain UI/UX, serta standardisasi penjaminan mutu software (QA) melalui project industri nyata di Unit Produksi PPLG.
+                            </p>
+                        </div>
+
+                        <div class="lg:col-span-7">
+                            <p class="text-xs uppercase tracking-wider font-bold text-slate-400 mb-4">Kompetensi & Pengalaman Kejuruan:</p>
+                            <div class="grid grid-cols-2 sm:grid-cols-3 gap-2.5 sm:gap-3">
+                                <div class="p-3 sm:p-3.5 rounded-xl bg-white/[0.03] border border-white/5 hover:border-blue-500/30 text-xs sm:text-sm text-slate-200 font-medium transition-colors">
+                                    🌐 Pemrograman Web
+                                </div>
+                                <div class="p-3 sm:p-3.5 rounded-xl bg-white/[0.03] border border-white/5 hover:border-blue-500/30 text-xs sm:text-sm text-slate-200 font-medium transition-colors">
+                                    💻 Frontend Development
+                                </div>
+                                <div class="p-3 sm:p-3.5 rounded-xl bg-white/[0.03] border border-white/5 hover:border-blue-500/30 text-xs sm:text-sm text-slate-200 font-medium transition-colors">
+                                    ⚙️ Backend Development
+                                </div>
+                                <div class="p-3 sm:p-3.5 rounded-xl bg-white/[0.03] border border-white/5 hover:border-blue-500/30 text-xs sm:text-sm text-slate-200 font-medium transition-colors">
+                                    🗄️ Database MySQL
+                                </div>
+                                <div class="p-3 sm:p-3.5 rounded-xl bg-white/[0.03] border border-white/5 hover:border-blue-500/30 text-xs sm:text-sm text-slate-200 font-medium transition-colors">
+                                    📦 Laravel & React
+                                </div>
+                                <div class="p-3 sm:p-3.5 rounded-xl bg-white/[0.03] border border-white/5 hover:border-blue-500/30 text-xs sm:text-sm text-slate-200 font-medium transition-colors">
+                                    🛡️ Quality Assurance (QA)
+                                </div>
+                                <div class="p-3 sm:p-3.5 rounded-xl bg-white/[0.03] border border-white/5 hover:border-blue-500/30 text-xs sm:text-sm text-slate-200 font-medium transition-colors">
+                                    🔍 Bug Finding & Retest
+                                </div>
+                                <div class="p-3 sm:p-3.5 rounded-xl bg-white/[0.03] border border-white/5 hover:border-blue-500/30 text-xs sm:text-sm text-slate-200 font-medium transition-colors">
+                                    🎨 UI / UX Desain
+                                </div>
+                                <div class="p-3 sm:p-3.5 rounded-xl bg-white/[0.03] border border-white/5 hover:border-blue-500/30 text-xs sm:text-sm text-slate-200 font-medium transition-colors">
+                                    🤝 Unit Produksi BPPI
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ====================== CONTACT SECTION ====================== -->
+        <section id="contact" class="relative py-20 sm:py-28">
+            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+
+                <div class="glass-card rounded-3xl p-6 sm:p-10 lg:p-14 border border-white/10 relative overflow-hidden shadow-2xl card-interactive">
+
+                    <div class="max-w-3xl mb-8 sm:mb-12">
+                        <span class="section-badge">
+                            <i data-lucide="message-square" class="h-3.5 w-3.5"></i>
+                            Kontak & Komunikasi
+                        </span>
+                        <h2 class="mt-3 text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white font-heading">
+                            Mari Terhubung & Berdiskusi!
+                        </h2>
+                        <p class="mt-3 text-sm sm:text-base text-slate-300 leading-relaxed">
+                            Saya terbuka untuk peluang kolaborasi pembuatan website, internship/magang industri, pengujian mutu software (QA), maupun diskusi teknologi.
+                        </p>
+                    </div>
+
+                    <!-- Contact Options Grid -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-8 sm:mb-10">
+
+                        <!-- Email Card -->
+                        <div class="glass-card-light rounded-2xl p-5 border border-white/10 flex items-center justify-between group hover:border-blue-500/40 transition-colors">
+                            <div class="flex items-center gap-3.5 min-w-0">
+                                <div class="h-12 w-12 rounded-xl bg-blue-500/15 border border-blue-500/30 text-blue-400 flex items-center justify-center shrink-0">
+                                    <i data-lucide="mail" class="h-6 w-6"></i>
+                                </div>
+                                <div class="truncate">
+                                    <p class="text-[11px] text-slate-400 font-medium">Email Resmi</p>
+                                    <p class="text-xs sm:text-sm font-bold text-white truncate">wiranucky@gmail.com</p>
+                                </div>
+                            </div>
+                            <button onclick="copyToClipboard('wiranucky@gmail.com', 'Email')" class="h-9 w-9 rounded-lg bg-white/5 hover:bg-blue-600 text-slate-300 hover:text-white flex items-center justify-center shrink-0 transition-colors" title="Salin Email">
+                                <i data-lucide="copy" class="h-4 w-4"></i>
+                            </button>
+                        </div>
+
+                        <!-- WhatsApp Card -->
+                        <div class="glass-card-light rounded-2xl p-5 border border-white/10 flex items-center justify-between group hover:border-emerald-500/40 transition-colors">
+                            <div class="flex items-center gap-3.5 min-w-0">
+                                <div class="h-12 w-12 rounded-xl bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 flex items-center justify-center shrink-0">
+                                    <i data-lucide="phone" class="h-6 w-6"></i>
+                                </div>
+                                <div class="truncate">
+                                    <p class="text-[11px] text-slate-400 font-medium">WhatsApp</p>
+                                    <p class="text-xs sm:text-sm font-bold text-white truncate">+62 838-3915-9051</p>
+                                </div>
+                            </div>
+                            <button onclick="copyToClipboard('+6283839159051', 'WhatsApp')" class="h-9 w-9 rounded-lg bg-white/5 hover:bg-emerald-600 text-slate-300 hover:text-white flex items-center justify-center shrink-0 transition-colors" title="Salin Nomor">
+                                <i data-lucide="copy" class="h-4 w-4"></i>
+                            </button>
+                        </div>
+
+                        <!-- GitHub Card -->
+                        <a href="https://github.com/olisampingstrobbery-alt" target="_blank" rel="noopener noreferrer" class="glass-card-light rounded-2xl p-5 border border-white/10 flex items-center justify-between group hover:border-cyan-500/40 transition-colors sm:col-span-2 lg:col-span-1">
+                            <div class="flex items-center gap-3.5 min-w-0">
+                                <div class="h-12 w-12 rounded-xl bg-slate-500/15 border border-white/20 text-slate-300 flex items-center justify-center shrink-0">
+                                    <i data-lucide="github" class="h-6 w-6"></i>
+                                </div>
+                                <div class="truncate">
+                                    <p class="text-[11px] text-slate-400 font-medium">GitHub Repository</p>
+                                    <p class="text-xs sm:text-sm font-bold text-white truncate">olisampingstrobbery</p>
+                                </div>
+                            </div>
+                            <div class="h-9 w-9 rounded-lg bg-white/5 group-hover:bg-cyan-600 text-slate-300 group-hover:text-white flex items-center justify-center shrink-0 transition-colors">
+                                <i data-lucide="arrow-up-right" class="h-4 w-4"></i>
+                            </div>
+                        </a>
+
+                    </div>
+
+                    <!-- Quick Action Buttons (3D Beveled Buttons) -->
+                    <div class="flex flex-wrap items-center gap-3 sm:gap-4 pt-6 border-t border-white/10">
+                        <a href="mailto:wiranucky@gmail.com" class="btn-3d-primary inline-flex items-center gap-2 rounded-xl px-6 py-3.5 text-sm sm:text-base font-semibold text-white">
+                            <i data-lucide="mail" class="h-4 w-4"></i>
+                            <span>Kirim Email Langsung</span>
+                        </a>
+
+                        <a href="https://wa.me/6283839159051" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 px-6 py-3.5 text-sm sm:text-base font-semibold text-white shadow-lg shadow-emerald-600/30 transition-all hover:scale-[1.02] active:scale-95">
+                            <i data-lucide="message-circle" class="h-4 w-4"></i>
+                            <span>Chat WhatsApp (+62 838-3915-9051)</span>
+                        </a>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+<!-- ====================== FOOTER ====================== -->
+<footer class="border-t border-white/10 bg-slate-950 py-6 sm:py-8 text-slate-400">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex flex-col items-center gap-2 text-center">
+        <!-- Baris pertama: Nama dan copyright -->
+        <div class="flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-xs sm:text-sm">
+            <span class="font-bold text-white font-heading">Nucky Wira Arsyadana</span>
+            <span class="text-slate-400">© <span id="year"></span> All Rights Reserved</span>
+        </div>
+
+        <!-- Baris kedua: Role -->
+        <p class="text-xs sm:text-sm text-slate-300 font-medium">
+            Siswa XII PPLG •   SMK BPPI Baleendah •   Fullstack Web Developer & Quality Assurance
+        </p>
     </div>
-  </footer>
+</footer>
 
-  <!-- Back to top -->
-  <a href="#home" class="fixed bottom-4 sm:bottom-5 right-4 sm:right-5 grid h-10 sm:h-12 w-10 sm:w-12 place-items-center rounded-full bg-blue-600 text-white shadow-lg transition-all duration-300 hover:scale-110 hover:shadow-blue-600/30">
-    <i data-lucide="arrow-up" class="h-4 sm:h-5 w-4 sm:w-5"></i>
-  </a>
 
-  <script>
-    lucide.createIcons();
+    <!-- Floating Back to Top Button -->
+    <button id="backToTopBtn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="fixed bottom-6 left-6 z-40 h-11 w-11 rounded-xl bg-blue-600 text-white shadow-xl shadow-blue-600/40 flex items-center justify-center transform translate-y-20 opacity-0 transition-all duration-300 hover:bg-blue-500 hover:scale-110 active:scale-95" aria-label="Kembali ke atas">
+        <i data-lucide="arrow-up" class="h-5 w-5"></i>
+    </button>
 
-    const menuBtn = document.getElementById('menuBtn');
-    const hamburgerIcon = document.getElementById('hamburgerIcon');
-    const mobileMenu = document.getElementById('mobileMenu');
+    <!-- ====================== JAVASCRIPT ====================== -->
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
 
-    menuBtn.addEventListener('click', () => {
-      hamburgerIcon.classList.toggle('active');
-      mobileMenu.classList.toggle('open');
-    });
+        // Current Year
+        document.getElementById('year').textContent = new Date().getFullYear();
 
-    document.querySelectorAll('.mobile-link').forEach(link => {
-      link.addEventListener('click', () => {
-        hamburgerIcon.classList.remove('active');
-        mobileMenu.classList.remove('open');
-      });
-    });
+        // Mobile Drawer Elements
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const burgerIcon = mobileMenuBtn.querySelector('.nav-burger');
+        const mobileDrawer = document.getElementById('mobileDrawer');
+        const mobileLinks = document.querySelectorAll('.mobile-nav-link');
 
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+        mobileMenuBtn.addEventListener('click', () => {
+            burgerIcon.classList.toggle('open');
+            mobileDrawer.classList.toggle('hidden');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                burgerIcon.classList.remove('open');
+                mobileDrawer.classList.add('hidden');
+            });
+        });
+
+        // Scroll Progress & Back to Top Controller
+        const scrollProgressBar = document.getElementById('scrollProgress');
+        const backToTopBtn = document.getElementById('backToTopBtn');
+
+        window.addEventListener('scroll', () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            scrollProgressBar.style.width = scrolled + '%';
+
+            if (winScroll > 400) {
+                backToTopBtn.classList.remove('translate-y-20', 'opacity-0');
+            } else {
+                backToTopBtn.classList.add('translate-y-20', 'opacity-0');
+            }
+        });
+
+        // Copy to Clipboard Utility with Toast
+        let toastTimeout;
+
+        function copyToClipboard(text, label) {
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(text).then(() => {
+                    showToast(label + ' berhasil disalin!');
+                }).catch(() => {
+                    fallbackCopy(text, label);
+                });
+            } else {
+                fallbackCopy(text, label);
+            }
+        }
+
+        function fallbackCopy(text, label) {
+            const textArea = document.createElement('textarea');
+            textArea.value = text;
+            document.body.appendChild(textArea);
+            textArea.select();
+            try {
+                document.execCommand('copy');
+                showToast(label + ' berhasil disalin!');
+            } catch (err) {
+                showToast('Gagal menyalin data');
+            }
+            document.body.removeChild(textArea);
+        }
+
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toastMessage');
+            toastMsg.textContent = message;
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            clearTimeout(toastTimeout);
+            toastTimeout = setTimeout(() => {
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 3000);
+        }
+
+        // Skills Interactive Filter
+        function filterSkills(category) {
+            const buttons = document.querySelectorAll('.skill-filter-btn');
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-blue-600', 'text-white');
+                btn.classList.add('bg-white/5', 'text-slate-300');
+            });
+            event.target.classList.remove('bg-white/5', 'text-slate-300');
+            event.target.classList.add('bg-blue-600', 'text-white');
+
+            const items = document.querySelectorAll('.skill-item');
+            items.forEach(item => {
+                if (category === 'all' || item.dataset.category === category) {
+                    item.style.display = 'flex';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        // Project Interactive Filter
+        function filterProjects(category) {
+            const buttons = document.querySelectorAll('.proj-filter-btn');
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-blue-600', 'text-white');
+                btn.classList.add('bg-white/5', 'text-slate-300');
+            });
+            event.target.classList.remove('bg-white/5', 'text-slate-300');
+            event.target.classList.add('bg-blue-600', 'text-white');
+
+            const items = document.querySelectorAll('#projectsGrid .project-card');
+            items.forEach(item => {
+                if (category === 'all' || item.dataset.category === category) {
+                    item.style.display = 'flex';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        // Dynamic 3D Card Parallax Tilt Interaction (Desktop only)
+        if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+            const tiltCards = document.querySelectorAll('.card-interactive');
+            tiltCards.forEach(card => {
+                card.addEventListener('mousemove', e => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+                    const rotateX = ((y - centerY) / centerY) * -5;
+                    const rotateY = ((x - centerX) / centerX) * 5;
+                    card.style.transform =
+                        `perspective(1000px) translateY(-6px) translateZ(12px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+                });
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = '';
+                });
+            });
+        }
+    </script>
 </body>
 </html>
