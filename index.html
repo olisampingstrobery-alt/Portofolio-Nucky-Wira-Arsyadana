@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Portofolio Nucky Wira Arsyadana - Fullstack Web Developer & Quality Assurance (PPLG)." />
     <meta name="author" content="Nucky Wira Arsyadana" />
-    <title>Nucky Wira Arsyadana | Portfolio Web Developer & QA</title>
+    <title>Nucky Wira Arsyadana | Portfolio Web Developer & Q&A</title>
 
     <!-- Google Fonts: Plus Jakarta Sans & Outfit -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -90,6 +90,7 @@
         html {
             scroll-behavior: smooth;
             color-scheme: dark;
+            scroll-padding-top: 88px;
         }
 
         body {
@@ -98,6 +99,22 @@
             color: #f1f5f9;
             overflow-x: hidden;
             perspective: 1200px;
+        }
+
+        section[id] {
+            scroll-margin-top: 88px;
+        }
+
+        /* === SISTEM SPACING KONSISTEN === */
+        .section-spacing {
+            padding-top: 5rem;
+            padding-bottom: 5rem;
+        }
+        @media (min-width: 640px) {
+            .section-spacing { padding-top: 6rem; padding-bottom: 6rem; }
+        }
+        @media (min-width: 1024px) {
+            .section-spacing { padding-top: 7rem; padding-bottom: 7rem; }
         }
 
         h1,
@@ -299,6 +316,18 @@
             width: 1.75rem;
             height: 1.75rem;
         }
+
+        /* === LAYOUT FIX: GRID EQUAL HEIGHT & RAPI === */
+        #skillsGrid, #projectsGrid {
+            align-items: stretch;
+        }
+        .skill-item, .project-card {
+            height: 100%;
+        }
+        /* Pastikan container tidak melebar aneh di layar ultra-wide */
+        .mx-auto.max-w-7xl {
+            width: 100%;
+        }
     </style>
 </head>
 
@@ -414,7 +443,7 @@
 
     <main>
         <!-- ====================== HERO SECTION ====================== -->
-        <section id="home" class="relative min-h-[92vh] lg:min-h-screen flex items-center justify-center pt-24 pb-16 lg:py-28 overflow-hidden">
+        <section id="home" class="relative min-h-[88vh] lg:min-h-screen flex items-center justify-center pt-10 sm:pt-12 lg:pt-16 pb-16 lg:pb-20 overflow-hidden section-spacing">
 
             <!-- Ambient 3D Glow Blobs -->
             <div class="absolute -top-24 left-1/4 h-72 sm:h-96 w-72 sm:w-96 rounded-full bg-blue-600/15 blur-[120px] pointer-events-none animate-blob"></div>
@@ -425,127 +454,137 @@
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
 
                     <!-- Text Column (Left) -->
-                    <div class="lg:col-span-7 flex flex-col items-start text-left order-2 lg:order-1">
+                    <div class="lg:col-span-7 flex flex-col items-start text-left order-2 lg:order-1 gap-0">
 
-                        <!-- Student & School Badge (3D Floating) -->
-                        <div class="inline-flex items-center gap-2.5 rounded-full border border-blue-400/40 bg-gradient-to-r from-blue-950/90 via-slate-900/90 to-blue-950/90 px-4 py-2 backdrop-blur-md shadow-lg shadow-blue-500/15">
-                            <span class="flex h-2.5 w-2.5 relative">
+                        <!-- Student & School Badge (3D Floating) - FIX: wrapping & spacing -->
+                        <div class="inline-flex flex-wrap items-center gap-2 rounded-full border border-blue-400/30 bg-gradient-to-r from-blue-950/90 via-slate-900/90 to-blue-950/90 px-3.5 sm:px-4 py-2 backdrop-blur-md shadow-lg shadow-blue-500/15 max-w-full">
+                            <span class="flex h-2 w-2 sm:h-2.5 sm:w-2.5 relative shrink-0">
                                 <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-                                <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-blue-500"></span>
+                                <span class="relative inline-flex rounded-full h-2 w-2 sm:h-2.5 sm:w-2.5 bg-blue-500"></span>
                             </span>
-                            <span class="text-xs sm:text-sm font-bold text-blue-200 tracking-wide flex items-center gap-1.5">
-                                <i data-lucide="graduation-cap" class="h-4 w-4 text-cyan-400"></i>
+                            <span class="text-[11px] sm:text-xs font-bold text-blue-200 tracking-wide inline-flex flex-wrap items-center gap-1.5 leading-none">
+                                <i data-lucide="graduation-cap" class="h-3.5 w-3.5 text-cyan-400 shrink-0"></i>
                                 <span>Siswa XII PPLG • SMK BPPI Baleendah</span>
-                                <span class="text-slate-500">|</span>
+                                <span class="hidden sm:inline text-slate-500">|</span>
                                 <span class="text-slate-300 font-medium">Unit Produksi</span>
                             </span>
                         </div>
 
-                        <!-- Main Heading -->
-                        <h1 class="mt-5 sm:mt-6 text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.1] text-white">
+                        <!-- Main Heading - FIX: consistent leading & margin -->
+                        <h1 class="mt-5 sm:mt-6 text-[2rem] sm:text-5xl md:text-6xl lg:text-[4.25rem] font-extrabold tracking-tight leading-[0.95] sm:leading-[1.05] text-white">
                             Nucky Wira <br class="hidden sm:inline" />
                             <span class="text-gradient">Arsyadana</span>
                         </h1>
 
                         <!-- Subtitle Roles with gradient accent -->
-                        <div class="mt-4 flex flex-wrap items-center gap-2 text-base sm:text-xl lg:text-2xl font-bold font-heading">
+                        <div class="mt-3 sm:mt-4 flex flex-wrap items-center gap-x-2 gap-y-1 text-[15px] sm:text-xl lg:text-2xl font-bold font-heading leading-tight">
                             <span class="text-slate-100">Fullstack Web Developer</span>
                             <span class="text-blue-500 font-extrabold">&</span>
                             <span class="text-gradient-blue">Quality Assurance (QA)</span>
                         </div>
 
-                        <!-- Description -->
-                        <p class="mt-4 sm:mt-5 text-sm sm:text-base lg:text-lg text-slate-300 leading-relaxed max-w-2xl">
+                        <!-- Description - FIX: max-width & line-height tertata -->
+                        <p class="mt-3.5 sm:mt-4 text-[13.5px] sm:text-[15px] lg:text-[17px] text-slate-300 leading-relaxed sm:leading-7 max-w-[42rem] text-pretty">
                             Siswa kelas <strong class="text-white font-semibold">XII PPLG</strong> di <strong class="text-blue-400 font-semibold">SMK BPPI Baleendah</strong> yang berfokus pada pengembangan website modern berkinerja tinggi, pengujian kualitas software (QA), desain UI/UX, dan arsitektur database. Aktif di <span class="text-white font-medium">Unit Produksi PPLG SMK BPPI Baleendah</span> menangani project nyata.
                         </p>
 
-                        <!-- Call to Actions (3D Buttons) -->
-                        <div class="mt-6 sm:mt-8 flex flex-wrap items-center gap-3 sm:gap-4 w-full sm:w-auto">
-                            <a href="#projects" class="btn-3d-primary w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl px-6 py-3.5 text-sm sm:text-base font-semibold text-white">
-                                <i data-lucide="briefcase" class="h-4 w-4"></i>
-                                <span>Lihat Project</span>
-                            </a>
-                            <a href="#about" class="btn-3d-secondary w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl px-5 py-3.5 text-sm sm:text-base font-semibold text-slate-200">
-                                <i data-lucide="user" class="h-4 w-4"></i>
-                                <span>Tentang Saya</span>
-                            </a>
-                            <button onclick="copyToClipboard('wiranucky@gmail.com', 'Email wiranucky@gmail.com')" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl border border-blue-500/30 bg-blue-950/40 px-4 py-3.5 text-xs sm:text-sm font-semibold text-blue-300 hover:bg-blue-900/50 hover:text-white transition-all shadow-md">
+                        <!-- Call to Actions (3D Buttons) - FIX: grid tertata di mobile -->
+                        <div class="mt-6 sm:mt-7 flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3 w-full sm:w-auto max-w-2xl">
+                            <div class="grid grid-cols-2 gap-3 w-full sm:w-auto sm:flex sm:flex-wrap">
+                                <a href="#projects" class="btn-3d-primary inline-flex items-center justify-center gap-2 rounded-xl px-5 sm:px-6 py-3 sm:py-3.5 text-sm font-semibold text-white">
+                                    <i data-lucide="briefcase" class="h-4 w-4"></i>
+                                    <span>Lihat Project</span>
+                                </a>
+                                <a href="#about" class="btn-3d-secondary inline-flex items-center justify-center gap-2 rounded-xl px-5 py-3 sm:py-3.5 text-sm font-semibold text-slate-200">
+                                    <i data-lucide="user" class="h-4 w-4"></i>
+                                    <span>Tentang Saya</span>
+                                </a>
+                            </div>
+                            <button onclick="copyToClipboard('wiranucky@gmail.com', 'Email wiranucky@gmail.com')" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl border border-blue-500/30 bg-blue-950/40 px-4 py-3 sm:py-3.5 text-xs sm:text-sm font-semibold text-blue-300 hover:bg-blue-900/50 hover:text-white transition-all shadow-md shrink-0">
                                 <i data-lucide="copy" class="h-3.5 w-3.5"></i>
                                 <span>Salin Email</span>
                             </button>
                         </div>
 
-                        <!-- Quick Metrics Grid -->
-                        <div class="mt-8 sm:mt-12 grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3.5 w-full max-w-2xl">
-                            <div class="glass-card rounded-xl sm:rounded-2xl p-3.5 sm:p-4 text-left border border-white/5 card-interactive">
-                                <div class="text-blue-400 mb-1">
+                        <!-- Quick Metrics Grid - FIX: equal height & gap konsisten -->
+                        <div class="mt-8 sm:mt-10 grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 w-full max-w-2xl auto-rows-fr">
+                            <div class="glass-card rounded-2xl p-4 sm:p-5 text-left border border-white/[0.06] card-interactive flex flex-col justify-between min-h-[96px]">
+                                <div class="text-blue-400 mb-1.5">
                                     <i data-lucide="shield-check" class="h-5 w-5"></i>
                                 </div>
-                                <div class="text-lg sm:text-2xl font-black font-heading text-white">QA</div>
-                                <div class="text-[11px] sm:text-xs text-slate-400 font-medium">Testing & Verification</div>
+                                <div>
+                                    <div class="text-lg sm:text-xl font-black font-heading text-white leading-none">QA</div>
+                                    <div class="text-[11px] sm:text-xs text-slate-400 font-medium leading-tight mt-1">Testing & Verification</div>
+                                </div>
                             </div>
 
-                            <div class="glass-card rounded-xl sm:rounded-2xl p-3.5 sm:p-4 text-left border border-white/5 card-interactive">
-                                <div class="text-cyan-400 mb-1">
+                            <div class="glass-card rounded-2xl p-4 sm:p-5 text-left border border-white/[0.06] card-interactive flex flex-col justify-between min-h-[96px]">
+                                <div class="text-cyan-400 mb-1.5">
                                     <i data-lucide="code" class="h-5 w-5"></i>
                                 </div>
-                                <div class="text-lg sm:text-2xl font-black font-heading text-white">Fullstack</div>
-                                <div class="text-[11px] sm:text-xs text-slate-400 font-medium">Frontend & Backend</div>
+                                <div>
+                                    <div class="text-lg sm:text-xl font-black font-heading text-white leading-none">Fullstack</div>
+                                    <div class="text-[11px] sm:text-xs text-slate-400 font-medium leading-tight mt-1">Frontend & Backend</div>
+                                </div>
                             </div>
 
-                            <div class="glass-card rounded-xl sm:rounded-2xl p-3.5 sm:p-4 text-left border border-white/5 card-interactive">
-                                <div class="text-indigo-400 mb-1">
+                            <div class="glass-card rounded-2xl p-4 sm:p-5 text-left border border-white/[0.06] card-interactive flex flex-col justify-between min-h-[96px]">
+                                <div class="text-indigo-400 mb-1.5">
                                     <i data-lucide="graduation-cap" class="h-5 w-5"></i>
                                 </div>
-                                <div class="text-lg sm:text-2xl font-black font-heading text-white">XII PPLG</div>
-                                <div class="text-[11px] sm:text-xs text-slate-400 font-medium">SMK BPPI Baleendah</div>
+                                <div>
+                                    <div class="text-lg sm:text-xl font-black font-heading text-white leading-none">XII PPLG</div>
+                                    <div class="text-[11px] sm:text-xs text-slate-400 font-medium leading-tight mt-1">SMK BPPI Baleendah</div>
+                                </div>
                             </div>
 
-                            <div class="glass-card rounded-xl sm:rounded-2xl p-3.5 sm:p-4 text-left border border-white/5 card-interactive">
-                                <div class="text-emerald-400 mb-1">
+                            <div class="glass-card rounded-2xl p-4 sm:p-5 text-left border border-white/[0.06] card-interactive flex flex-col justify-between min-h-[96px]">
+                                <div class="text-emerald-400 mb-1.5">
                                     <i data-lucide="layers" class="h-5 w-5"></i>
                                 </div>
-                                <div class="text-lg sm:text-2xl font-black font-heading text-white">4+</div>
-                                <div class="text-[11px] sm:text-xs text-slate-400 font-medium">Project Nyata</div>
+                                <div>
+                                    <div class="text-lg sm:text-xl font-black font-heading text-white leading-none">3+</div>
+                                    <div class="text-[11px] sm:text-xs text-slate-400 font-medium leading-tight mt-1">Project Nyata</div>
+                                </div>
                             </div>
                         </div>
 
                     </div>
 
-                    <!-- Profile Visual Column (Right) -->
-                    <div class="lg:col-span-5 flex justify-center order-1 lg:order-2">
-                        <div class="relative w-full max-w-xs sm:max-w-md">
+                    <!-- Profile Visual Column (Right) - FIX: proporsi tertata -->
+                    <div class="lg:col-span-5 flex justify-center lg:justify-end order-1 lg:order-2">
+                        <div class="relative w-full max-w-[320px] sm:max-w-[380px] lg:max-w-[420px]">
 
                             <!-- Backdrop Decorative 3D Gradient Glows -->
-                            <div class="absolute -inset-3 sm:-inset-5 rounded-[2.5rem] bg-gradient-to-tr from-blue-600/35 via-cyan-500/25 to-indigo-600/35 blur-2xl opacity-80 animate-pulse-subtle"></div>
+                            <div class="absolute -inset-4 rounded-[2.5rem] bg-gradient-to-tr from-blue-600/30 via-cyan-500/20 to-indigo-600/30 blur-2xl opacity-70 animate-pulse-subtle"></div>
 
                             <!-- Main Photo Frame with 3D Border & Shadow -->
-                            <div class="relative rounded-[2rem] sm:rounded-[2.5rem] border border-white/15 bg-slate-900/90 overflow-hidden shadow-2xl shadow-blue-950/90 group card-interactive">
+                            <div class="relative rounded-[2rem] border border-white/[0.12] bg-slate-900/90 overflow-hidden shadow-2xl shadow-blue-950/80 group card-interactive">
 
                                 <!-- Profile Image with exact user filename: profile3.jpg -->
-                                <img src="profile3.jpg" alt="Foto profil Nucky Wira Arsyadana - Siswa XII PPLG SMK BPPI Baleendah" class="h-[340px] sm:h-[430px] lg:h-[510px] w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'800\' height=\'1000\' viewBox=\'0 0 800 1000\'><rect width=\'800\' height=\'1000\' fill=\'%230b1329\'/><circle cx=\'400\' cy=\'380\' r=\'160\' fill=\'%231e293b\'/><path d=\'M180 820 C180 620, 620 620, 620 820\' fill=\'%231e293b\'/><text x=\'50%25\' y=\'880\' font-family=\'sans-serif\' font-size=\'32\' font-weight=\'bold\' fill=\'%2360a5fa\' text-anchor=\'middle\'>Nucky Wira Arsyadana</text><text x=\'50%25\' y=\'930\' font-family=\'sans-serif\' font-size=\'22\' fill=\'%2394a3b8\' text-anchor=\'middle\'>Siswa XII PPLG • SMK BPPI Baleendah</text></svg>';" />
+                                <img src="profile3.jpg" alt="Foto profil Nucky Wira Arsyadana - Siswa XII PPLG SMK BPPI Baleendah" class="h-[360px] sm:h-[440px] lg:h-[520px] w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.02]" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'800\' height=\'1000\' viewBox=\'0 0 800 1000\'><rect width=\'800\' height=\'1000\' fill=\'%230b1329\'/><circle cx=\'400\' cy=\'380\' r=\'160\' fill=\'%231e293b\'/><path d=\'M180 820 C180 620, 620 620, 620 820\' fill=\'%231e293b\'/><text x=\'50%25\' y=\'880\' font-family=\'sans-serif\' font-size=\'32\' font-weight=\'bold\' fill=\'%2360a5fa\' text-anchor=\'middle\'>Nucky Wira Arsyadana</text><text x=\'50%25\' y=\'930\' font-family=\'sans-serif\' font-size=\'22\' fill=\'%2394a3b8\' text-anchor=\'middle\'>Siswa XII PPLG • SMK BPPI Baleendah</text></svg>';" />
 
                                 <!-- Dark Gradient Overlay for Readability -->
-                                <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/25 to-transparent opacity-85 pointer-events-none"></div>
+                                <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent opacity-80 pointer-events-none"></div>
 
                                 <!-- Floating Bottom Status Card -->
-                                <div class="absolute inset-x-3 sm:inset-x-5 bottom-3 sm:bottom-5 rounded-2xl border border-white/15 bg-slate-950/90 p-4 sm:p-5 backdrop-blur-xl shadow-2xl">
-                                    <div class="flex items-center justify-between">
-                                        <div>
-                                            <p class="text-base sm:text-lg font-bold font-heading text-white">Nucky Wira Arsyadana</p>
-                                            <p class="text-xs sm:text-sm text-blue-300 font-semibold">Siswa XII PPLG • SMK BPPI Baleendah</p>
-                                            <p class="text-[11px] text-slate-400">Web Developer & Quality Assurance</p>
+                                <div class="absolute inset-x-3 sm:inset-x-4 bottom-3 sm:bottom-4 rounded-2xl border border-white/15 bg-slate-950/90 p-3.5 sm:p-4 backdrop-blur-xl shadow-2xl">
+                                    <div class="flex items-center justify-between gap-3">
+                                        <div class="min-w-0">
+                                            <p class="text-sm sm:text-[15px] font-bold font-heading text-white leading-tight truncate">Nucky Wira Arsyadana</p>
+                                            <p class="text-[11px] sm:text-xs text-blue-300 font-semibold leading-tight">Siswa XII PPLG • SMK BPPI Baleendah</p>
+                                            <p class="text-[10px] sm:text-[11px] text-slate-400 leading-tight">Web Developer & Quality Assurance</p>
                                         </div>
-                                        <span class="flex h-3.5 w-3.5 relative shrink-0">
+                                        <span class="flex h-3 w-3 relative shrink-0">
                                             <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                                            <span class="relative inline-flex rounded-full h-3.5 w-3.5 bg-emerald-500 shadow-lg shadow-emerald-500/50"></span>
+                                            <span class="relative inline-flex rounded-full h-3 w-3 bg-emerald-500 shadow-lg shadow-emerald-500/50"></span>
                                         </span>
                                     </div>
                                 </div>
 
                                 <!-- Floating Top-Right Badge -->
-                                <div class="absolute top-4 right-4 rounded-xl border border-white/15 bg-slate-950/85 px-3.5 py-1.5 text-xs font-bold text-slate-200 backdrop-blur-md shadow-lg flex items-center gap-1.5">
-                                    <i data-lucide="sparkles" class="h-3.5 w-3.5 text-yellow-400"></i>
+                                <div class="absolute top-3.5 right-3.5 rounded-xl border border-white/15 bg-slate-950/85 px-3 py-1.5 text-[11px] font-bold text-slate-200 backdrop-blur-md shadow-lg flex items-center gap-1.5">
+                                    <i data-lucide="sparkles" class="h-3 w-3 text-yellow-400"></i>
                                     <span>XII PPLG</span>
                                 </div>
 
@@ -558,24 +597,24 @@
         </section>
 
         <!-- ====================== ABOUT SECTION ====================== -->
-        <section id="about" class="relative py-20 sm:py-28 bg-slate-900/50 border-y border-white/5">
+        <section id="about" class="relative section-spacing bg-slate-900/50 border-y border-white/5">
             <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
-                <!-- Section Header -->
-                <div class="max-w-3xl mb-12 sm:mb-16">
+                <!-- Section Header - FIX: konsisten -->
+                <div class="max-w-3xl mb-10 sm:mb-14">
                     <span class="section-badge">
                         <i data-lucide="user-check" class="h-3.5 w-3.5"></i>
                         Tentang Saya
                     </span>
-                    <h2 class="mt-3 text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white font-heading">
+                    <h2 class="mt-3 text-3xl sm:text-4xl lg:text-[2.75rem] font-extrabold tracking-tight text-white font-heading leading-tight">
                         Mengenal Saya Lebih Dekat
                     </h2>
-                    <p class="mt-3 text-sm sm:text-base text-slate-400">
+                    <p class="mt-3 text-sm sm:text-[15px] text-slate-400 leading-relaxed max-w-2xl">
                         Siswa kelas XII PPLG di SMK BPPI Baleendah dengan dedikasi tinggi dalam rekayasa website dan penjaminan kualitas perangkat lunak (QA).
                     </p>
                 </div>
 
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 items-start">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
 
                     <!-- Narrative Bio (7 cols) -->
                     <div class="lg:col-span-7 space-y-5 text-sm sm:text-base text-slate-300 leading-relaxed">
@@ -701,19 +740,19 @@
         </section>
 
         <!-- ====================== SKILLS & TECH STACK ====================== -->
-        <section id="skills" class="relative py-20 sm:py-28">
+        <section id="skills" class="relative section-spacing">
             <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
-                <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 sm:mb-16 gap-6">
+                <div class="flex flex-col lg:flex-row lg:items-end justify-between mb-10 sm:mb-12 gap-6">
                     <div class="max-w-2xl">
                         <span class="section-badge">
                             <i data-lucide="cpu" class="h-3.5 w-3.5"></i>
                             Skills & Technology
                         </span>
-                        <h2 class="mt-3 text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white font-heading">
+                        <h2 class="mt-3 text-3xl sm:text-4xl lg:text-[2.75rem] font-extrabold tracking-tight text-white font-heading leading-tight">
                             Keahlian & Teknologi
                         </h2>
-                        <p class="mt-3 text-sm sm:text-base text-slate-400">
+                        <p class="mt-3 text-sm sm:text-[15px] text-slate-400 leading-relaxed max-w-2xl">
                             Perangkat dan teknologi yang saya gunakan dalam pengembangan antarmuka, backend, basis data, dan pengujian kualitas perangkat lunak.
                         </p>
                     </div>
@@ -727,8 +766,8 @@
                     </div>
                 </div>
 
-                <!-- Skills Cards Grid -->
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6" id="skillsGrid">
+                <!-- Skills Cards Grid - FIX: auto-rows equal height -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 auto-rows-fr items-stretch" id="skillsGrid">
 
                     <!-- 1. HTML5 -->
                     <div class="skill-item card-interactive glass-card rounded-2xl p-5 sm:p-6 border border-white/10 flex flex-col justify-between" data-category="frontend">
@@ -787,26 +826,6 @@
                         <div class="mt-5 pt-3 border-t border-white/5 flex items-center justify-between text-xs text-slate-500">
                             <span>Interactive Scripts</span>
                             <span class="text-yellow-400 font-semibold">Mahir</span>
-                        </div>
-                    </div>
-
-                    <!-- 4. React -->
-                    <div class="skill-item card-interactive glass-card rounded-2xl p-5 sm:p-6 border border-white/10 flex flex-col justify-between" data-category="frontend">
-                        <div>
-                            <div class="flex items-center justify-between mb-4">
-                                <div class="h-14 w-14 rounded-xl bg-cyan-500/15 border border-cyan-500/30 text-cyan-400 flex items-center justify-center">
-                                    <i data-lucide="atom" class="h-7 w-7"></i>
-                                </div>
-                                <span class="text-[10px] font-semibold uppercase tracking-wider text-cyan-300/80 bg-cyan-500/10 px-2 py-0.5 rounded-full border border-cyan-500/20">Library</span>
-                            </div>
-                            <h3 class="text-lg font-bold font-heading text-white">React.js</h3>
-                            <p class="mt-2 text-xs sm:text-sm text-slate-400 leading-relaxed">
-                                Pembangunan antarmuka modular berbasis reusable components, props, and hooks.
-                            </p>
-                        </div>
-                        <div class="mt-5 pt-3 border-t border-white/5 flex items-center justify-between text-xs text-slate-500">
-                            <span>Component Architecture</span>
-                            <span class="text-cyan-400 font-semibold">Kompeten</span>
                         </div>
                     </div>
 
@@ -896,10 +915,10 @@
         </section>
 
         <!-- ====================== EXPERIENCE SECTION ====================== -->
-        <section id="experience" class="relative py-20 sm:py-28 bg-slate-900/40 border-y border-white/5">
+        <section id="experience" class="relative section-spacing bg-slate-900/40 border-y border-white/5">
             <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
 
                     <!-- Narrative & Responsibilities (Left - 7 cols) -->
                     <div class="lg:col-span-7 order-2 lg:order-1">
@@ -1002,19 +1021,19 @@
         </section>
 
         <!-- ====================== PROJECTS SECTION ====================== -->
-        <section id="projects" class="relative py-20 sm:py-28">
+        <section id="projects" class="relative section-spacing">
             <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
-                <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 sm:mb-16 gap-6">
+                <div class="flex flex-col lg:flex-row lg:items-end justify-between mb-10 sm:mb-12 gap-6">
                     <div class="max-w-2xl">
                         <span class="section-badge">
                             <i data-lucide="folder-git-2" class="h-3.5 w-3.5"></i>
                             Portofolio Project
                         </span>
-                        <h2 class="mt-3 text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white font-heading">
+                        <h2 class="mt-3 text-3xl sm:text-4xl lg:text-[2.75rem] font-extrabold tracking-tight text-white font-heading leading-tight">
                             Project yang Pernah Ditangani
                         </h2>
-                        <p class="mt-3 text-sm sm:text-base text-slate-400">
+                        <p class="mt-3 text-sm sm:text-[15px] text-slate-400 leading-relaxed max-w-2xl">
                             Berikut adalah beberapa project nyata di mana saya berkontribusi sebagai Quality Assurance dan Fullstack Web Developer.
                         </p>
                     </div>
@@ -1024,17 +1043,18 @@
                         <button onclick="filterProjects('all')" class="proj-filter-btn active px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-blue-600 text-white transition-all">Semua Project</button>
                         <button onclick="filterProjects('sekolah')" class="proj-filter-btn px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-white/5 border border-white/10 text-slate-300 hover:text-white transition-all">Website Sekolah</button>
                         <button onclick="filterProjects('sistem')" class="proj-filter-btn px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-white/5 border border-white/10 text-slate-300 hover:text-white transition-all">Sistem Informasi</button>
+                        <button onclick="filterProjects('booking')" class="proj-filter-btn px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-white/5 border border-white/10 text-slate-300 hover:text-white transition-all">Booking System</button>
                     </div>
                 </div>
 
-                <!-- Project Cards Grid (2x2 responsive) -->
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8" id="projectsGrid">
+                <!-- Project Cards Grid (2x2 responsive) - FIX: tertata rata -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-7 auto-rows-fr items-stretch" id="projectsGrid">
 
                     <!-- ================= PROJECT 1: SMK BPPI ================= -->
-                    <article class="project-card glass-card rounded-2xl sm:rounded-3xl border border-white/10 overflow-hidden card-interactive flex flex-col justify-between" data-category="sekolah">
-                        <div>
-                            <!-- Image Banner with exact user filename: project-bppi.jpg -->
-                            <div class="relative h-48 sm:h-64 w-full overflow-hidden bg-slate-900 group">
+                    <article class="project-card glass-card rounded-2xl sm:rounded-3xl border border-white/10 overflow-hidden card-interactive flex flex-col justify-between h-full" data-category="sekolah">
+                        <div class="flex-1 flex flex-col">
+                            <!-- Image Banner with exact user filename: project-bppi.jpg - FIX: konsisten -->
+                            <div class="relative h-[190px] sm:h-[220px] lg:h-[240px] w-full overflow-hidden bg-slate-900 group shrink-0">
                                 <img src="project-bppi.jpg" alt="Website SMK BPPI" class="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-105" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'1200\' height=\'700\' viewBox=\'0 0 1200 700\'><rect width=\'1200\' height=\'700\' fill=\'%230b1329\'/><rect x=\'100\' y=\'100\' width=\'1000\' height=\'500\' rx=\'20\' fill=\'%23111c3a\' stroke=\'%233b82f6\' stroke-width=\'2\' stroke-dasharray=\'8 8\'/><text x=\'50%25\' y=\'330\' font-family=\'sans-serif\' font-size=\'42\' font-weight=\'bold\' fill=\'%23ffffff\' text-anchor=\'middle\'>Website Resmi SMK BPPI</text><text x=\'50%25\' y=\'390\' font-family=\'sans-serif\' font-size=\'22\' fill=\'%2360a5fa\' text-anchor=\'middle\'>Portal Berita, Profil &amp; Informasi Sekolah</text></svg>';" />
                                 <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
 
@@ -1107,10 +1127,10 @@
                     </article>
 
                     <!-- ================= PROJECT 2: BANK MINI ================= -->
-                    <article class="project-card glass-card rounded-2xl sm:rounded-3xl border border-white/10 overflow-hidden card-interactive flex flex-col justify-between" data-category="sistem">
-                        <div>
-                            <!-- Image Banner with exact user filename: project-bankmini.jpg -->
-                            <div class="relative h-48 sm:h-64 w-full overflow-hidden bg-slate-900 group">
+                    <article class="project-card glass-card rounded-2xl sm:rounded-3xl border border-white/10 overflow-hidden card-interactive flex flex-col justify-between h-full" data-category="sistem">
+                        <div class="flex-1 flex flex-col">
+                            <!-- Image Banner with exact user filename: project-bankmini.jpg - FIX: konsisten -->
+                            <div class="relative h-[190px] sm:h-[220px] lg:h-[240px] w-full overflow-hidden bg-slate-900 group shrink-0">
                                 <img src="project-bankmini.jpg" alt="Website Bank Mini" class="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-105" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'1200\' height=\'700\' viewBox=\'0 0 1200 700\'><rect width=\'1200\' height=\'700\' fill=\'%230b1329\'/><rect x=\'100\' y=\'100\' width=\'1000\' height=\'500\' rx=\'20\' fill=\'%23111c3a\' stroke=\'%233b82f6\' stroke-width=\'2\' stroke-dasharray=\'8 8\'/><text x=\'50%25\' y=\'330\' font-family=\'sans-serif\' font-size=\'42\' font-weight=\'bold\' fill=\'%23ffffff\' text-anchor=\'middle\'>Website Bank Mini</text><text x=\'50%25\' y=\'390\' font-family=\'sans-serif\' font-size=\'22\' fill=\'%2360a5fa\' text-anchor=\'middle\'>Sistem Finansial &amp; Tabungan Sekolah</text></svg>';" />
                                 <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
 
@@ -1174,10 +1194,87 @@
                                 <span class="rounded-lg bg-white/5 px-2.5 py-1 text-[11px] font-medium text-slate-300">Laravel</span>
                                 <span class="rounded-lg bg-white/5 px-2.5 py-1 text-[11px] font-medium text-slate-300">MySQL</span>
                                 <span class="rounded-lg bg-white/5 px-2.5 py-1 text-[11px] font-medium text-slate-300">Tailwind</span>
-                                <span class="rounded-lg bg-white/5 px-2.5 py-1 text-[11px] font-medium text-slate-300">Alpine.js</span>
+                                <span class="rounded-lg bg-white/5 px-2.5 py-1 text-[11px] font-medium text-slate-300"></span>
                             </div>
                             <a href="https://bankmini.sekolahbppi.sch.id/" target="_blank" rel="noopener noreferrer" class="text-xs text-emerald-400 hover:underline flex items-center gap-1 font-medium">
                                 bankmini.sekolahbppi.sch.id
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- ================= PROJECT 3: CUKUR ROUTINE ================= -->
+                    <article class="project-card glass-card rounded-2xl sm:rounded-3xl border border-white/10 overflow-hidden card-interactive flex flex-col justify-between h-full" data-category="booking sistem">
+                        <div class="flex-1 flex flex-col">
+                            <!-- Image Banner - project-cukurroutine.jpg - RESPONSIVE -->
+                            <div class="relative w-full overflow-hidden bg-white group shrink-0 aspect-[16/10] sm:aspect-[16/9]">
+                                <img src="project-cukurroutine.jpg" alt="Cukur Routine — Premium Grooming - Screenshot Website" class="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]" loading="lazy" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'1200\' height=\'750\' viewBox=\'0 0 1200 750\'><rect width=\'1200\' height=\'750\' fill=\'%23ffffff\'/><rect width=\'1200\' height=\'70\' fill=\'%23000000\'/><text x=\'20\' y=\'28\' font-family=\'Arial\' font-size=\'14\' font-weight=\'bold\' fill=\'%23ffffff\'>CUKUR</text><text x=\'20\' y=\'45\' font-family=\'Arial\' font-size=\'14\' font-weight=\'bold\' fill=\'%23ffffff\'>ROUTINE</text><text x=\'980\' y=\'38\' font-family=\'Arial\' font-size=\'12\' font-weight=\'bold\' fill=\'%23ffffff\'>Beranda  Booking</text><text x=\'600\' y=\'140\' font-family=\'Arial\' font-size=\'10\' fill=\'%23666\' text-anchor=\'middle\' letter-spacing=\'3\'>CUKUR ROUTINE — PREMIUM GROOMING</text><text x=\'600\' y=\'200\' font-family=\'Arial\' font-size=\'28\' font-weight=\'bold\' fill=\'%23111\' text-anchor=\'middle\'>Cukur Routine — Potong Rambut</text><text x=\'600\' y=\'240\' font-family=\'Arial\' font-size=\'28\' font-weight=\'bold\' fill=\'%23111\' text-anchor=\'middle\'>Rapi, Tampil Percaya Diri.</text><text x=\'600\' y=\'310\' font-family=\'Arial\' font-size=\'11\' fill=\'%23888\' text-anchor=\'middle\'>Booking cukur di Cukur Routine dengan mudah. Pesan jadwal cukur routine</text><text x=\'600\' y=\'330\' font-family=\'Arial\' font-size=\'11\' fill=\'%23888\' text-anchor=\'middle\'>secara online — tanpa antre, tanpa ribet. Pilih layanan, tanggal &amp; jam, lalu datang</text><text x=\'600\' y=\'350\' font-family=\'Arial\' font-size=\'11\' fill=\'%23888\' text-anchor=\'middle\'>5 menit sebelum jadwal.</text><rect x=\'420\' y=\'400\' width=\'180\' height=\'45\' fill=\'%23000\'/><text x=\'510\' y=\'428\' font-family=\'Arial\' font-size=\'11\' font-weight=\'bold\' fill=\'%23fff\' text-anchor=\'middle\'>Booking Sekarang</text><rect x=\'620\' y=\'400\' width=\'160\' height=\'45\' fill=\'none\' stroke=\'%23000\'/><text x=\'700\' y=\'428\' font-family=\'Arial\' font-size=\'11\' font-weight=\'bold\' fill=\'%23000\' text-anchor=\'middle\'>Cek Antrian</text><rect x=\'440\' y=\'490\' width=\'320\' height=\'35\' rx=\'17\' fill=\'none\' stroke=\'%23000\'/><text x=\'600\' y=\'512\' font-family=\'Arial\' font-size=\'11\' fill=\'%23000\' text-anchor=\'middle\'>Saat ini ada 0 orang di Barbershop</text></svg>';" />
+                                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/10 via-transparent to-transparent pointer-events-none"></div>
+
+                                <!-- Category Badge -->
+                                <div class="absolute top-3 sm:top-4 left-3 sm:left-4">
+                                    <span class="rounded-lg bg-slate-950/85 border border-white/15 px-2.5 sm:px-3 py-1 text-[11px] sm:text-xs font-semibold text-amber-300 backdrop-blur-md">
+                                        Booking System • Barbershop
+                                    </span>
+                                </div>
+
+                                <!-- Role Pill - QA -->
+                                <div class="absolute top-3 sm:top-4 right-3 sm:right-4">
+                                    <span class="rounded-lg bg-emerald-500/20 border border-emerald-500/40 px-2.5 sm:px-3 py-1 text-[11px] sm:text-xs font-semibold text-emerald-300 backdrop-blur-md flex items-center gap-1.5 shadow-lg">
+                                        <i data-lucide="shield-check" class="h-3 w-3 sm:h-3.5 sm:w-3.5"></i> QA Role
+                                    </span>
+                                </div>
+                            </div>
+
+                            <!-- Card Body Content -->
+                            <div class="p-6 sm:p-7">
+                                <div class="flex flex-wrap items-center justify-between gap-2">
+                                    <h3 class="text-xl sm:text-2xl font-bold font-heading text-white">
+                                        Cukur Routine
+                                    </h3>
+                                    <a href="https://cukurroutine.site.je/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-amber-500/20 border border-amber-500/40 hover:bg-amber-500 text-amber-200 hover:text-white text-xs font-semibold transition-all duration-300">
+                                        <span>Kunjungi Live</span>
+                                        <i data-lucide="external-link" class="h-3 w-3"></i>
+                                    </a>
+                                </div>
+                                <p class="mt-1 text-xs font-semibold text-emerald-300/80 tracking-wide">Quality Assurance • Premium Grooming Booking</p>
+
+                                <p class="mt-2.5 text-xs sm:text-sm text-slate-400 leading-relaxed">
+                                    Sebagai <strong class="text-emerald-300">Quality Assurance</strong> di project <strong class="text-slate-200">Cukur Routine — Premium Grooming</strong> (<a href="https://cukurroutine.site.je/" target="_blank" rel="noopener noreferrer" class="text-amber-400 hover:underline">cukurroutine.site.je</a>), saya memastikan alur booking online berjalan presisi: pelanggan pesan tanpa antre, pilih layanan/tanggal/jam, cek antrian real-time, dan datang 5 menit sebelum jadwal tanpa bentrok.
+                                </p>
+
+                                <!-- Key QA Responsibilities Checklist -->
+                                <div class="mt-4 pt-4 border-t border-white/5">
+                                    <p class="text-xs font-bold text-slate-300 uppercase tracking-wider mb-2.5 flex items-center gap-1.5">
+                                        <i data-lucide="list-checks" class="h-3.5 w-3.5 text-blue-400"></i> Fokus Pengujian (QA Scope):
+                                    </p>
+                                    <ul class="grid grid-cols-1 sm:grid-cols-2 gap-1.5 text-xs text-slate-300">
+                                        <li class="flex items-center gap-2">
+                                            <i data-lucide="check" class="h-3.5 w-3.5 text-emerald-400 shrink-0"></i> Uji booking flow & validasi form
+                                        </li>
+                                        <li class="flex items-center gap-2">
+                                            <i data-lucide="check" class="h-3.5 w-3.5 text-emerald-400 shrink-0"></i> Cegah double-booking & konflik jam
+                                        </li>
+                                        <li class="flex items-center gap-2">
+                                            <i data-lucide="check" class="h-3.5 w-3.5 text-emerald-400 shrink-0"></i> Verifikasi antrian real-time (0 orang)
+                                        </li>
+                                        <li class="flex items-center gap-2">
+                                            <i data-lucide="check" class="h-3.5 w-3.5 text-emerald-400 shrink-0"></i> Responsive & cross-browser testing
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card Footer Tech Stack -->
+                        <div class="px-6 pb-6 sm:px-7 sm:pb-7 pt-2 flex flex-wrap items-center justify-between gap-3 border-t border-white/5">
+                            <div class="flex flex-wrap gap-1.5">
+                                <span class="rounded-lg bg-white/5 px-2.5 py-1 text-[11px] font-medium text-slate-300">HTML5</span>
+                                <span class="rounded-lg bg-white/5 px-2.5 py-1 text-[11px] font-medium text-slate-300">Tailwind CSS</span>
+                                <span class="rounded-lg bg-white/5 px-2.5 py-1 text-[11px] font-medium text-slate-300">JavaScript</span>
+                                <span class="rounded-lg bg-white/5 px-2.5 py-1 text-[11px] font-medium text-slate-300">PHP</span>
+                            </div>
+                            <a href="https://cukurroutine.site.je/" target="_blank" rel="noopener noreferrer" class="text-xs text-amber-400 hover:underline flex items-center gap-1 font-medium truncate">
+                                cukurroutine.site.je
                             </a>
                         </div>
                     </article>
@@ -1188,23 +1285,23 @@
         </section>
 
         <!-- ====================== FULLSTACK ARCHITECTURE FLOW ====================== -->
-        <section class="relative py-20 sm:py-28 bg-slate-900/40 border-y border-white/5">
+        <section class="relative section-spacing bg-slate-900/40 border-y border-white/5">
             <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
-                <div class="mx-auto max-w-3xl text-center mb-12 sm:mb-16">
+                <div class="mx-auto max-w-3xl text-center mb-10 sm:mb-14">
                     <span class="section-badge mx-auto">
                         <i data-lucide="layers" class="h-3.5 w-3.5"></i>
                         Fullstack Capability
                     </span>
-                    <h2 class="mt-3 text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white font-heading">
+                    <h2 class="mt-3 text-3xl sm:text-4xl lg:text-[2.75rem] font-extrabold tracking-tight text-white font-heading leading-tight">
                         Kemampuan Fullstack Web
                     </h2>
-                    <p class="mt-3 text-sm sm:text-base text-slate-400">
+                    <p class="mt-3 text-sm sm:text-[15px] text-slate-400 leading-relaxed max-w-2xl mx-auto">
                         Menguasai siklus lengkap pembuatan aplikasi website: antarmuka pengguna (Frontend), logika server & API (Backend), struktur data (Database), hingga penjaminan kualitas (Testing).
                     </p>
                 </div>
 
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 auto-rows-fr items-stretch">
 
                     <!-- Frontend Card -->
                     <div class="glass-card rounded-2xl sm:rounded-3xl p-6 sm:p-8 border border-white/10 text-center card-interactive flex flex-col justify-between">
@@ -1245,8 +1342,8 @@
                         </div>
                     </div>
 
-                    <!-- Testing Card -->
-                    <div class="glass-card rounded-2xl sm:rounded-3xl p-6 sm:p-8 border border-white/10 text-center card-interactive flex flex-col justify-between sm:col-span-2 lg:col-span-1">
+                    <!-- Testing Card - FIX: tertata sejajar -->
+                    <div class="glass-card rounded-2xl sm:rounded-3xl p-6 sm:p-8 border border-white/10 text-center card-interactive flex flex-col justify-between">
                         <div>
                             <div class="h-16 w-16 mx-auto rounded-2xl bg-gradient-to-br from-emerald-500/20 to-teal-500/20 border border-emerald-500/30 flex items-center justify-center text-3xl mb-5 shadow-lg shadow-emerald-500/10">
                                 🛡️
@@ -1270,26 +1367,26 @@
         </section>
 
         <!-- ====================== WORKFLOW / QA METHODOLOGY ====================== -->
-        <section id="workflow" class="relative py-20 sm:py-28">
+        <section id="workflow" class="relative section-spacing">
             <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
-                <div class="max-w-3xl mb-12 sm:mb-16">
+                <div class="max-w-3xl mb-10 sm:mb-14">
                     <span class="section-badge">
                         <i data-lucide="workflow" class="h-3.5 w-3.5"></i>
                         Metodologi Kerja
                     </span>
-                    <h2 class="mt-3 text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white font-heading">
+                    <h2 class="mt-3 text-3xl sm:text-4xl lg:text-[2.75rem] font-extrabold tracking-tight text-white font-heading leading-tight">
                         Alur & Siklus Kerja QA
                     </h2>
-                    <p class="mt-3 text-sm sm:text-base text-slate-400">
+                    <p class="mt-3 text-sm sm:text-[15px] text-slate-400 leading-relaxed max-w-2xl">
                         Standar operasional bertahap yang saya terapkan bersama tim dalam memastikan produk bebas bug dan siap pakai.
                     </p>
                 </div>
 
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
-
+                <!-- Row 1: Steps 01-04 -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 auto-rows-fr">
                     <!-- Step 1 -->
-                    <div class="glass-card rounded-2xl p-5 sm:p-6 border border-white/10 card-interactive relative">
+                    <div class="glass-card rounded-2xl p-5 sm:p-6 border border-white/10 card-interactive relative flex flex-col">
                         <div class="flex items-center justify-between mb-4">
                             <span class="text-xs font-black font-heading px-2.5 py-1 rounded-lg bg-blue-600/20 text-blue-400 border border-blue-500/30">01</span>
                             <i data-lucide="file-text" class="h-5 w-5 text-slate-500"></i>
@@ -1299,9 +1396,8 @@
                             Memahami kebutuhan fungsionalitas, user stories, dan ekspektasi fitur dari website yang akan dibuat.
                         </p>
                     </div>
-
                     <!-- Step 2 -->
-                    <div class="glass-card rounded-2xl p-5 sm:p-6 border border-white/10 card-interactive relative">
+                    <div class="glass-card rounded-2xl p-5 sm:p-6 border border-white/10 card-interactive relative flex flex-col">
                         <div class="flex items-center justify-between mb-4">
                             <span class="text-xs font-black font-heading px-2.5 py-1 rounded-lg bg-blue-600/20 text-blue-400 border border-blue-500/30">02</span>
                             <i data-lucide="code" class="h-5 w-5 text-slate-500"></i>
@@ -1311,9 +1407,8 @@
                             Kolaborasi dalam implementasi kode frontend, logika backend, serta pengkoneksian basis data.
                         </p>
                     </div>
-
                     <!-- Step 3 -->
-                    <div class="glass-card rounded-2xl p-5 sm:p-6 border border-white/10 card-interactive relative">
+                    <div class="glass-card rounded-2xl p-5 sm:p-6 border border-white/10 card-interactive relative flex flex-col">
                         <div class="flex items-center justify-between mb-4">
                             <span class="text-xs font-black font-heading px-2.5 py-1 rounded-lg bg-blue-600/20 text-blue-400 border border-blue-500/30">03</span>
                             <i data-lucide="play-circle" class="h-5 w-5 text-slate-500"></i>
@@ -1323,9 +1418,8 @@
                             Mengeksekusi pengujian menyeluruh pada form input, navigasi, responsive view, dan alur sistem.
                         </p>
                     </div>
-
                     <!-- Step 4 -->
-                    <div class="glass-card rounded-2xl p-5 sm:p-6 border border-white/10 card-interactive relative">
+                    <div class="glass-card rounded-2xl p-5 sm:p-6 border border-white/10 card-interactive relative flex flex-col">
                         <div class="flex items-center justify-between mb-4">
                             <span class="text-xs font-black font-heading px-2.5 py-1 rounded-lg bg-blue-600/20 text-blue-400 border border-blue-500/30">04</span>
                             <i data-lucide="search" class="h-5 w-5 text-slate-500"></i>
@@ -1335,9 +1429,12 @@
                             Mendeteksi error, bug logika perhitungan, layout patah, atau respon yang tidak sesuai spesifikasi.
                         </p>
                     </div>
+                </div>
 
+                <!-- Row 2: Steps 05-07 - FIX: tertata center, 3 kolom sejajar -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 mt-4 sm:mt-5 auto-rows-fr max-w-5xl mx-auto">
                     <!-- Step 5 -->
-                    <div class="glass-card rounded-2xl p-5 sm:p-6 border border-white/10 card-interactive relative">
+                    <div class="glass-card rounded-2xl p-5 sm:p-6 border border-white/10 card-interactive relative flex flex-col">
                         <div class="flex items-center justify-between mb-4">
                             <span class="text-xs font-black font-heading px-2.5 py-1 rounded-lg bg-blue-600/20 text-blue-400 border border-blue-500/30">05</span>
                             <i data-lucide="clipboard-list" class="h-5 w-5 text-slate-500"></i>
@@ -1347,9 +1444,8 @@
                             Menyusun catatan temuan bug dengan detail langkah reproduksi yang jelas kepada developer.
                         </p>
                     </div>
-
                     <!-- Step 6 -->
-                    <div class="glass-card rounded-2xl p-5 sm:p-6 border border-white/10 card-interactive relative">
+                    <div class="glass-card rounded-2xl p-5 sm:p-6 border border-white/10 card-interactive relative flex flex-col">
                         <div class="flex items-center justify-between mb-4">
                             <span class="text-xs font-black font-heading px-2.5 py-1 rounded-lg bg-blue-600/20 text-blue-400 border border-blue-500/30">06</span>
                             <i data-lucide="refresh-cw" class="h-5 w-5 text-slate-500"></i>
@@ -1359,9 +1455,8 @@
                             Menguji kembali fitur setelah proses perbaikan selesai untuk memastikan kondisi telah 100% normal.
                         </p>
                     </div>
-
-                    <!-- Step 7: Release (Spans 2 columns on sm/lg) -->
-                    <div class="glass-card rounded-2xl p-5 sm:p-6 border border-blue-500/30 bg-blue-950/40 card-interactive relative sm:col-span-2">
+                    <!-- Step 7: Release -->
+                    <div class="glass-card rounded-2xl p-5 sm:p-6 border border-blue-500/30 bg-blue-950/40 card-interactive relative flex flex-col sm:col-span-2 lg:col-span-1">
                         <div class="flex items-center justify-between mb-4">
                             <span class="text-xs font-black font-heading px-2.5 py-1 rounded-lg bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">07 • Final</span>
                             <i data-lucide="rocket" class="h-5 w-5 text-emerald-400"></i>
@@ -1371,22 +1466,21 @@
                             Memastikan website siap dideploy dan digunakan secara optimal oleh pengguna akhir tanpa kendala operasional.
                         </p>
                     </div>
-
                 </div>
 
             </div>
         </section>
 
         <!-- ====================== EDUCATION SECTION ====================== -->
-        <section class="relative py-20 sm:py-28 bg-slate-900/40 border-y border-white/5">
+        <section class="relative section-spacing bg-slate-900/40 border-y border-white/5">
             <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
-                <div class="glass-card rounded-3xl p-6 sm:p-10 lg:p-12 border border-white/10 relative overflow-hidden card-interactive">
+                <div class="glass-card rounded-3xl p-6 sm:p-8 lg:p-10 border border-white/10 relative overflow-hidden card-interactive">
 
                     <!-- Background Accent Glow -->
-                    <div class="absolute -right-20 -bottom-20 h-64 w-64 rounded-full bg-blue-600/20 blur-3xl pointer-events-none"></div>
+                    <div class="absolute -right-16 -bottom-16 h-64 w-64 rounded-full bg-blue-600/15 blur-3xl pointer-events-none"></div>
 
-                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 items-center">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start lg:items-center">
 
                         <div class="lg:col-span-5">
                             <span class="section-badge">
@@ -1445,29 +1539,29 @@
         </section>
 
         <!-- ====================== CONTACT SECTION ====================== -->
-        <section id="contact" class="relative py-20 sm:py-28">
+        <section id="contact" class="relative section-spacing">
             <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
-                <div class="glass-card rounded-3xl p-6 sm:p-10 lg:p-14 border border-white/10 relative overflow-hidden shadow-2xl card-interactive">
+                <div class="glass-card rounded-3xl p-6 sm:p-8 lg:p-10 border border-white/10 relative overflow-hidden shadow-2xl">
 
-                    <div class="max-w-3xl mb-8 sm:mb-12">
+                    <div class="max-w-3xl mb-8 sm:mb-10">
                         <span class="section-badge">
                             <i data-lucide="message-square" class="h-3.5 w-3.5"></i>
                             Kontak & Komunikasi
                         </span>
-                        <h2 class="mt-3 text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white font-heading">
+                        <h2 class="mt-3 text-3xl sm:text-4xl lg:text-[2.75rem] font-extrabold tracking-tight text-white font-heading leading-tight">
                             Mari Terhubung & Berdiskusi!
                         </h2>
-                        <p class="mt-3 text-sm sm:text-base text-slate-300 leading-relaxed">
+                        <p class="mt-3 text-sm sm:text-[15px] text-slate-300 leading-relaxed max-w-2xl">
                             Saya terbuka untuk peluang kolaborasi pembuatan website, internship/magang industri, pengujian mutu software (QA), maupun diskusi teknologi.
                         </p>
                     </div>
 
-                    <!-- Contact Options Grid -->
-                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-8 sm:mb-10">
+                    <!-- Contact Options Grid - FIX: tertata sejajar -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 mb-8 sm:mb-10 auto-rows-fr">
 
                         <!-- Email Card -->
-                        <div class="glass-card-light rounded-2xl p-5 border border-white/10 flex items-center justify-between group hover:border-blue-500/40 transition-colors">
+                        <div class="glass-card-light rounded-2xl p-5 border border-white/10 flex items-center justify-between group hover:border-blue-500/40 transition-colors h-full">
                             <div class="flex items-center gap-3.5 min-w-0">
                                 <div class="h-12 w-12 rounded-xl bg-blue-500/15 border border-blue-500/30 text-blue-400 flex items-center justify-center shrink-0">
                                     <i data-lucide="mail" class="h-6 w-6"></i>
@@ -1483,7 +1577,7 @@
                         </div>
 
                         <!-- WhatsApp Card -->
-                        <div class="glass-card-light rounded-2xl p-5 border border-white/10 flex items-center justify-between group hover:border-emerald-500/40 transition-colors">
+                        <div class="glass-card-light rounded-2xl p-5 border border-white/10 flex items-center justify-between group hover:border-emerald-500/40 transition-colors h-full">
                             <div class="flex items-center gap-3.5 min-w-0">
                                 <div class="h-12 w-12 rounded-xl bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 flex items-center justify-center shrink-0">
                                     <i data-lucide="phone" class="h-6 w-6"></i>
@@ -1498,11 +1592,14 @@
                             </button>
                         </div>
 
-                        <!-- GitHub Card -->
-                        <a href="https://github.com/olisampingstrobbery-alt" target="_blank" rel="noopener noreferrer" class="glass-card-light rounded-2xl p-5 border border-white/10 flex items-center justify-between group hover:border-cyan-500/40 transition-colors sm:col-span-2 lg:col-span-1">
+                        <!-- GitHub Card - FIX: grid tertata -->
+                        <a href="https://github.com/olisampingstrobbery-alt" target="_blank" rel="noopener noreferrer" class="glass-card-light rounded-2xl p-5 border border-white/10 flex items-center justify-between group hover:border-cyan-500/40 transition-colors h-full md:col-span-2 lg:col-span-1">
                             <div class="flex items-center gap-3.5 min-w-0">
-                                <div class="h-12 w-12 rounded-xl bg-slate-500/15 border border-white/20 text-slate-300 flex items-center justify-center shrink-0">
-                                    <i data-lucide="github" class="h-6 w-6"></i>
+                                <div class="h-12 w-12 rounded-xl bg-white border border-white/20 text-slate-900 flex items-center justify-center shrink-0 overflow-hidden">
+                                    <img src="github-logo.svg" alt="GitHub Logo" class="h-8 w-8 object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
+                                    <svg class="h-7 w-7 hidden" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                        <path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/>
+                                    </svg>
                                 </div>
                                 <div class="truncate">
                                     <p class="text-[11px] text-slate-400 font-medium">GitHub Repository</p>
@@ -1516,16 +1613,17 @@
 
                     </div>
 
-                    <!-- Quick Action Buttons (3D Beveled Buttons) -->
-                    <div class="flex flex-wrap items-center gap-3 sm:gap-4 pt-6 border-t border-white/10">
-                        <a href="mailto:wiranucky@gmail.com" class="btn-3d-primary inline-flex items-center gap-2 rounded-xl px-6 py-3.5 text-sm sm:text-base font-semibold text-white">
+                    <!-- Quick Action Buttons (3D Beveled Buttons) - FIX: wrapping tertata -->
+                    <div class="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3 pt-6 border-t border-white/10">
+                        <a href="mailto:wiranucky@gmail.com" class="btn-3d-primary inline-flex items-center justify-center gap-2 rounded-xl px-6 py-3.5 text-sm font-semibold text-white w-full sm:w-auto">
                             <i data-lucide="mail" class="h-4 w-4"></i>
                             <span>Kirim Email Langsung</span>
                         </a>
 
-                        <a href="https://wa.me/6283839159051" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 px-6 py-3.5 text-sm sm:text-base font-semibold text-white shadow-lg shadow-emerald-600/30 transition-all hover:scale-[1.02] active:scale-95">
+                        <a href="https://wa.me/6283839159051" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-emerald-600/30 transition-all hover:scale-[1.02] active:scale-95 w-full sm:w-auto">
                             <i data-lucide="message-circle" class="h-4 w-4"></i>
-                            <span>Chat WhatsApp (+62 838-3915-9051)</span>
+                            <span>Chat WhatsApp</span>
+                            <span class="hidden sm:inline text-emerald-100 font-normal">• +62 838-3915-9051</span>
                         </a>
                     </div>
 
@@ -1672,7 +1770,8 @@
 
             const items = document.querySelectorAll('#projectsGrid .project-card');
             items.forEach(item => {
-                if (category === 'all' || item.dataset.category === category) {
+                const cats = item.dataset.category.split(' ');
+                if (category === 'all' || cats.includes(category)) {
                     item.style.display = 'flex';
                 } else {
                     item.style.display = 'none';
